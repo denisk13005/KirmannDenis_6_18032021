@@ -1,3 +1,4 @@
+@import url(./sass/base/_reset.scss);
 @font-face {
   font-family: "dm_sans";
   src: url(/font/DM_Sans/DMSans-Medium.ttf);
@@ -6,11 +7,6 @@
 @font-face {
   font-family: "dm_sans_italic";
   src: url(./font/DM_Sans/DMSans-Italic.ttf);
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -51,9 +47,12 @@ header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 30px;
   margin-left: 100px;
   font-weight: bold;
+  width: auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 header .logo p {
@@ -64,6 +63,7 @@ header .logo p {
 header .logo svg {
   padding-top: 10px;
   font-weight: bold;
+  margin-top: 40px;
 }
 
 header nav {

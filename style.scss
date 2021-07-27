@@ -1,3 +1,4 @@
+@import url(./sass/base/_reset.scss); //reset scss
 @font-face {
   font-family: "dm_sans";
   src: url(/font/DM_Sans/DMSans-Medium.ttf);
@@ -7,10 +8,7 @@
   src: url(./font/DM_Sans/DMSans-Italic.ttf);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+
 body {
   width: 1440px;
   height: 1024px;
@@ -39,9 +37,10 @@ header {
   justify-content: space-between;
   .logo {
     display: flex;
-    margin-top: 30px;
     margin-left: 100px;
     font-weight: bold;
+    width: auto;
+    height: max-content;
     p {
       color: #901c1c;
       font-size: 40px;
@@ -49,6 +48,7 @@ header {
     svg{
       padding-top: 10px;
       font-weight: bold;
+      margin-top: 40px;
     }
   }
   nav {
