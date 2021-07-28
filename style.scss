@@ -1,4 +1,5 @@
-@import url(./sass/base/_reset.scss); //reset scss
+@import "sass/base/reset";
+@import "sass/utils/variables";
 @font-face {
   font-family: "dm_sans";
   src: url(/font/DM_Sans/DMSans-Medium.ttf);
@@ -8,20 +9,20 @@
   src: url(./font/DM_Sans/DMSans-Italic.ttf);
 }
 
-
 body {
   width: 1440px;
   height: 1024px;
   margin: auto;
   border: 1px solid red;
   font-family: dm_sans;
+  position: relative;
 }
 .mainRedirection {
   position: fixed;
   font-size: 18px;
   top: 3px;
   left: 50%;
-  background-color: #db8876;
+  background-color: $color-mainRedirecttion;
   border-radius: 5px;
   text-align: center;
   line-height: 28px;
@@ -38,17 +39,16 @@ header {
   .logo {
     display: flex;
     margin-left: 100px;
+    margin-top: 35px;
     font-weight: bold;
     width: auto;
     height: max-content;
     p {
-      color: #901c1c;
+      color: $color-primary;
       font-size: 40px;
     }
-    svg{
-      padding-top: 10px;
+    svg {
       font-weight: bold;
-      margin-top: 40px;
     }
   }
   nav {
@@ -60,12 +60,88 @@ header {
       li {
         font-size: 12px;
         list-style-type: none;
-        color: #901c1c;
-        border: 1px solid #c4c4c4;
+        color: $color-primary;
+        border: 1px solid $color-border;
         border-radius: 20px;
         padding: 2px 4px;
         margin-right: 4px;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+// partie section
+
+main {
+  h1 {
+    position: absolute;
+    right: 117px;
+    top: 35px;
+    color: $color-primary;
+    font-size: 36px;
+    font-weight: 100;
+  }
+  section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .photographers__thumbnail {
+      width: 33%;
+      height: auto;
+      margin-bottom: 25px;
+      a {
+        display: inline-block;
+        width: 100%;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+        h2{
+          font-size: 32px;
+          color: $color-primary-light;
+        }
+        div {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin: auto;  
+          text-align: center;      
+          img {
+            width: 110%;
+            height: 100%;
+          }
+        }
+
+        
+      }
+    }
+    .photographers__description{
+      width: 100%;
+      text-align: center;
+      h3{
+        font-size: 13px;
+        color: $color-primary;
+      }
+      p{
+        color: $color-price;
+        font-size: 9px;
+      }
+
+    }
+    ul {
+      display: flex;
+      width: 100%;      
+      justify-content: center;
+      li{
+        display: inline-block;
+        border: 0.5px solid $color-border;
+        border-radius: 12px;
+        color: $color-primary;
+        margin-right: 4px;
+        padding: 1px 6px;
       }
     }
   }
