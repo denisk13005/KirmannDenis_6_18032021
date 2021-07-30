@@ -1,5 +1,7 @@
 {
     "photographers": [
+     
+
       {
         "name": "Mimi Keel",
         "id": 243,
@@ -8,7 +10,7 @@
         "tags": ["portrait", "events", "travel", "animals"],
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
-        "portrait": "MimiKeel.jpg"
+        "portrait": ".jpg"
       },
       {
         "name": "Ellie-Rose Wilkens",
