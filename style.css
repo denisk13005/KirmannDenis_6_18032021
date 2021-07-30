@@ -198,8 +198,8 @@ main section .photographers__thumbnail a div {
 }
 
 main section .photographers__thumbnail a div img {
-  width: 110%;
-  height: 100%;
+  width: 100%;
+  height: 105%;
 }
 
 main section .photographers__description {
