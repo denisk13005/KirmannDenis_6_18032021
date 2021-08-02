@@ -54,7 +54,6 @@ body {
   height: 1024px;
   margin: auto;
   font-family: dm_sans;
-  position: relative;
 }
 
 a {
@@ -89,6 +88,13 @@ header {
           justify-content: space-between;
 }
 
+@media (max-width: 1200px) {
+  header {
+    display: block;
+    width: 100%;
+  }
+}
+
 header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -100,6 +106,12 @@ header .logo {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+}
+
+@media (max-width: 1200px) {
+  header .logo {
+    margin-left: 20px;
+  }
 }
 
 header .logo p {
@@ -119,10 +131,31 @@ header nav {
   margin-right: 80px;
 }
 
+@media (max-width: 1200px) {
+  header nav {
+    width: 100%;
+    margin: auto;
+    margin-top: 34.5px;
+  }
+}
+
 header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (max-width: 1200px) {
+  header nav ul {
+    margin: auto;
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 70%;
+  }
 }
 
 header nav ul li {
@@ -133,6 +166,7 @@ header nav ul li {
   border-radius: 20px;
   padding: 2px 4px;
   margin-right: 4px;
+  margin-bottom: 4px;
   cursor: pointer;
 }
 
@@ -147,6 +181,14 @@ main h1 {
   color: #901c1c;
   font-size: 36px;
   font-weight: 100;
+}
+
+@media (max-width: 1200px) {
+  main h1 {
+    font-size: 14px;
+    top: 50px;
+    right: 22px;
+  }
 }
 
 main section {
@@ -164,10 +206,28 @@ main section {
           justify-content: space-between;
 }
 
+@media (max-width: 1200px) {
+  main section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 main section .photographers__thumbnail {
   width: 26%;
   height: auto;
   margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+  main section .photographers__thumbnail {
+    width: 100%;
+  }
 }
 
 main section .photographers__thumbnail a {
