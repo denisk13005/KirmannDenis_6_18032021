@@ -1,8 +1,15 @@
+//apparition du boutton au scroll
 const btnScroll = document.querySelector(".mainRedirection");
 window.addEventListener("scroll",(e)=>{
-  console.log(e);
+  if(window.scrollY>=200){
+    btnScroll.classList.add("mainRedirectionVisible")
+  }else{
+    btnScroll.classList.remove("mainRedirectionVisible")
+
+  }
 })
 
+//utilisation de l'api fetch pour la récupération des données json
 fetch("./index.json")
   .then(function (resp) {
     return resp.json();

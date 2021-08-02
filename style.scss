@@ -32,7 +32,11 @@ a {
   height: 30px;
   transform: translate(-50%);
   cursor: pointer;
-  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s linear;
+}
+.mainRedirectionVisible {
+  opacity: 1;
 }
 header {
   display: flex;

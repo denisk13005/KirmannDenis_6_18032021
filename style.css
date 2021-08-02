@@ -75,7 +75,13 @@ a {
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   cursor: pointer;
-  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.mainRedirectionVisible {
+  opacity: 1;
 }
 
 header {
