@@ -1,4 +1,4 @@
-let data;
+
 
 fetch("./index.json")
   .then(function (resp) {
@@ -66,6 +66,7 @@ fetch("./index.json")
       h4.innerHTML = data.photographers[i].tagline;
       //injection du prix
       p.innerHTML = data.photographers[i].price + "/jour";
+      //crétaion de li correspondant aux tags
       data.photographers[i].tags.forEach((element) => {
         let li = document.createElement("li");
         li.innerHTML = "#" + element;
