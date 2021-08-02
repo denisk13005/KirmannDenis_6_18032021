@@ -1,7 +1,7 @@
 //apparition du boutton au scroll
 const btnScroll = document.querySelector(".mainRedirection");
 window.addEventListener("scroll",(e)=>{
-  if(window.scrollY>=200){
+  if(window.scrollY>=220){
     btnScroll.classList.add("mainRedirectionVisible")
   }else{
     btnScroll.classList.remove("mainRedirectionVisible")
