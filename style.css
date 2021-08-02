@@ -119,8 +119,21 @@ header .logo p {
   font-size: 40px;
 }
 
+@media (max-width: 1200px) {
+  header .logo p {
+    font-size: 30px;
+  }
+}
+
 header .logo svg {
   font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  header .logo svg {
+    height: 28px;
+    padding-top: 2px;
+  }
 }
 
 header nav {

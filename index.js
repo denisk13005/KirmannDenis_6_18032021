@@ -1,4 +1,7 @@
-
+const btnScroll = document.querySelector(".mainRedirection");
+window.addEventListener("scroll",(e)=>{
+  console.log(e);
+})
 
 fetch("./index.json")
   .then(function (resp) {
@@ -72,8 +75,8 @@ fetch("./index.json")
         li.innerHTML = "#" + element;
         ul.appendChild(li);
       });
-      console.log(data.photographers[i]);
+      // console.log(data.photographers[i]);
     }
 
-    console.log(data);
+    // console.log(data);
   });
