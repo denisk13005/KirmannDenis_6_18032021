@@ -1,13 +1,29 @@
 //apparition du boutton au scroll
 const btnScroll = document.querySelector(".mainRedirection");
-window.addEventListener("scroll",(e)=>{
-  if(window.scrollY>=220){
-    btnScroll.classList.add("mainRedirectionVisible")
-  }else{
-    btnScroll.classList.remove("mainRedirectionVisible")
-
+window.addEventListener("scroll", (e) => {
+  if (window.scrollY >= 220) {
+    btnScroll.classList.add("mainRedirectionVisible");
+  } else {
+    btnScroll.classList.remove("mainRedirectionVisible");
   }
-})
+});
+
+//tri au clic sur un tag
+
+const tags = document.querySelectorAll(".tag>ul>li");
+console.log(tags);
+let tagSelected = [];
+tags.forEach((tag) => {
+  tag.addEventListener("click", () => {
+    if (tagSelected.includes(tag.textContent)) {
+      tagSelected.pop(tag.textContent);
+    } else {
+      tagSelected.push(tag.textContent);
+    }
+    console.log(tagSelected);
+  });
+});
+const section = document.querySelector(".photographers__cards");
 
 //utilisation de l'api fetch pour la récupération des données json
 fetch("./index.json")
@@ -16,22 +32,21 @@ fetch("./index.json")
   })
   .then(function (data) {
     for (i = 0; i < data.photographers.length; i++) {
-      const section = document.querySelector(".photographers__cards");
-      // création de la balise div vignette photographe 
+      // création de la balise div vignette photographe
       const photographersThumbnail1 = document.createElement("div");
       photographersThumbnail1.classList.add("photographers__thumbnail");
       section.appendChild(photographersThumbnail1);
 
-      // création du lien pour photo et nom 
+      // création du lien pour photo et nom
       const link = document.createElement("a");
       link.setAttribute("href", "#");
       photographersThumbnail1.appendChild(link);
 
-      // création de la balise div conteneur de la photo 
+      // création de la balise div conteneur de la photo
       const divPhoto = document.createElement("div");
       link.appendChild(divPhoto);
 
-      // création de la balise img 
+      // création de la balise img
       let img = document.createElement("img");
       divPhoto.appendChild(img);
 
@@ -52,14 +67,14 @@ fetch("./index.json")
       const h4 = document.createElement("h4");
       photographersDescription.appendChild(h4);
 
-      //crétaion de la balise p pour le prix 
+      //crétaion de la balise p pour le prix
       const p = document.createElement("p");
       photographersDescription.appendChild(p);
 
-      // création de la balise ul qui comprendra les li correspondants aux tags 
+      // création de la balise ul qui comprendra les li correspondants aux tags
       const ul = document.createElement("ul");
       photographersThumbnail1.appendChild(ul);
-      //injection de l'attribut source à la balise img avec un codage dynamique de la valeur 
+      //injection de l'attribut source à la balise img avec un codage dynamique de la valeur
       img.setAttribute(
         "src",
         "./img/Sample Photos/" +
@@ -72,7 +87,7 @@ fetch("./index.json")
       //injection de la localisation du photographe
       h3.innerHTML =
         data.photographers[i].city + "," + data.photographers[i].country;
-      //injection de la citation 
+      //injection de la citation
       h4.innerHTML = data.photographers[i].tagline;
       //injection du prix
       p.innerHTML = data.photographers[i].price + "/jour";
@@ -82,8 +97,5 @@ fetch("./index.json")
         li.innerHTML = "#" + element;
         ul.appendChild(li);
       });
-      // console.log(data.photographers[i]);
     }
-
-    // console.log(data);
   });
