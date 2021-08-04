@@ -1,4 +1,4 @@
-import {getData} from './utils';
+import {getData} from './utils.js';
 getData(); 
 
 // //apparition du boutton au scroll
