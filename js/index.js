@@ -1,15 +1,56 @@
-import {getData} from './utils.js';
-getData(); 
+let section = document.querySelector(".photographers__cards");
+let photographersThumbnail = document.querySelector(".photographers__thumbnail");
+let ul = document.querySelector(".list");
+console.log(typeof(section));
+console.log(typeof(ul));
+import { getData } from "./utils.js";
+async function loadData() {
+  let photographers = await getData("index.json");
 
-// //apparition du boutton au scroll
-// const btnScroll = document.querySelector(".mainRedirection");
-// window.addEventListener("scroll", (e) => {
-//   if (window.scrollY >= 220) {
-//     btnScroll.classList.add("mainRedirectionVisible");
-//   } else {
-//     btnScroll.classList.remove("mainRedirectionVisible");
-//   }
-// });
+  for (let i = 0; i < photographers.length; i++) {
+    console.log(photographers[i]);
+    let div = `       
+      <div class="photographers__thumbnail">
+       <a href="#">
+         <div>
+           <img src="./img/Sample Photos/${photographers[i].name}/${photographers[i].portrait}" alt="photo de ${photographers[i].name}" />
+         </div>
+         <h2>${photographers[i].name}</h2>
+       </a>
+       <div class="photographers__description">
+         <h3>${photographers[i].city}, ${photographers[i].country}</h3>
+         <h4>${photographers[i].tagline}</h4>
+         <p>${photographers[i].price}</p>
+       </div>
+       <ul class="list">
+       </ul>
+     </div>      
+          
+          `;
+    section.innerHTML += div;
+    // photographers[i].tags.forEach(element => {
+    //   let li = 
+    //   `
+    //   <li>${element}</li>
+    //   `
+    //   section.innerHTML += li
+    //   console.log(li);
+
+    // });
+    // ul.innerHTML += li
+  }
+}
+loadData();
+
+//apparition du boutton au scroll
+const btnScroll = document.querySelector(".mainRedirection");
+window.addEventListener("scroll", (e) => {
+  if (window.scrollY >= 220) {
+    btnScroll.classList.add("mainRedirectionVisible");
+  } else {
+    btnScroll.classList.remove("mainRedirectionVisible");
+  }
+});
 
 // //tri au clic sur un tag
 
@@ -27,8 +68,6 @@ getData();
 //   });
 // });
 // // const section = document.querySelector(".photographers__cards");
-
-
 
 // // //utilisation de l'api fetch pour la récupération des données json
 // // fetch("./index.json")
