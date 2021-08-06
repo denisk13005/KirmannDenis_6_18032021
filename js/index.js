@@ -1,32 +1,29 @@
 let section = document.querySelector(".photographers__cards");
 
-
 import { getData } from "./utils.js";
-let photo = await getData("index.json");
+let photo = await getData("index.json");//récupération des données json
 console.log(photo);
 
-  
-  
 class Photographer {
-  constructor(name,id, city,country,tags, tagline,price,portrait){
-    this.name = name,
-    this.id = id,
-    this.city = city,
-    this.country = country,
-    this.tags = tags,
-    this.tagline = tagline,
-    this.price = price,
-    this.portrait = portrait
+  constructor(name, id, city, country, tags, tagline, price, portrait) {
+    (this.name = name),
+      (this.id = id),
+      (this.city = city),
+      (this.country = country),
+      (this.tags = tags),
+      (this.tagline = tagline),
+      (this.price = price),
+      (this.portrait = portrait);
   }
-  render(){
-    let tags = this.tags;  
-      let div = `       
+  render() {
+    let tags = this.tags;
+    let div = `       
         <div class="photographers__thumbnail">
          <a href="#">
            <div>
              <img src="./img/Sample Photos/${this.name}/${
-        this.portrait
-      }" alt="photo de ${this.name}" />
+      this.portrait
+    }" alt="photo de ${this.name}" />
            </div>
            <h2>${this.name}</h2>
          </a>
@@ -40,25 +37,62 @@ class Photographer {
          </ul>
         
           `;
-      section.innerHTML += div;
-    }
-  
+    section.innerHTML += div;
+  }
 }
+//tri au clic sur un tag
 
-photo.forEach(element => {
-  let photographer = new Photographer(element.name, element.id, element.city,element.country,element.tags,element.tagline,element.price,element.portrait);
-  photographer.render()
+const tags = document.querySelectorAll(".tag>ul>li");
+console.log(tags);
+let tagSelected = [];
+tags.forEach((tag) => {
+  tag.addEventListener("click", () => {
+    if (tagSelected.includes(tag.textContent)) {
+      const index = tagSelected.indexOf(tag.textContent);
+      tagSelected.splice(index);
+      console.log(index);
+    } else {
+      tagSelected.push(tag.textContent);
+    }    
+  });
 });
-
-
-
+if(tagSelected.length===0){
+  photo.forEach((element) => {
+    let photographer = new Photographer(
+      element.name,
+      element.id,
+      element.city,
+      element.country,
+      element.tags,
+      element.tagline,
+      element.price,
+      element.portrait
+    );
+    photographer.render();
+  });
+}else{
+  tagSelected.forEach((element) => {
+    let photographer = new Photographer(
+      element.name,
+      element.id,
+      element.city,
+      element.country,
+      element.tags,
+      element.tagline,
+      element.price,
+      element.portrait
+    );
+    photographer.render();
+  });
+}
+console.log(tagSelected);
 // async function loadData() {
 //   let photographers = await getData("index.json");
 //   for (let i = 0; i < photographers.length; i++) {
 //     let tags = photographers[i].tags;
 //     console.log(tags)
 
-//     let div = `       
+//     let div = `
 //       <div class="photographers__thumbnail">
 //        <a href="#">
 //          <div>
@@ -76,10 +110,10 @@ photo.forEach(element => {
 //        <ul>
 //           ${tags.map(tag => `<li>#${tag}`).join("")}
 //        </ul>
-      
+
 //         `;
 //     section.innerHTML += div;
-   
+
 //   }
 // }
 // loadData();
@@ -94,20 +128,4 @@ window.addEventListener("scroll", (e) => {
   }
 });
 
-// // //tri au clic sur un tag
-
-// // const tags = document.querySelectorAll(".tag>ul>li");
-// // console.log(tags);
-// // let tagSelected = [];
-// // tags.forEach((tag) => {
-// //   tag.addEventListener("click", () => {
-// //     if (tagSelected.includes(tag.textContent)) {
-// //       tagSelected.pop(tag.textContent);
-// //     } else {
-// //       tagSelected.push(tag.textContent);
-// //     }
-// //     console.log(tagSelected);
-// //   });
-// // });
-// // // const section = document.querySelector(".photographers__cards");
 
