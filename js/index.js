@@ -1,43 +1,40 @@
 let section = document.querySelector(".photographers__cards");
-let photographersThumbnail = document.querySelector(".photographers__thumbnail");
-let ul = document.querySelector(".list");
-console.log(typeof(section));
-console.log(typeof(ul));
+let photographersThumbnail = document.querySelector(
+  ".photographers__thumbnail"
+);
+let elmt = [];
+console.log(elmt);
+
 import { getData } from "./utils.js";
+
 async function loadData() {
   let photographers = await getData("index.json");
-
   for (let i = 0; i < photographers.length; i++) {
-    console.log(photographers[i]);
+    let tags = photographers[i].tags;
+    console.log(tags)
+
     let div = `       
       <div class="photographers__thumbnail">
        <a href="#">
          <div>
-           <img src="./img/Sample Photos/${photographers[i].name}/${photographers[i].portrait}" alt="photo de ${photographers[i].name}" />
+           <img src="./img/Sample Photos/${photographers[i].name}/${
+      photographers[i].portrait
+    }" alt="photo de ${photographers[i].name}" />
          </div>
          <h2>${photographers[i].name}</h2>
        </a>
        <div class="photographers__description">
          <h3>${photographers[i].city}, ${photographers[i].country}</h3>
          <h4>${photographers[i].tagline}</h4>
-         <p>${photographers[i].price}</p>
+         <p>${photographers[i].price}/jour</p>
        </div>
-       <ul class="list">
+       <ul>
+          ${tags.map(tag => `<li>${tag}`).join("")}
        </ul>
-     </div>      
-          
-          `;
+      
+        `;
     section.innerHTML += div;
-    // photographers[i].tags.forEach(element => {
-    //   let li = 
-    //   `
-    //   <li>${element}</li>
-    //   `
-    //   section.innerHTML += li
-    //   console.log(li);
-
-    // });
-    // ul.innerHTML += li
+   
   }
 }
 loadData();
