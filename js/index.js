@@ -29,7 +29,7 @@ async function loadData() {
          <p>${photographers[i].price}/jour</p>
        </div>
        <ul>
-          ${tags.map(tag => `<li>${tag}`).join("")}
+          ${tags.map(tag => `<li>#${tag}`).join("")}
        </ul>
       
         `;
