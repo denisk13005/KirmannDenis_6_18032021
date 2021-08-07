@@ -4,6 +4,11 @@ import { getData } from "./utils.js";
 let photo = await getData("index.json");//récupération des données json
 console.log(photo);
 
+for (const [key, value] of Object.entries(photo[0].tags)) {
+  console.log(`${value}`);
+}
+
+// création de la classe photographe 
 class Photographer {
   constructor(name, id, city, country, tags, tagline, price, portrait) {
     (this.name = name),
@@ -15,7 +20,7 @@ class Photographer {
       (this.price = price),
       (this.portrait = portrait);
   }
-  render() {
+  render() { //création de la méthode render qui permettra d'afficher les photographes
     let tags = this.tags;
     let div = `       
         <div class="photographers__thumbnail">
@@ -47,16 +52,18 @@ console.log(tags);
 let tagSelected = [];
 tags.forEach((tag) => {
   tag.addEventListener("click", () => {
-    if (tagSelected.includes(tag.textContent)) {
-      const index = tagSelected.indexOf(tag.textContent);
-      tagSelected.splice(index);
+    if (tagSelected.includes(tag.className)) {
+      const index = tagSelected.indexOf(tag.className);
+      tagSelected.splice(index,1);
       console.log(index);
     } else {
-      tagSelected.push(tag.textContent);
+      tagSelected.push(tag.className);
     }  
     console.log(tagSelected)  
   });
 });
+console.log(photo)
+
 if(tagSelected.length===0){
   photo.forEach((element) => {
     let photographer = new Photographer(
@@ -86,38 +93,6 @@ if(tagSelected.length===0){
     photographer.render();
   });
 }
-console.log(tagSelected);
-// async function loadData() {
-//   let photographers = await getData("index.json");
-//   for (let i = 0; i < photographers.length; i++) {
-//     let tags = photographers[i].tags;
-//     console.log(tags)
-
-//     let div = `
-//       <div class="photographers__thumbnail">
-//        <a href="#">
-//          <div>
-//            <img src="./img/Sample Photos/${photographers[i].name}/${
-//       photographers[i].portrait
-//     }" alt="photo de ${photographers[i].name}" />
-//          </div>
-//          <h2>${photographers[i].name}</h2>
-//        </a>
-//        <div class="photographers__description">
-//          <h3>${photographers[i].city}, ${photographers[i].country}</h3>
-//          <h4>${photographers[i].tagline}</h4>
-//          <p>${photographers[i].price}/jour</p>
-//        </div>
-//        <ul>
-//           ${tags.map(tag => `<li>#${tag}`).join("")}
-//        </ul>
-
-//         `;
-//     section.innerHTML += div;
-
-//   }
-// }
-// loadData();
 
 //apparition du boutton au scroll
 const btnScroll = document.querySelector(".mainRedirection");
