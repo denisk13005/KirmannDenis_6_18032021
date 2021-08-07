@@ -1,17 +1,27 @@
 let section = document.querySelector(".photographers__cards");
 
 import { getData } from "./utils.js";
-let photo = await getData("index.json");//récupération des données json
-console.log(photo);
-    
-for (const [key, value] of Object.entries(photo[0].tags)) {
-  console.log(`${value}`);
-}
+let photo = await getData("index.json"); //récupération des données json
 
-// création de la classe photographe 
+//test de mise en place d'une fonction de tri des photographes au click
+let tab = ["animals", "events", "portrait"];
+let tagsArray = photo[0].tags;
+let tabtest = [];
+for (let i = 0; i < tab.length; i++) {
+  if (tagsArray.includes(tab[i])) {
+    console.log(photo[i]);
+    tabtest.push(photo[i]);
+    break;
+  }
+}
+console.log(tab);
+
+// let photographersSort =
+
+// création de la classe photographe
 class Photographer {
   constructor(name, id, city, country, tags, tagline, price, portrait) {
-    (this.name = name),
+      (this.name = name),
       (this.id = id),
       (this.city = city),
       (this.country = country),
@@ -20,7 +30,8 @@ class Photographer {
       (this.price = price),
       (this.portrait = portrait);
   }
-  render() { //création de la méthode render qui permettra d'afficher les photographes
+  render() {
+    //création de la méthode render qui permettra d'afficher les photographes
     let tags = this.tags;
     let div = `       
         <div class="photographers__thumbnail">
@@ -48,23 +59,21 @@ class Photographer {
 //tri au clic sur un tag
 
 const tags = document.querySelectorAll(".tag>ul>li");
-console.log(tags);
 let tagSelected = [];
 tags.forEach((tag) => {
   tag.addEventListener("click", () => {
     if (tagSelected.includes(tag.className)) {
       const index = tagSelected.indexOf(tag.className);
-      tagSelected.splice(index,1);
+      tagSelected.splice(index, 1);
       console.log(index);
     } else {
       tagSelected.push(tag.className);
-    }  
-    console.log(tagSelected)  
+    }
+    console.log(tagSelected);
   });
 });
-console.log(photo)
 
-if(tagSelected.length===0){
+if (tagSelected.length === 0) {
   photo.forEach((element) => {
     let photographer = new Photographer(
       element.name,
@@ -78,7 +87,7 @@ if(tagSelected.length===0){
     );
     photographer.render();
   });
-}else{
+} else {
   tagSelected.forEach((element) => {
     let photographer = new Photographer(
       element.name,
@@ -103,5 +112,3 @@ window.addEventListener("scroll", (e) => {
     btnScroll.classList.remove("mainRedirectionVisible");
   }
 });
-
-
