@@ -54,6 +54,7 @@ body {
   height: 1024px;
   margin: auto;
   font-family: dm_sans;
+  position: relative;
 }
 
 a {
