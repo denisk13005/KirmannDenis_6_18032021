@@ -53,7 +53,8 @@ tags.forEach((tag) => {
       console.log(index);
     } else {
       tagSelected.push(tag.textContent);
-    }    
+    }  
+    console.log(tagSelected)  
   });
 });
 if(tagSelected.length===0){
