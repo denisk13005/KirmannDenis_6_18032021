@@ -3,7 +3,7 @@ let section = document.querySelector(".photographers__cards");
 import { getData } from "./utils.js";
 let photo = await getData("index.json");//récupération des données json
 console.log(photo);
-
+    
 for (const [key, value] of Object.entries(photo[0].tags)) {
   console.log(`${value}`);
 }

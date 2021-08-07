@@ -11,8 +11,8 @@
 
 body {
   max-width: 1440px;
-  height: 1024px;
-  margin: auto;
+  height: auto;
+  margin: 0 auto;
   font-family: dm_sans;
   position: relative;
 }
@@ -118,7 +118,7 @@ main {
     font-weight: 100;
     @media (max-width: 1200px) {
       font-size: 14px;
-      top: 50px;
+      top: 15px;
       right: 22px;
     }
   }
