@@ -1,11 +1,12 @@
-async function getData(url) {
+
+async function getDataPhotographers(url) {
   let resp = await fetch(url)
   .then(async(response)=>{
     if(!response.ok){
       throw new Error("error getting data");
     }
     return response.json().then((data)=>{
-        return data.photographers;
+        return data;
     });
   })
   .catch((error) => { 
@@ -13,5 +14,7 @@ async function getData(url) {
   });
   return resp;
 }
-export  { getData};
+
+
+export  { getDataPhotographers};
 

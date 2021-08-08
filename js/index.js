@@ -1,8 +1,10 @@
+import { getDataPhotographers } from "./utils.js";
+
 let section = document.querySelector(".photographers__cards");
-
-import { getData } from "./utils.js";
-let photo = await getData("index.json"); //récupération des données json
-
+let data = await getDataPhotographers("index.json"); //récupération des données json
+let photo = data.photographers;
+let media = data.media
+console.log(media)
 //test de mise en place d'une fonction de tri des photographes au click
 let tab = ["animals", "events", "portrait"];
 let tagsArray = photo[0].tags;
@@ -16,19 +18,17 @@ for (let i = 0; i < tab.length; i++) {
 }
 console.log(tab);
 
-// let photographersSort =
-
 // création de la classe photographe
 class Photographer {
   constructor(name, id, city, country, tags, tagline, price, portrait) {
-      (this.name = name),
-      (this.id = id),
-      (this.city = city),
-      (this.country = country),
-      (this.tags = tags),
-      (this.tagline = tagline),
-      (this.price = price),
-      (this.portrait = portrait);
+      this.name = name,
+      this.id = id,
+      this.city = city,
+      this.country = country,
+      this.tags = tags,
+      this.tagline = tagline,
+      this.price = price,
+      this.portrait = portrait;
   }
   render() {
     //création de la méthode render qui permettra d'afficher les photographes
@@ -37,9 +37,7 @@ class Photographer {
         <div class="photographers__thumbnail">
          <a href="#">
            <div>
-             <img src="./img/Sample Photos/${this.name}/${
-      this.portrait
-    }" alt="photo de ${this.name}" />
+             <img src="./img/Sample Photos/${this.name}/${this.portrait}" alt="photo de ${this.name}" />
            </div>
            <h2>${this.name}</h2>
          </a>
@@ -65,7 +63,6 @@ tags.forEach((tag) => {
     if (tagSelected.includes(tag.className)) {
       const index = tagSelected.indexOf(tag.className);
       tagSelected.splice(index, 1);
-      console.log(index);
     } else {
       tagSelected.push(tag.className);
     }
