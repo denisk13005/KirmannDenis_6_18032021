@@ -282,6 +282,10 @@ main section .photographers__thumbnail a div img {
   height: 105%;
 }
 
+main section .displayNone {
+  display: none;
+}
+
 main section .photographers__description {
   width: 100%;
   text-align: center;
