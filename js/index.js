@@ -1,39 +1,57 @@
 import { getDataPhotographers } from "./utils.js";
 import { Photographer } from "./photographers.js";
 
-
 const section = document.querySelector(".photographers__cards");
+const ul = document.querySelector(".tag>ul");
 const data = await getDataPhotographers("index.json"); //récupération des données json
 const photographersData = data.photographers; //récupération des données liées aux photographes
-const media = data.media//récupération des données liées aux medias
+const media = data.media; //récupération des données liées aux medias
 let photographers = [];
-console.log(photographers)
-console.log(photographersData)
-
-
-//**********************************************affichage des photographes 
-photographersData.forEach((element) => {
-  photographers.push( new Photographer(element)) ; 
-})
-photographers.forEach(element => {
-  section.innerHTML += element.render()
-})
-//********************************************recherche si le tag est présent et affiche les photographes qui ont le tag */
-
-const test = (tag) =>{
-    const qque = photographers.filter(x => x.hasTag(tag))
-    console.log(qque);
-    section.innerHTML ="";
-    qque.forEach(element => {
-      section.innerHTML += element.render()      
+console.log(photographers);
+console.log(photographersData);
+//fonction de génération dynamique des li
+function generateLi(){
+  let tagArray = [];  
+  let tagConcat = [];
+  photographersData.forEach(tag => {
+    tagArray.push(tag.tags)
+    console.log("tag"+ tagArray)
+  })
+  tagArray.forEach((element) =>{ //rassemble tous les tags dans un tableau unique
+    element.forEach(tag =>{
+      tagConcat.push(tag)
     })
-console.log(qque)
+  })
+  const setTab = new Set(tagConcat); // supprime les doublons du tableau unique
+  console.log(setTab)
+  setTab.forEach((element)=>
+    ul.innerHTML += `<li data-name='${element}'>#${element}</li>`) // crée les li corespondantes au tag
 
 }
-let li = document.querySelectorAll(".tag>ul>li")
-li.forEach((element)=> element.addEventListener('click',(e)=>{
-  test(e.target.className)
-}))
+generateLi();
+//**********************************************affichage des photographes
+photographersData.forEach((element) => {
+  photographers.push(new Photographer(element));
+});
+photographers.forEach((element) => {
+  section.innerHTML += element.render();
+});
+//********************************************recherche si le tag est présent et affiche les photographes qui ont le tag */
+
+const test = (tag) => {
+  const qque = photographers.filter((x) => x.hasTag(tag));
+  console.log(qque);
+  section.innerHTML = "";
+  qque.forEach((element) => {
+    section.innerHTML += element.render();
+  });
+  console.log(qque);
+};
+document.querySelectorAll(".tag>ul>li").forEach((element) =>
+  element.addEventListener("click", (e) => {
+    test(e.target.dataset.name);
+  })
+);
 // li.addEventListener('click',(e)=>{
 //   console.log(e.target.className)
 // })
@@ -49,7 +67,7 @@ li.forEach((element)=> element.addEventListener('click',(e)=>{
 // let tagDesired =[] ;
 // let photographersSelected = [];//tableau contenant les photographes sélectionnés en fonction du tag cliqué
 // tags.forEach((tag) => {
-//   tag.addEventListener("click", () => { 
+//   tag.addEventListener("click", () => {
 
 //     console.log(tag.dataset.name)
 //       //cacher tous les photographes
@@ -58,9 +76,9 @@ li.forEach((element)=> element.addEventListener('click',(e)=>{
 //       //     divThumbnail.forEach(elmt=>{
 //       //       elmt.classList.add("displayNone");
 //       //     })
-//       //   })   
-//     //je vérifie si le tableau tagSelected contient le tag sélectionné, si oui je l'enlève si non je l'ajoute 
-//     if (tagSelected.includes(tag.className)) { 
+//       //   })
+//     //je vérifie si le tableau tagSelected contient le tag sélectionné, si oui je l'enlève si non je l'ajoute
+//     if (tagSelected.includes(tag.className)) {
 //       const index = tagSelected.indexOf(tag.className);
 //       tagSelected.splice(index, 1);
 //     } else {
@@ -68,49 +86,36 @@ li.forEach((element)=> element.addEventListener('click',(e)=>{
 //       tagSelected.forEach(element => {
 //         tagDesired = element;
 //       })
-      
+
 //       photographers.forEach(element => {
 //         if(element.tags.includes(tagDesired)){
 //           photographersSelected.push(element)
 //         }
 //       });
-      
-      
+
 //     }
 //     if(tagSelected.length === 0){
 //        //si aucun tag n'est sélectionné afficher tous les photographes
 //       photographers.forEach((element) => {
 //         let photographer = new Photographer(element.name,element.id,element.city,element.country,element.tags,element.tagline,element.price,element.portrait);
-//         photographer.render()})     
-//         console.log("vrai")   
+//         photographer.render()})
+//         console.log("vrai")
 //     }else{
 //       console.log("faux")
-//       photographersSelected.forEach((element) => {   
-//         console.log(element.tags)     
-//         //   
+//       photographersSelected.forEach((element) => {
+//         console.log(element.tags)
+//         //
 //         let photographer = new Photographer(element.name,element.id,element.city,element.country,element.tags,element.tagline,element.price,element.portrait);
 //         photographer.render()})
 //         photographersSelected=[];
 //     }
-    
+
 //     console.log(tagSelected)
 //     console.log(photographersSelected)
 //     console.log(tagDesired)
 
-    
 //   });
 // });
-
-
-
-
-
-
-
-
-
-
-
 
 //************************************************apparition du boutton au scroll
 
