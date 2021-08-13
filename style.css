@@ -221,9 +221,8 @@ main section {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 @media (max-width: 1200px) {
@@ -304,7 +303,7 @@ main section .photographers__description h4 {
 
 main section .photographers__description p {
   color: #757575;
-  font-size: 9px;
+  font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
