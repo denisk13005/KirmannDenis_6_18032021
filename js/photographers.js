@@ -33,7 +33,6 @@ class Photographer {
       return div
     }
   hasTag(tag){
-    console.log("test")
     return this.tags.includes(tag)
   }
   
