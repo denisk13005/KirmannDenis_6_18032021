@@ -1,5 +1,3 @@
-
-
 class Photographer {
   constructor({name,id, city,country,tags, tagline,price,portrait}){
     this.name = name,
