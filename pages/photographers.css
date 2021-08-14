@@ -141,9 +141,12 @@ table {
   src: url(../font/DM_Sans/DMSans-Regular.ttf);
 }
 
+html {
+  width: 100%;
+}
+
 body {
   font-family: dm_sans;
-  width: 100%;
   max-width: 1440px;
   border: 1px solid green;
   margin: auto;
@@ -180,15 +183,17 @@ header a svg {
 
 .photographer__description {
   border: 1px solid blue;
-  margin: 79px 100px 0px;
+  background-color: #fafafa;
+  margin: 79px auto 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
   max-width: 1240px;
+  height: 313px;
+  width: 100%;
 }
 
 .photographer__description .infoAndButton {
@@ -256,6 +261,7 @@ header a svg {
   letter-spacing: 0em;
   text-align: center;
   border: none;
+  cursor: pointer;
 }
 
 .photographer__description .photo {
