@@ -144,8 +144,9 @@ table {
 body {
   font-family: dm_sans;
   width: 100%;
-  margin: auto;
+  max-width: 1440px;
   border: 1px solid green;
+  margin: auto;
 }
 
 a {
@@ -166,12 +167,6 @@ header a p {
   font-size: 40px;
 }
 
-@media (max-width: 1200px) {
-  header a p {
-    font-size: 30px;
-  }
-}
-
 header a svg {
   font-weight: bold;
 }
@@ -184,8 +179,6 @@ header a svg {
 }
 
 .photographer__description {
-  width: 100%;
-  max-width: 1240px;
   border: 1px solid blue;
   margin: 79px 100px 0px;
   display: -webkit-box;
@@ -194,6 +187,20 @@ header a svg {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
+  max-width: 1240px;
+}
+
+.photographer__description .infoAndButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  border: 1px solid red;
 }
 
 .photographer__description .photographer__informations {
@@ -209,11 +216,13 @@ header a svg {
 .photographer__description .photographer__informations h2 {
   font-size: 24px;
   color: #901c1c;
+  margin-bottom: 19px;
 }
 
 .photographer__description .photographer__informations h3 {
   font-size: 18px;
   color: #525252;
+  margin-bottom: 15px;
 }
 
 .photographer__description .photographer__informations ul {
@@ -223,7 +232,7 @@ header a svg {
 }
 
 .photographer__description .photographer__informations ul li {
-  font-size: 12px;
+  font-size: 18px;
   list-style-type: none;
   color: #901c1c;
   border: 1px solid #c4c4c4;
@@ -246,7 +255,6 @@ header a svg {
   line-height: 26px;
   letter-spacing: 0em;
   text-align: center;
-  margin-left: 150px;
   border: none;
 }
 
@@ -262,6 +270,5 @@ header a svg {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  float: right;
 }
 /*# sourceMappingURL=photographers.css.map */

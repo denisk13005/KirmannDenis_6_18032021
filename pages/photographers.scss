@@ -11,9 +11,9 @@
 body {
   font-family: dm_sans;
   width: 100%;
-
-  margin: auto;
+  max-width: 1440px;
   border: 1px solid green;
+  margin: auto;
 }
 a {
   text-decoration: none;
@@ -22,15 +22,11 @@ a {
 header {
   a {
     display: flex;
-
     padding-left: 100px;
     padding-top: 43.91px;
     p {
       color: $color-primary;
       font-size: 40px;
-      @media (max-width: 1200px) {
-        font-size: 30px;
-      }
     }
     svg {
       font-weight: bold;
@@ -42,12 +38,18 @@ header {
   }
 }
 .photographer__description {
-  width: 100%;
-  max-width: 1240px;
   border: 1px solid blue;
   margin: 79px 100px 0px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1240px;
+  .infoAndButton {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: start;
+    border: 1px solid red;
+  }
   .photographer__informations {
     margin-left: 50px;
     h1 {
@@ -58,16 +60,18 @@ header {
     h2 {
       font-size: 24px;
       color: $color-primary;
+      margin-bottom: 19px;
     }
     h3 {
       font-size: 18px;
       color: $color-secondary;
+      margin-bottom: 15px;
     }
     ul {
       display: flex;
 
       li {
-        font-size: 12px;
+        font-size: 18px;
         list-style-type: none;
         color: $color-primary;
         border: 1px solid $color-border;
@@ -91,7 +95,6 @@ header {
     line-height: 26px;
     letter-spacing: 0em;
     text-align: center;
-    margin-left: 150px;
     border: none;
   }
   .photo {
@@ -103,7 +106,6 @@ header {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      float: right;
     }
   }
 }
