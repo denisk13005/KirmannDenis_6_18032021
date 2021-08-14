@@ -14,7 +14,6 @@ html {
 body {
   font-family: dm_sans;
   max-width: 1440px;
-  border: 1px solid green;
   margin: auto;
 }
 a {
@@ -41,19 +40,19 @@ header {
 }
 
 .photographer__description {
-  border: 1px solid blue;
   background-color: $color-secondary-light;
   margin: 79px auto 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1240px;
   height: 313px;
   width: 100%;
   .infoAndButton {
     display: flex;
-    box-sizing: border-box;
-    justify-content: start;
-    border: 1px solid red;
+    align-items: center;
+    position: relative;
+    width: 70%;
   }
   .photographer__informations {
     margin-left: 50px;
@@ -102,12 +101,17 @@ header {
     text-align: center;
     border: none;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 450px;
   }
   .photo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
+    margin-right: 50px;
+
     img {
       width: 100%;
       height: 100%;
