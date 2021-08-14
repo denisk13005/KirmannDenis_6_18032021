@@ -146,7 +146,6 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: auto;
-  border: 1px solid green;
 }
 
 a {
@@ -215,12 +214,6 @@ header a svg {
   width: 70%;
 }
 
-@media (max-width: 960px) {
-  .photographer__description .infoAndButton {
-    width: auto;
-  }
-}
-
 .photographer__description .photographer__informations {
   margin-left: 50px;
 }
@@ -232,6 +225,12 @@ header a svg {
   }
 }
 
+.photographer__description .photographer__informations h1,
+.photographer__description .photographer__informations h2,
+.photographer__description .photographer__informations h3 {
+  font-family: dm_sans_regular;
+}
+
 .photographer__description .photographer__informations h1 {
   font-size: 64px;
   color: #d3573c;
@@ -241,6 +240,8 @@ header a svg {
 @media (max-width: 960px) {
   .photographer__description .photographer__informations h1 {
     font-size: 36px;
+    font-weight: 400;
+    width: 100%;
   }
 }
 
@@ -253,6 +254,7 @@ header a svg {
 @media (max-width: 960px) {
   .photographer__description .photographer__informations h2 {
     font-size: 13px;
+    margin-bottom: 4px;
   }
 }
 
@@ -265,6 +267,7 @@ header a svg {
 @media (max-width: 960px) {
   .photographer__description .photographer__informations h3 {
     font-size: 13px;
+    margin-bottom: 7px;
   }
 }
 
@@ -272,16 +275,7 @@ header a svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   text-align: center;
-  border: 1px solid blue;
-}
-
-@media (max-width: 960px) {
-  .photographer__description .photographer__informations ul {
-    width: auto;
-  }
 }
 
 .photographer__description .photographer__informations ul li {
@@ -321,6 +315,20 @@ header a svg {
   left: 450px;
 }
 
+@media (max-width: 960px) {
+  .photographer__description button {
+    width: 170px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    position: fixed;
+    top: 752px;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+}
+
 .photographer__description .photo {
   width: 200px;
   height: 200px;
@@ -331,8 +339,19 @@ header a svg {
 
 @media (max-width: 960px) {
   .photographer__description .photo {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .photographer__description .photo {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    position: absolute;
+    left: 253px;
   }
 }
 
