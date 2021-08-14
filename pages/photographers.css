@@ -141,14 +141,12 @@ table {
   src: url(../font/DM_Sans/DMSans-Regular.ttf);
 }
 
-html {
-  width: 100%;
-}
-
 body {
   font-family: dm_sans;
+  width: 100%;
   max-width: 1440px;
   margin: auto;
+  border: 1px solid green;
 }
 
 a {
@@ -164,6 +162,12 @@ header a {
   padding-top: 43.91px;
 }
 
+@media (max-width: 960px) {
+  header a {
+    padding-left: 20px;
+  }
+}
+
 header a p {
   color: #901c1c;
   font-size: 40px;
@@ -171,13 +175,6 @@ header a p {
 
 header a svg {
   font-weight: bold;
-}
-
-@media (max-width: 1200px) {
-  header a svg {
-    height: 28px;
-    padding-top: 2px;
-  }
 }
 
 .photographer__description {
@@ -197,6 +194,16 @@ header a svg {
   width: 100%;
 }
 
+@media (max-width: 960px) {
+  .photographer__description {
+    margin: 0;
+    background-color: white;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 .photographer__description .infoAndButton {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,8 +215,21 @@ header a svg {
   width: 70%;
 }
 
+@media (max-width: 960px) {
+  .photographer__description .infoAndButton {
+    width: auto;
+  }
+}
+
 .photographer__description .photographer__informations {
   margin-left: 50px;
+}
+
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations {
+    margin-left: 20px;
+    margin-top: 29.5px;
+  }
 }
 
 .photographer__description .photographer__informations h1 {
@@ -218,10 +238,22 @@ header a svg {
   font-weight: 400;
 }
 
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations h1 {
+    font-size: 36px;
+  }
+}
+
 .photographer__description .photographer__informations h2 {
   font-size: 24px;
   color: #901c1c;
   margin-bottom: 19px;
+}
+
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations h2 {
+    font-size: 13px;
+  }
 }
 
 .photographer__description .photographer__informations h3 {
@@ -230,10 +262,26 @@ header a svg {
   margin-bottom: 15px;
 }
 
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations h3 {
+    font-size: 13px;
+  }
+}
+
 .photographer__description .photographer__informations ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  border: 1px solid blue;
+}
+
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations ul {
+    width: auto;
+  }
 }
 
 .photographer__description .photographer__informations ul li {
@@ -246,6 +294,12 @@ header a svg {
   margin-right: 4px;
   margin-bottom: 4px;
   cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .photographer__description .photographer__informations ul li {
+    font-size: 13px;
+  }
 }
 
 .photographer__description button {
@@ -273,6 +327,13 @@ header a svg {
   border-radius: 50%;
   overflow: hidden;
   margin-right: 50px;
+}
+
+@media (max-width: 960px) {
+  .photographer__description .photo {
+    width: 110px;
+    height: 110px;
+  }
 }
 
 .photographer__description .photo img {
