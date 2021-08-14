@@ -12,7 +12,7 @@ class Photographer {
   render(){
       let div = `       
         <div class="photographers__thumbnail">
-         <a href="#">
+         <a href="./pages/photographers.html">
            <div>
              <img src="./img/Sample Photos/${this.name}/${this.portrait}" alt="photo de ${this.name}" />
            </div>
