@@ -375,6 +375,7 @@ header a svg {
 
 .tri p {
   font-size: 18px;
+  margin-right: 25px;
 }
 
 .tri .dropDown {
@@ -388,6 +389,8 @@ header a svg {
   position: relative;
   width: 170px;
   height: auto;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .tri .bloc__top {
@@ -406,12 +409,9 @@ header a svg {
   height: 69px;
   border-radius: 5px;
   border: none;
-}
-
-.tri .bloc__top span {
   font-size: 18px;
   color: white;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .tri .bloc__top img {
