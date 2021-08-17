@@ -417,13 +417,15 @@ header a svg {
 .tri .bloc__top img {
   width: 16px;
   margin-right: 18px;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
   -webkit-transition: -webkit-transform 0.1s linear;
   transition: -webkit-transform 0.1s linear;
   transition: transform 0.1s linear;
   transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
 
-.tri .bloc__top img:active {
+.tri .bloc__top .rotate {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-transition: -webkit-transform 0.1s linear;
