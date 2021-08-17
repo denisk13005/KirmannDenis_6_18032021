@@ -73,3 +73,8 @@ window.addEventListener("scroll", (e) => {
     btnScroll.classList.remove("mainRedirectionVisible");
   }
 });
+
+// let arrow = document.querySelector(".arrow");
+// arrow.addEventListener("click",()=>{
+//   arrow.classList.toggle("rotate")  
+// })
