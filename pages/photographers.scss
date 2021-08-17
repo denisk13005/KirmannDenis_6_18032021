@@ -15,6 +15,8 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: auto;
+  border: 1px solid green;
+  position: relative;
 }
 a {
   text-decoration: none;
@@ -231,6 +233,77 @@ header {
       font-size: 16px;
       padding-left: 20px;
       background-color: $color-primary;
+    }
+  }
+}
+// ****************************gallerie
+.container__thumbnail {
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 58px;
+  padding-left: 100px;
+  padding-right: 100px;
+  .thumbnail {
+    width: 350px;
+    height: 351px;
+    .img__thumbnail {
+      width: 350px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 5px;
+      img {
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .thumbnail__description {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: $color-primary;
+    font-size: 18px;
+    font-weight: 400;
+    .like__count {
+      display: flex;
+      box-sizing: border-box;
+      img {
+        width: 17.5px;
+        margin-left: 7px;
+      }
+    }
+  }
+}
+.likeCountResume {
+  width: 376px;
+  height: 59px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  align-items: center;
+  bottom: 0;
+  right: 280px;
+  background-color: $color-primary-light;
+  font-size: 20px;
+  & > p {
+    margin-right: 34px;
+  }
+  .total__likes {
+    display: flex;
+    margin-left: 31px;
+    margin-right: 0;
+    img {
+      width: 18px;
+      height: 18px;
+      margin-left: 7px;
     }
   }
 }
