@@ -1,0 +1,233 @@
+@import "../sass/base/reset";
+@import "../sass/utils/variables";
+@font-face {
+  font-family: "dm_sans";
+  src: url(../font/DM_Sans/DMSans-Medium.ttf);
+}
+@font-face {
+  font-family: "dm_sans_regular";
+  src: url(../font/DM_Sans/DMSans-Regular.ttf);
+}
+
+body {
+  font-family: dm_sans;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+header {
+  a {
+    display: flex;
+    padding-left: 100px;
+    padding-top: 43.91px;
+    @media (max-width: 960px) {
+      padding-left: 20px;
+    }
+
+    p {
+      color: $color-primary;
+      font-size: 40px;
+    }
+    svg {
+      font-weight: bold;
+    }
+  }
+}
+
+.photographer__description {
+  background-color: $color-secondary-light;
+  margin: 79px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  height: 313px;
+  width: 100%;
+  @media (max-width: 960px) {
+    margin: 0;
+    background-color: white;
+    align-items: flex-start;
+  }
+  .infoAndButton {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 70%;
+  }
+  .photographer__informations {
+    margin-left: 50px;
+    @media (max-width: 960px) {
+      margin-left: 20px;
+      margin-top: 29.5px;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: dm_sans_regular;
+    }
+    h1 {
+      font-size: 64px;
+      color: $color-primary-light;
+      font-weight: 400;
+      @media (max-width: 960px) {
+        font-size: 36px;
+        font-weight: 400;
+        width: 100%;
+      }
+    }
+    h2 {
+      font-size: 24px;
+      color: $color-primary;
+      margin-bottom: 19px;
+      @media (max-width: 960px) {
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      color: $color-secondary;
+      margin-bottom: 15px;
+      @media (max-width: 960px) {
+        font-size: 13px;
+        margin-bottom: 7px;
+      }
+    }
+
+    ul {
+      display: flex;
+      text-align: center;
+      @media (max-width: 960px) {
+      }
+
+      li {
+        font-size: 18px;
+        list-style-type: none;
+        color: $color-primary;
+        border: 1px solid $color-border;
+        border-radius: 20px;
+        padding: 2px 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        @media (max-width: 960px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  button {
+    height: 69px;
+    width: 170px;
+    border-radius: 5px;
+    background: #901c1c;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 450px;
+    @media (max-width: 960px) {
+      width: 170px;
+      height: 35px;
+      font-size: 18px;
+      font-weight: 500;
+      position: fixed;
+      top: 752px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+  .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 50px;
+    @media (max-width: 960px) {
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+    }
+    @media (max-width: 440px) {
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+      position: absolute;
+      left: 253px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// **********partie tri
+.tri {
+  display: flex;
+  align-items: center;
+  margin-top: 9px;
+  margin-left: 97px;
+  p {
+    font-size: 18px;
+  }
+  .dropDown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 170px;
+    height: auto;
+  }
+  .bloc {
+    &__top {
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $color-primary;
+      width: 170px;
+      height: 69px;
+      border-radius: 5px;
+      border: none;
+
+      span {
+        font-size: 18px;
+        color: white;
+        margin-left: 20px;
+      }
+      img {
+        width: 16px;
+        margin-right: 18px;
+        transition: transform 0.1s linear;
+        &:active {
+          transform: rotate(180deg);
+          transition: transform 0.1s linear;
+        }
+      }
+    }
+    &__down {
+      display: block;
+      position: absolute;
+      width: 150px;
+      height: 64px;
+      line-height: 64px;
+      color: white;
+      font-size: 16px;
+      padding-left: 20px;
+      background-color: $color-primary;
+    }
+  }
+}
