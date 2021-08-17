@@ -1,5 +1,5 @@
 import { getDataPhotographers } from "./utils.js";
-import { Photographer } from "./photographers.js";
+import { Photographer } from "./objetPhotographers.js";
 
 const section = document.querySelector(".photographers__cards");
 const ul = document.querySelector(".tag>ul");

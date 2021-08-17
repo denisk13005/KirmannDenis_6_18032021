@@ -362,7 +362,22 @@ header a svg {
      object-fit: cover;
 }
 
-.dropDown {
+.tri {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 9px;
+  margin-left: 97px;
+}
+
+.tri p {
+  font-size: 18px;
+}
+
+.tri .dropDown {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -371,12 +386,11 @@ header a svg {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  border: 4px solid white;
   width: 170px;
   height: auto;
 }
 
-.bloc__top {
+.tri .bloc__top {
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -394,13 +408,13 @@ header a svg {
   border: none;
 }
 
-.bloc__top span {
+.tri .bloc__top span {
   font-size: 18px;
   color: white;
   margin-left: 20px;
 }
 
-.bloc__top img {
+.tri .bloc__top img {
   width: 16px;
   margin-right: 18px;
   -webkit-transition: -webkit-transform 0.1s linear;
@@ -409,7 +423,7 @@ header a svg {
   transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
 
-.bloc__top img:active {
+.tri .bloc__top img:active {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-transition: -webkit-transform 0.1s linear;
@@ -418,7 +432,7 @@ header a svg {
   transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
 
-.bloc__down {
+.tri .bloc__down {
   display: block;
   position: absolute;
   width: 150px;
