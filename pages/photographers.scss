@@ -176,50 +176,58 @@ header {
 }
 
 // **********partie tri
-.dropDown {
+.tri {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  border: 4px solid rgb(255, 255, 255);
-  width: 170px;
-  height: auto;
-}
-.bloc {
-  &__top {
-    z-index: 10;
+  align-items: center;
+  margin-top: 9px;
+  margin-left: 97px;
+  p {
+    font-size: 18px;
+  }
+  .dropDown {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $color-primary;
+    flex-direction: column;
+    position: relative;
     width: 170px;
-    height: 69px;
-    border-radius: 5px;
-    border: none;
+    height: auto;
+  }
+  .bloc {
+    &__top {
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $color-primary;
+      width: 170px;
+      height: 69px;
+      border-radius: 5px;
+      border: none;
 
-    span {
-      font-size: 18px;
-      color: white;
-      margin-left: 20px;
-    }
-    img {
-      width: 16px;
-      margin-right: 18px;
-      transition: transform 0.1s linear;
-      &:active {
-        transform: rotate(180deg);
+      span {
+        font-size: 18px;
+        color: white;
+        margin-left: 20px;
+      }
+      img {
+        width: 16px;
+        margin-right: 18px;
         transition: transform 0.1s linear;
+        &:active {
+          transform: rotate(180deg);
+          transition: transform 0.1s linear;
+        }
       }
     }
-  }
-  &__down {
-    display: block;
-    position: absolute;
-    width: 150px;
-    height: 64px;
-    line-height: 64px;
-    color: white;
-    font-size: 16px;
-    padding-left: 20px;
-    background-color: $color-primary;
+    &__down {
+      display: block;
+      position: absolute;
+      width: 150px;
+      height: 64px;
+      line-height: 64px;
+      color: white;
+      font-size: 16px;
+      padding-left: 20px;
+      background-color: $color-primary;
+    }
   }
 }
