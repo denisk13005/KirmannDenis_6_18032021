@@ -59,6 +59,8 @@ const test = (tag) => {
 };
 document.querySelectorAll(".tag>ul>li").forEach((element) =>
   element.addEventListener("click", (e) => {
+    console.log(element);
+    element.classList.toggle("active")
     test(e.target.dataset.name);
   })
 );
