@@ -608,7 +608,9 @@ media.forEach((element) => {
     let thumbnailDiv = `
     <div class="thumbnail">
         <div class="img__thumbnail">
+        <a href="#">
           <img src="../img/Sample Photos/Tracy Galindo/${element.image}" alt="" />
+        </a>
         </div>
         <div class="thumbnail__description">
           <p>${element.title}</p>
