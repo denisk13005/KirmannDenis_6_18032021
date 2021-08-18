@@ -40,14 +40,14 @@ generateLi();
 let tagsDesired = []; //renvoie le tableau des tableaux des tags sélectionnés
 let elementsTagTab = []
 const test = (tag) => {
-  const photographersWithTagSelected = photographers.filter((x) => x.hasTag(tag));
   
   section.innerHTML = "";
   photographersWithTagSelected.forEach((element) => { //filtre les photographes comprenant le tag sélectionné
     tagsDesired.push(element);  //ajoute chaque photographe contenant le tag sélectionné au tableau afin de pouvoir sélectionner plusieurs tags et afficher tous les photographes correspondants
-    elementsTagTab.push(element.tags)    
-  });
+    elementsTagTab.push(element.tags)  
 
+  });
+  const photographersWithTagSelected = photographers.filter((x) => x.hasTag(tag));
   let tagsDesiredSet = new Set(tagsDesired); //élimine les doublons dans le tableau tagDesired
   tagsDesiredSet.forEach((element)=>{
     console.log(element);
@@ -59,7 +59,6 @@ const test = (tag) => {
 };
 document.querySelectorAll(".tag>ul>li").forEach((element) =>
   element.addEventListener("click", (e) => {
-    console.log(element);
     element.classList.toggle("active")
     test(e.target.dataset.name);
   })

@@ -280,6 +280,10 @@ header nav ul li {
   margin-right: 4px;
   margin-bottom: 4px;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
 header nav ul .active {
@@ -287,6 +291,12 @@ header nav ul .active {
   color: white;
   -webkit-box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
           box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+  -webkit-transform: translate(0px, 3px);
+          transform: translate(0px, 3px);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
 main {
