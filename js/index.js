@@ -17,54 +17,59 @@ photographers.forEach((element) => {
 
 //*********************************************fonction de génération dynamique des li
 
-function generateLi(){
-  let tagArray = [];  
+function generateLi() {
+  let tagArray = [];
   let tagConcat = [];
-  photographersData.forEach(tag => {
-    tagArray.push(tag.tags)
-  })
-  tagArray.forEach((element) =>{ //rassemble tous les tags dans un tableau unique
-    element.forEach(tag =>{
-      tagConcat.push(tag)
-    })
-  })
+  photographersData.forEach((tag) => {
+    tagArray.push(tag.tags);
+  });
+  tagArray.forEach((element) => {
+    //rassemble tous les tags dans un tableau unique
+    element.forEach((tag) => {
+      tagConcat.push(tag);
+    });
+  });
   const setTab = new Set(tagConcat); // supprime les doublons du tableau unique
-  setTab.forEach((element)=>
-    ul.innerHTML += `<li data-name='${element}'>#${element}</li>`) // crée les li corespondantes au tag
-
+  setTab.forEach(
+    (element) => (ul.innerHTML += `<li data-name='${element}'>#${element}</li>`)
+  ); // crée les li corespondantes au tag
 }
 generateLi();
 
-
 //********************************************recherche si le tag est présent et affiche les photographes qui ont le tag */
-let tagsDesired = []; //renvoie le tableau des tableaux des tags sélectionnés
-let elementsTagTab = []
-// const test = (tag) => {
-  
-//   section.innerHTML = "";
-//   photographersWithTagSelected.forEach((element) => { //filtre les photographes comprenant le tag sélectionné
-//     tagsDesired.push(element);  //ajoute chaque photographe contenant le tag sélectionné au tableau afin de pouvoir sélectionner plusieurs tags et afficher tous les photographes correspondants
-//     elementsTagTab.push(element.tags)  
-
-//   });
-//   const photographersWithTagSelected = photographers.filter((x) => x.hasTag(tag));
-//   let tagsDesiredSet = new Set(tagsDesired); //élimine les doublons dans le tableau tagDesired
-//   tagsDesiredSet.forEach((element)=>{
-//     console.log(element);
-//     section.innerHTML += element.render();
-//   })
-//   console.log(photographersWithTagSelected);
-//   console.log(tagsDesired)
-//   console.log(elementsTagTab);
-// };
+let tagsDesired = []; //renvoie le tableau des tableaux des tags sélectionnés et débarrasé des doublons
 document.querySelectorAll(".tag>ul>li").forEach((element) =>
   element.addEventListener("click", (e) => {
-    if(tagsDesired.length!=0){
-      test(e.target.dataset.name);
+    console.log(element.dataset.name);
+    if (tagsDesired.includes(element.dataset.name)) {
+      let index = tagsDesired.indexOf(element.dataset.name);
+      tagsDesired.splice(index, 1);
+    } else {
+      tagsDesired.push(element.dataset.name);
     }
-    element.classList.toggle("active")
+    element.classList.toggle("active");
+    console.log(tagsDesired);
+    console.log(photographers);
+    console.log(test());
+    if(tagsDesired.length == 0){
+      window.location.reload()
+    }
+
+
   })
 );
+const test = () => {
+  const photographersWithTagSelected = photographers.filter((x) =>
+    x.hasTag(tagsDesired)
+  );
+  console.log(photographersWithTagSelected);
+
+  section.innerHTML = "";
+  photographersWithTagSelected.forEach((element) => {
+    console.log(element);
+    section.innerHTML += element.render();
+  });
+};
 
 //************************************************apparition du boutton au scroll
 
@@ -79,5 +84,5 @@ window.addEventListener("scroll", (e) => {
 
 // let arrow = document.querySelector(".arrow");
 // arrow.addEventListener("click",()=>{
-//   arrow.classList.toggle("rotate")  
+//   arrow.classList.toggle("rotate")
 // })
