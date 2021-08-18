@@ -532,6 +532,7 @@ header a svg {
   bottom: 0;
   right: 280px;
   background-color: #d3573c;
+  border-radius: 5px 5px 0px 0px;
   font-size: 20px;
 }
 

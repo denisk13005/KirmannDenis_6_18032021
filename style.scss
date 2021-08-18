@@ -100,14 +100,14 @@ header {
         margin-right: 4px;
         margin-bottom: 4px;
         cursor: pointer;
-        transition: transform 0.2s linear;
+        transition: transform 0.1s linear;
       }
       .active {
         background-color: $color-primary-light;
         color: white;
         box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
         transform: translate(0px, 3px);
-        transition: transform 0.2s linear;
+        transition: transform 0.1s linear;
       }
     }
   }

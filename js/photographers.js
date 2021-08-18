@@ -632,7 +632,7 @@ let likeCountResume = `
     <p>297081</p>
     <img src="../img/heart-solid-black.svg"/>
   </div>
-  <p>${media.price}</p>
+  <p>${media[0].price}</p>
 </div>
 
 `
