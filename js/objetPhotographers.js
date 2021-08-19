@@ -1,5 +1,6 @@
 class Photographer {
-  constructor({name,id, city,country,tags, tagline,price,portrait}){
+  constructor ({ name, id, city, country, tags, tagline, price, portrait }) {
+    // eslint-disable-next-line no-unused-expressions
     this.name = name,
     this.id = id,
     this.city = city,
@@ -9,8 +10,10 @@ class Photographer {
     this.price = price,
     this.portrait = portrait
   }
-  render(){
-      let div = `       
+
+  // eslint-disable-next-line space-before-blocks
+  render (){
+    const div = `       
         <div class="photographers__thumbnail">
          <a href="./pages/photographers.html">
            <div>
@@ -24,16 +27,15 @@ class Photographer {
            <p>${this.price}/jour</p>
          </div>
          <ul>
-            ${this.tags.map((tag) => `<li>#${tag}`).join("")}
+            ${this.tags.map((tag) => `<li>#${tag}`).join('')}
          </ul>
         </div>
-          `;
-      return div
-    }
-  hasTag(tag){
+          `
+    return div
+  }
+
+  hasTag (tag) {
     return this.tags.includes(tag)
   }
-  
-  
 }
-export {Photographer} ;
+export { Photographer }

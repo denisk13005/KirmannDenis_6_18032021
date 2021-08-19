@@ -5,7 +5,7 @@ const section = document.querySelector(".photographers__cards");
 const ul = document.querySelector(".tag>ul");
 const data = await getDataPhotographers("index.json"); //récupération des données json
 const photographersData = data.photographers; //récupération des données liées aux photographes
-const media = data.media; //récupération des données liées aux medias
+const media = data.media; //récupération des données liées aux medias 
 let photographers = [];
 //**********************************************affichage des photographes
 photographersData.forEach((element) => {
@@ -39,37 +39,68 @@ generateLi();
 //********************************************recherche si le tag est présent et affiche les photographes qui ont le tag */
 let tagsDesired = []; //renvoie le tableau des tableaux des tags sélectionnés et débarrasé des doublons
 document.querySelectorAll(".tag>ul>li").forEach((element) =>
-  element.addEventListener("click", (e) => {
-    console.log(element.dataset.name);
+  element.addEventListener("click", () => {
     if (tagsDesired.includes(element.dataset.name)) {
       let index = tagsDesired.indexOf(element.dataset.name);
       tagsDesired.splice(index, 1);
     } else {
       tagsDesired.push(element.dataset.name);
     }
+    // test();
     element.classList.toggle("active");
-    console.log(tagsDesired);
-    console.log(photographers);
-    console.log(test());
-    if(tagsDesired.length == 0){
-      window.location.reload()
+    if (tagsDesired.length == 0) {
+      window.location.reload();
     }
-
-
+    console.log(tagsDesired);
   })
 );
-const test = () => {
-  const photographersWithTagSelected = photographers.filter((x) =>
-    x.hasTag(tagsDesired)
-  );
-  console.log(photographersWithTagSelected);
 
-  section.innerHTML = "";
-  photographersWithTagSelected.forEach((element) => {
-    console.log(element);
-    section.innerHTML += element.render();
-  });
-};
+// let photographersWithTagSelected = [];
+// let photographersToRender = [];
+
+// const test = () => {
+
+//   tagsDesired.forEach((element) => {
+//     if (photographersWithTagSelected.includes(element)) {
+//       let indexobj = photographersWithTagSelected.indexOf(element);
+//       photographersWithTagSelected.splice(indexobj, 1);
+//       console.log(photographersWithTagSelected);
+//     } else {
+//       photographersWithTagSelected.push(
+//         photographers.filter((x) => x.hasTag(element))
+//       );
+//       console.log(photographersWithTagSelected);
+//     }
+//   });
+
+//   // photographersWithTagSelected.forEach((elmt) => {
+//   //   elmt.forEach((element) => {
+//   //     console.log(element);
+//   //     if(.includes(element)){
+//   //       let indexElmt = photographersToRender.indexOf(element);
+//   //       photographersToRender.splice(indexElmt,1)
+//   //     }else{
+//   //       photographersToRender.push(element);
+//   //     }
+//   //   });
+//   // });
+
+//   // photographersWithTagSelected.forEach((element) => {
+//   //   console.log(element);
+//   //   element.forEach((x) => {
+//   //     photographersToRender.push(x);
+//   //   });
+//   // });
+
+//   //
+//   // section.innerHTML = "";
+
+//   // let setPhotographersWithTagSelected = [...new Set(photographersWithTagSelected)];
+//   // console.log(setPhotographersWithTagSelected);
+//   // setPhotographersWithTagSelected.forEach(element => {
+//   //   section.innerHTML += element.render();
+//   // });
+// };
 
 //************************************************apparition du boutton au scroll
 
