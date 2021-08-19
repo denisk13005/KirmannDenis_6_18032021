@@ -7,7 +7,7 @@ const media = [
     tags: ['fashion'],
     likes: 62,
     date: '2011-12-08',
-    price: 55
+    price: 55,
   },
   {
     id: 8520927,
@@ -17,7 +17,7 @@ const media = [
     tags: ['fashion'],
     likes: 11,
     date: '2011-11-06',
-    price: 55
+    price: 55,
   },
   {
     id: 9025895,
@@ -27,7 +27,7 @@ const media = [
     tags: ['fashion'],
     likes: 72,
     date: '2013-08-12',
-    price: 55
+    price: 55,
   },
   {
     id: 9275938,
@@ -37,7 +37,7 @@ const media = [
     tags: ['events'],
     likes: 69,
     date: '2018-02-22',
-    price: 55
+    price: 55,
   },
   {
     id: 2053494,
@@ -47,7 +47,7 @@ const media = [
     tags: ['events'],
     likes: 2,
     date: '2020-05-25',
-    price: 55
+    price: 55,
   },
   {
     id: 7324238,
@@ -57,7 +57,7 @@ const media = [
     tags: ['events'],
     likes: 33,
     date: '2019-06-12',
-    price: 55
+    price: 55,
   },
   {
     id: 8328953,
@@ -67,7 +67,7 @@ const media = [
     tags: ['art'],
     likes: 24,
     date: '2011-12-08',
-    price: 100
+    price: 100,
   },
   {
     id: 7502053,
@@ -77,7 +77,7 @@ const media = [
     tags: ['art'],
     likes: 88,
     date: '2007-05-07',
-    price: 55
+    price: 55,
   },
   {
     id: 8523492,
@@ -87,7 +87,7 @@ const media = [
     tags: ['art'],
     likes: 24,
     date: '2018-05-05',
-    price: 55
+    price: 55,
   },
   {
     id: 75902334,
@@ -97,7 +97,7 @@ const media = [
     tags: ['art'],
     likes: 75,
     date: '2019-11-25',
-    price: 55
+    price: 55,
   },
 
   {
@@ -108,7 +108,7 @@ const media = [
     tags: ['sport'],
     likes: 52,
     date: '2013-02-30',
-    price: 70
+    price: 70,
   },
   {
     id: 92758372,
@@ -118,7 +118,7 @@ const media = [
     tags: ['fashion'],
     likes: 58,
     date: '2018-07-17',
-    price: 70
+    price: 70,
   },
   {
     id: 32958383,
@@ -128,7 +128,7 @@ const media = [
     tags: ['fashion'],
     likes: 11,
     date: '2019-08-12',
-    price: 70
+    price: 70,
   },
   {
     id: 928587383,
@@ -138,7 +138,7 @@ const media = [
     tags: ['events'],
     likes: 2,
     date: '2019-01-02',
-    price: 70
+    price: 70,
   },
   {
     id: 725639493,
@@ -148,7 +148,7 @@ const media = [
     tags: ['events'],
     likes: 3,
     date: '2019-05-20',
-    price: 70
+    price: 70,
   },
   {
     id: 23394384,
@@ -158,7 +158,7 @@ const media = [
     tags: ['events'],
     likes: 52,
     date: '2019-07-18',
-    price: 70
+    price: 70,
   },
   {
     id: 87367293,
@@ -168,7 +168,7 @@ const media = [
     tags: ['events'],
     likes: 23,
     date: '2018-02-22',
-    price: 70
+    price: 70,
   },
   {
     id: 593834784,
@@ -178,7 +178,7 @@ const media = [
     tags: ['animals'],
     likes: 52,
     date: '2017-03-13',
-    price: 70
+    price: 70,
   },
   {
     id: 83958935,
@@ -188,7 +188,7 @@ const media = [
     tags: ['animals'],
     likes: 52,
     date: '2016-06-12',
-    price: 70
+    price: 70,
   },
 
   {
@@ -199,7 +199,7 @@ const media = [
     tags: ['travel'],
     likes: 23,
     date: '2017-03-18',
-    price: 45
+    price: 45,
   },
   {
     id: 343423425,
@@ -209,7 +209,7 @@ const media = [
     tags: ['travel'],
     likes: 101,
     date: '2017-04-03',
-    price: 45
+    price: 45,
   },
   {
     id: 73434243,
@@ -219,7 +219,7 @@ const media = [
     tags: ['travel'],
     likes: 99,
     date: '2018-04-30',
-    price: 45
+    price: 45,
   },
   {
     id: 23425523,
@@ -229,7 +229,7 @@ const media = [
     tags: ['travel'],
     likes: 34,
     date: '2016-04-05',
-    price: 45
+    price: 45,
   },
   {
     id: 23134513,
@@ -239,7 +239,7 @@ const media = [
     tags: ['travel'],
     likes: 23,
     date: '2017-03-18',
-    price: 45
+    price: 45,
   },
   {
     id: 92352352,
@@ -249,7 +249,7 @@ const media = [
     tags: ['portrait'],
     likes: 66,
     date: '2018-05-24',
-    price: 45
+    price: 45,
   },
   {
     id: 34513453,
@@ -259,7 +259,7 @@ const media = [
     tags: ['portait'],
     likes: 52,
     date: '2017-04-21',
-    price: 45
+    price: 45,
   },
   {
     id: 23523533,
@@ -269,7 +269,7 @@ const media = [
     tags: ['portait'],
     likes: 95,
     date: '2018-11-02',
-    price: 45
+    price: 45,
   },
   {
     id: 525834234,
@@ -279,7 +279,7 @@ const media = [
     tags: ['portait'],
     likes: 25,
     date: '2019-01-02',
-    price: 45
+    price: 45,
   },
 
   {
@@ -290,7 +290,7 @@ const media = [
     tags: ['travel'],
     likes: 88,
     date: '2019-02-03',
-    price: 45
+    price: 45,
   },
   {
     id: 625025343,
@@ -300,7 +300,7 @@ const media = [
     tags: ['travel'],
     likes: 85,
     date: '2019-04-03',
-    price: 45
+    price: 45,
   },
   {
     id: 2525345343,
@@ -310,7 +310,7 @@ const media = [
     tags: ['portait'],
     likes: 34,
     date: '2019-04-07',
-    price: 45
+    price: 45,
   },
   {
     id: 2523434634,
@@ -320,7 +320,7 @@ const media = [
     tags: ['portait'],
     likes: 63,
     date: '2019-04-07',
-    price: 45
+    price: 45,
   },
   {
     id: 398847109,
@@ -330,7 +330,7 @@ const media = [
     tags: ['portait'],
     likes: 55,
     date: '2019-06-20',
-    price: 45
+    price: 45,
   },
   {
     id: 2534342,
@@ -340,7 +340,7 @@ const media = [
     tags: ['events'],
     likes: 25,
     date: '2019-06-21',
-    price: 45
+    price: 45,
   },
   {
     id: 65235234,
@@ -350,7 +350,7 @@ const media = [
     tags: ['events'],
     likes: 52,
     date: '2019-06-25',
-    price: 45
+    price: 45,
   },
   {
     id: 23523434,
@@ -360,7 +360,7 @@ const media = [
     tags: ['events'],
     likes: 77,
     date: '2019-06-28',
-    price: 45
+    price: 45,
   },
   {
     id: 5234343,
@@ -370,7 +370,7 @@ const media = [
     tags: ['animals'],
     likes: 142,
     date: '2019-08-23',
-    price: 60
+    price: 60,
   },
   {
     id: 95234343,
@@ -380,7 +380,7 @@ const media = [
     tags: ['animals'],
     likes: 59,
     date: '2019-07-02',
-    price: 60
+    price: 60,
   },
 
   {
@@ -391,7 +391,7 @@ const media = [
     tags: ['travel'],
     likes: 25,
     date: '2019-04-03',
-    price: 60
+    price: 60,
   },
   {
     id: 2523434,
@@ -401,7 +401,7 @@ const media = [
     tags: ['travel'],
     likes: 53,
     date: '2019-05-06',
-    price: 60
+    price: 60,
   },
   {
     id: 95293534,
@@ -411,7 +411,7 @@ const media = [
     tags: ['travel'],
     likes: 33,
     date: '2019-05-12',
-    price: 60
+    price: 60,
   },
   {
     id: 356234343,
@@ -421,7 +421,7 @@ const media = [
     tags: ['travel'],
     likes: 53,
     date: '2019-06-20',
-    price: 60
+    price: 60,
   },
   {
     id: 235234343,
@@ -431,7 +431,7 @@ const media = [
     tags: ['travel'],
     likes: 63,
     date: '2019-06-26',
-    price: 60
+    price: 60,
   },
   {
     id: 6234234343,
@@ -441,7 +441,7 @@ const media = [
     tags: ['architecture'],
     likes: 52,
     date: '2019-06-30',
-    price: 60
+    price: 60,
   },
   {
     id: 6525666253,
@@ -451,7 +451,7 @@ const media = [
     tags: ['architecture'],
     likes: 63,
     date: '2019-07-20',
-    price: 60
+    price: 60,
   },
   {
     id: 98252523433,
@@ -461,7 +461,7 @@ const media = [
     tags: ['architecture'],
     likes: 88,
     date: '2020-01-05',
-    price: 60
+    price: 60,
   },
   {
     id: 9259398453,
@@ -472,7 +472,7 @@ const media = [
     tags: ['architecture'],
     likes: 57,
     date: '2020-01-20',
-    price: 65
+    price: 65,
   },
   {
     id: 3523523534,
@@ -482,7 +482,7 @@ const media = [
     tags: ['architecture'],
     likes: 54,
     date: '2020-05-05',
-    price: 60
+    price: 60,
   },
 
   {
@@ -493,7 +493,7 @@ const media = [
     tags: ['sport'],
     likes: 150,
     date: '2018-02-30',
-    price: 70
+    price: 70,
   },
   {
     id: 235234343,
@@ -503,7 +503,7 @@ const media = [
     tags: ['sport'],
     likes: 101,
     date: '2018-03-05',
-    price: 65
+    price: 65,
   },
   {
     id: 235343222,
@@ -513,7 +513,7 @@ const media = [
     tags: ['sport'],
     likes: 103,
     date: '2018-03-10',
-    price: 70
+    price: 70,
   },
   {
     id: 7775342343,
@@ -523,7 +523,7 @@ const media = [
     tags: ['sport'],
     likes: 77,
     date: '2018-04-16',
-    price: 50
+    price: 50,
   },
   {
     id: 9253445784,
@@ -533,7 +533,7 @@ const media = [
     tags: ['sport'],
     likes: 88,
     date: '2018-04-22',
-    price: 65
+    price: 65,
   },
   {
     id: 22299394,
@@ -543,7 +543,7 @@ const media = [
     tags: ['sport'],
     likes: 95,
     date: '2018-04-27',
-    price: 70
+    price: 70,
   },
   {
     id: 3452342633,
@@ -553,7 +553,7 @@ const media = [
     tags: ['architecture'],
     likes: 52,
     date: '2018-05-03',
-    price: 75
+    price: 75,
   },
   {
     id: 939234243,
@@ -563,7 +563,7 @@ const media = [
     tags: ['architecture'],
     likes: 55,
     date: '2018-05-10',
-    price: 72
+    price: 72,
   },
   {
     id: 222959233,
@@ -573,7 +573,7 @@ const media = [
     tags: ['architecture'],
     likes: 85,
     date: '2018-05-15',
-    price: 71
+    price: 71,
   },
   {
     id: 965933434,
@@ -583,7 +583,7 @@ const media = [
     tags: ['architecture'],
     likes: 66,
     date: '2018-05-20',
-    price: 58
+    price: 58,
   },
   {
     id: 777723343,
@@ -593,8 +593,8 @@ const media = [
     tags: ['architecture'],
     likes: 79,
     date: '2018-05-21',
-    price: 80
-  }
+    price: 80,
+  },
 ]
 // toggle de la classe rotate au click sur la flèche
 const arrow = document.querySelector('.arrow')
@@ -634,5 +634,5 @@ const likeCountResume = `
 </div>
 
 `
-const main = document.querySelector('.main')
-main.innerHTML += likeCountResume
+// const main = document.querySelector('.main')
+section.innerHTML += likeCountResume

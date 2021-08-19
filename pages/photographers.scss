@@ -1,12 +1,12 @@
-@import "../sass/base/reset";
-@import "../sass/utils/variables";
-@import "../sass/utils/keyframes";
+@import '../sass/base/reset';
+@import '../sass/utils/variables';
+@import '../sass/utils/keyframes';
 @font-face {
-  font-family: "dm_sans";
+  font-family: 'dm_sans';
   src: url(../font/DM_Sans/DMSans-Medium.ttf);
 }
 @font-face {
-  font-family: "dm_sans_regular";
+  font-family: 'dm_sans_regular';
   src: url(../font/DM_Sans/DMSans-Regular.ttf);
 }
 
@@ -54,6 +54,7 @@ header {
     margin: 0;
     background-color: white;
     align-items: flex-start;
+    height: auto;
   }
   .infoAndButton {
     display: flex;
@@ -184,6 +185,9 @@ header {
   align-items: center;
   margin-top: 9px;
   margin-left: 97px;
+  @media (max-width: 960px) {
+    display: none;
+  }
   p {
     font-size: 18px;
     margin-right: 25px;
@@ -247,20 +251,37 @@ header {
   margin-top: 58px;
   padding-left: 100px;
   padding-right: 100px;
+  @media (max-width: 920px) {
+    padding: 0;
+    margin-top: 52px;
+  }
 
   .thumbnail {
     width: 350px;
     height: 351px;
+    @media (max-width: 920px) {
+      width: 90%;
+      height: auto;
+      margin: 0px auto 10px;
+    }
     .img__thumbnail {
       width: 350px;
       height: 300px;
       overflow: hidden;
       border-radius: 5px;
+      @media (max-width: 920px) {
+        width: 100%;
+        height: 190px;
+      }
       img {
         object-fit: cover;
         object-position: top;
         width: 100%;
         height: 100%;
+        @media (max-width: 920px) {
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
   }
@@ -291,10 +312,13 @@ header {
   position: fixed;
   align-items: center;
   bottom: 0;
-  right: 280px;
+  right: 2.5%;
   background-color: $color-primary-light;
   border-radius: 5px 5px 0px 0px;
   font-size: 20px;
+  @media (max-width: 960px) {
+    display: none;
+  }
   & > p {
     margin-right: 34px;
   }

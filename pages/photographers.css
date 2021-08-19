@@ -132,12 +132,12 @@ table {
 }
 
 @font-face {
-  font-family: "dm_sans";
+  font-family: 'dm_sans';
   src: url(../font/DM_Sans/DMSans-Medium.ttf);
 }
 
 @font-face {
-  font-family: "dm_sans_regular";
+  font-family: 'dm_sans_regular';
   src: url(../font/DM_Sans/DMSans-Regular.ttf);
 }
 
@@ -202,6 +202,7 @@ header a svg {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    height: auto;
   }
 }
 
@@ -375,6 +376,12 @@ header a svg {
   margin-left: 97px;
 }
 
+@media (max-width: 960px) {
+  .tri {
+    display: none;
+  }
+}
+
 .tri p {
   font-size: 18px;
   margin-right: 25px;
@@ -466,9 +473,24 @@ header a svg {
   padding-right: 100px;
 }
 
+@media (max-width: 920px) {
+  .container__thumbnail {
+    padding: 0;
+    margin-top: 52px;
+  }
+}
+
 .container__thumbnail .thumbnail {
   width: 350px;
   height: 351px;
+}
+
+@media (max-width: 920px) {
+  .container__thumbnail .thumbnail {
+    width: 90%;
+    height: auto;
+    margin: 0px auto 10px;
+  }
 }
 
 .container__thumbnail .thumbnail .img__thumbnail {
@@ -478,6 +500,13 @@ header a svg {
   border-radius: 5px;
 }
 
+@media (max-width: 920px) {
+  .container__thumbnail .thumbnail .img__thumbnail {
+    width: 100%;
+    height: 190px;
+  }
+}
+
 .container__thumbnail .thumbnail .img__thumbnail img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -485,6 +514,15 @@ header a svg {
      object-position: top;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 920px) {
+  .container__thumbnail .thumbnail .img__thumbnail img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
 }
 
 .container__thumbnail .thumbnail__description {
@@ -530,10 +568,16 @@ header a svg {
       -ms-flex-align: center;
           align-items: center;
   bottom: 0;
-  right: 280px;
+  right: 2.5%;
   background-color: #d3573c;
   border-radius: 5px 5px 0px 0px;
   font-size: 20px;
+}
+
+@media (max-width: 960px) {
+  .likeCountResume {
+    display: none;
+  }
 }
 
 .likeCountResume > p {

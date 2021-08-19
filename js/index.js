@@ -5,7 +5,7 @@ const section = document.querySelector(".photographers__cards");
 const ul = document.querySelector(".tag>ul");
 const data = await getDataPhotographers("index.json"); //récupération des données json
 const photographersData = data.photographers; //récupération des données liées aux photographes
-const media = data.media; //récupération des données liées aux medias 
+const media = data.media; //récupération des données liées aux medias
 let photographers = [];
 //**********************************************affichage des photographes
 photographersData.forEach((element) => {
