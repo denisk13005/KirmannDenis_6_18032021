@@ -14,25 +14,22 @@ photographersData.forEach((element) => {
 photographers.forEach((element) => {
   section.innerHTML += element.render();
 });
-
+console.log(photographers);
 //*********************************************fonction de génération dynamique des li
 
 function generateLi() {
   let tagArray = [];
-  let tagConcat = [];
-  photographersData.forEach((tag) => {
-    tagArray.push(tag.tags);
+  photographers.forEach((photographer) => {
+    photographer.tags.forEach(tag => {
+      tagArray.push(tag)
+    })
   });
-  tagArray.forEach((element) => {
-    //rassemble tous les tags dans un tableau unique
-    element.forEach((tag) => {
-      tagConcat.push(tag);
-    });
-  });
-  const setTab = new Set(tagConcat); // supprime les doublons du tableau unique
+  //
+  const setTab = new Set(tagArray); // supprime les doublons du tableau unique
   setTab.forEach(
     (element) => (ul.innerHTML += `<li data-name='${element}'>#${element}</li>`)
   ); // crée les li corespondantes au tag
+  console.log(tagArray);
 }
 generateLi();
 
