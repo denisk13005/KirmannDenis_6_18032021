@@ -15,7 +15,7 @@ class Photographer {
   render() {
     const div = `       
         <div class="photographers__thumbnail">
-         <a href="./pages/photographers.html">
+         <a href="#">
            <div>
              <img src="./img/Sample Photos/${this.name}/${
       this.portrait

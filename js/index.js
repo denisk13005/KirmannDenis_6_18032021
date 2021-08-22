@@ -87,7 +87,23 @@ window.addEventListener('scroll', (e) => {
   }
 })
 
-// let arrow = document.querySelector(".arrow");
-// arrow.addEventListener("click",()=>{
-//   arrow.classList.toggle("rotate")
+//**********************************************************pages photographes
+
+const photographersThumbnail = document.querySelectorAll(
+  '.photographers__thumbnail'
+)
+console.log(photographersThumbnail)
+photographersThumbnail.forEach((thumbnail) => {
+  thumbnail.addEventListener('click', () => {
+    let name = thumbnail.childNodes[1].textContent.trim()
+    photographers.forEach(photographer => {
+      if(photographer.name == name){
+        console.log(photographer.id);
+      }
+    })
+  })
+})
+
+// photographers.forEach(photographer => {
+//   console.log(photographer);
 // })
