@@ -26,7 +26,7 @@ class Photographer {
          <div class="photographers__description">
            <h3>${this.city}, ${this.country}</h3>
            <h4>${this.tagline}</h4>
-           <p>${this.price}/jour</p>
+           <p>${this.price}€/jour</p>
          </div>
          <ul>
             ${this.tags.map((tag) => `<li>#${tag}`).join('')}
