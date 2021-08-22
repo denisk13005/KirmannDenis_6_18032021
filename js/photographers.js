@@ -1,11 +1,18 @@
+
 import { getDataPhotographers } from './utils.js'
+
 
 const data = await getDataPhotographers('../index.json')
 let media = []
+let photographers = []
 data.media.forEach((element) => {
   media.push(element)
 })
-console.log(data)
+data.photographers.forEach((element) => {
+  photographers.push(element)
+})
+console.log(photographers);
+console.log(media);
 // toggle de la classe rotate au click sur la flèche
 const arrow = document.querySelector('.arrow')
 arrow.addEventListener('click', () => {
@@ -46,3 +53,6 @@ const likeCountResume = `
 `
 // const main = document.querySelector('.main')
 section.innerHTML += likeCountResume
+// console.log(idClicked);
+// import { idClicked } from './index.js'
+// console.log(idClicked);

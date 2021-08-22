@@ -7,6 +7,7 @@ const data = await getDataPhotographers('index.json') //récupération des donn�
 const photographersData = data.photographers //récupération des données liées aux photographes
 const media = data.media //récupération des données liées aux medias
 let photographers = []
+export{photographers}
 //**********************************************affichage des photographes
 photographersData.forEach((element) => {
   photographers.push(new Photographer(element))
@@ -92,6 +93,7 @@ window.addEventListener('scroll', (e) => {
 const photographersThumbnail = document.querySelectorAll(
   '.photographers__thumbnail'
 )
+let idClicked;
 console.log(photographersThumbnail)
 photographersThumbnail.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
@@ -99,11 +101,13 @@ photographersThumbnail.forEach((thumbnail) => {
     photographers.forEach(photographer => {
       if(photographer.name == name){
         console.log(photographer.id);
+        idClicked = photographer.id
       }
     })
   })
 })
-
+console.log(idClicked);
+export {idClicked}
 // photographers.forEach(photographer => {
 //   console.log(photographer);
 // })

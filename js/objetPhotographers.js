@@ -35,30 +35,6 @@ class Photographer {
           `
     return div
   }
-
-  // hasTag(tag) {
-  //   return this.tags.includes(tag) //on va essayer autrement
-  // }
 }
 export { Photographer }
-// const photo = [
-//   {
-//     name: 'dk',
-//     tags: ['portrait', 'sport'],
-//   },
-//   {
-//     name: 'jb',
-//     tags: ['loisirs', 'sport'],
-//   },
-// ]
-// const photographer = []
-// photo.forEach((element) => {
-//   if (element.tags.includes('loisirs')) {
-//     console.log(element.name)
-//   }
-//   console.log(element.tags.includes('loisirs'))
-//   photographer.push(new Photographer(element))
-// })
-// const test = new Photographer(photo)
-// console.log(photo)
-// console.log(photographer)
+//
