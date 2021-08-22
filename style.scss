@@ -1,11 +1,11 @@
-@import "sass/base/reset";
-@import "sass/utils/variables";
+@import 'sass/base/reset';
+@import 'sass/utils/variables';
 @font-face {
-  font-family: "dm_sans";
+  font-family: 'dm_sans';
   src: url(/font/DM_Sans/DMSans-Medium.ttf);
 }
 @font-face {
-  font-family: "dm_sans_regular";
+  font-family: 'dm_sans_regular';
   src: url(./font/DM_Sans/DMSans-Regular.ttf);
 }
 
@@ -100,6 +100,26 @@ header {
         margin-right: 4px;
         margin-bottom: 4px;
         cursor: pointer;
+        transition: transform 0.1s linear;
+      }
+      .active {
+        background-color: $color-primary-light;
+        color: white;
+        box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+        transform: translate(0px, 3px);
+        transition: transform 0.1s linear;
+      }
+      .desactive {
+        font-size: 12px;
+        list-style-type: none;
+        color: $color-primary;
+        border: 1px solid $color-border;
+        border-radius: 20px;
+        padding: 2px 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        transition: transform 0.1s linear;
       }
     }
   }
