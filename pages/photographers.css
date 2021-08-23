@@ -301,7 +301,7 @@ header a svg {
 
 .photographer__description button {
   height: 69px;
-  width: 170px;
+  min-width: 170px;
   border-radius: 5px;
   background: #901c1c;
   color: white;
