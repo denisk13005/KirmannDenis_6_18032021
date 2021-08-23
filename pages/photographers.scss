@@ -58,9 +58,9 @@ header {
   }
   .infoAndButton {
     display: flex;
-    align-items: center;
     position: relative;
     width: 70%;
+    justify-content: space-between;
   }
   .photographer__informations {
     margin-left: 50px;
@@ -138,9 +138,6 @@ header {
     text-align: center;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 450px;
     @media (max-width: 960px) {
       width: 170px;
       height: 35px;

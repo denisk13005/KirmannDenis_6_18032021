@@ -210,11 +210,11 @@ header a svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: relative;
   width: 70%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .photographer__description .photographer__informations {
@@ -313,9 +313,6 @@ header a svg {
   text-align: center;
   border: none;
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 450px;
 }
 
 @media (max-width: 960px) {

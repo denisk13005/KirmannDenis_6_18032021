@@ -1,5 +1,6 @@
 import { getDataPhotographers } from './utils.js'
 import { Photographer } from './objetPhotographers.js'
+export { idClicked }
 
 let section = document.querySelector('.photographers__cards')
 const ul = document.querySelector('.tag>ul')
@@ -7,7 +8,7 @@ const data = await getDataPhotographers('index.json') //récupération des donn�
 const photographersData = data.photographers //récupération des données liées aux photographes
 const media = data.media //récupération des données liées aux medias
 let photographers = []
-export{photographers}
+export { photographers }
 //**********************************************affichage des photographes
 photographersData.forEach((element) => {
   photographers.push(new Photographer(element))
@@ -93,21 +94,23 @@ window.addEventListener('scroll', (e) => {
 const photographersThumbnail = document.querySelectorAll(
   '.photographers__thumbnail'
 )
-let idClicked;
+
+let idClicked
+let photographerToExport
 console.log(photographersThumbnail)
 photographersThumbnail.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
     let name = thumbnail.childNodes[1].textContent.trim()
-    photographers.forEach(photographer => {
-      if(photographer.name == name){
-        console.log(photographer.id);
-        idClicked = photographer.id
+    photographers.forEach((photographer) => {
+      if (photographer.name == name) {
+        photographerToExport = photographer
+        console.log(photographerToExport)
+
       }
     })
   })
 })
-console.log(idClicked);
-export {idClicked}
-// photographers.forEach(photographer => {
-//   console.log(photographer);
-// })
+export{photographerToExport}
+
+console.log(idClicked)
+
