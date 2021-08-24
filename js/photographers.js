@@ -53,4 +53,10 @@ const photo0 = createAPhotographer(photographers[1])
 photo0.generateInfo()
 console.log(photo0);
 
+const sectionThumbnail = document.querySelector('.container__thumbnail')
+function generateGallery({}){
 
+}
+
+
+console.log(media);

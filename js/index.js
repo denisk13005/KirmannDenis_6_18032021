@@ -97,7 +97,6 @@ const photographersThumbnail = document.querySelectorAll(
 
 let idClicked
 let photographerToExport
-console.log(photographersThumbnail)
 photographersThumbnail.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
     let name = thumbnail.childNodes[1].textContent.trim()
