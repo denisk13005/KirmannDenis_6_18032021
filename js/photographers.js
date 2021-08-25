@@ -1,6 +1,6 @@
 import { getDataPhotographers } from './utils.js'
-// import { photographerToExport } from './index.js'
-
+// import { photographers } from './index.js'
+// console.log(photographers);
 const data = await getDataPhotographers('../index.json')
 let media = []
 let photographers = []
@@ -12,7 +12,7 @@ data.photographers.forEach((element) => {
 })
 console.log(photographers[0])
 console.log(media)
-//****************************************************génération dynamique de la partie description du photographe */
+//* ***************************************************génération dynamique de la partie description du photographe */
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -53,10 +53,10 @@ const photo0 = createAPhotographer(photographers[1])
 photo0.generateInfo()
 console.log(photo0);
 
-const sectionThumbnail = document.querySelector('.container__thumbnail')
-function generateGallery({}){
+// const sectionThumbnail = document.querySelector('.container__thumbnail')
+// function generateGallery({}){
 
-}
+// }
 
 
-console.log(media);
+// console.log(media);
