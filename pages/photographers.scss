@@ -58,9 +58,9 @@ header {
   }
   .infoAndButton {
     display: flex;
-    align-items: center;
     position: relative;
     width: 70%;
+    justify-content: space-between;
   }
   .photographer__informations {
     margin-left: 50px;
@@ -126,7 +126,7 @@ header {
   }
   button {
     height: 69px;
-    width: 170px;
+    min-width: 170px;
     border-radius: 5px;
     background: #901c1c;
     color: white;
@@ -138,16 +138,13 @@ header {
     text-align: center;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 450px;
     @media (max-width: 960px) {
       width: 170px;
       height: 35px;
       font-size: 18px;
       font-weight: 500;
       position: fixed;
-      top: 752px;
+      top: 91%;
       left: 50%;
       transform: translate(-50%);
     }

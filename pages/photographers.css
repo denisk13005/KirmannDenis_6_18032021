@@ -210,11 +210,11 @@ header a svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: relative;
   width: 70%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .photographer__description .photographer__informations {
@@ -301,7 +301,7 @@ header a svg {
 
 .photographer__description button {
   height: 69px;
-  width: 170px;
+  min-width: 170px;
   border-radius: 5px;
   background: #901c1c;
   color: white;
@@ -313,9 +313,6 @@ header a svg {
   text-align: center;
   border: none;
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 450px;
 }
 
 @media (max-width: 960px) {
@@ -325,7 +322,7 @@ header a svg {
     font-size: 18px;
     font-weight: 500;
     position: fixed;
-    top: 752px;
+    top: 91%;
     left: 50%;
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
