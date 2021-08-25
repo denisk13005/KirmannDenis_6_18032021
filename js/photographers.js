@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-// import { photographers } from './index.js'
+
 // console.log(photographers);
 const data = await getDataPhotographers('../index.json')
 let media = []
@@ -12,20 +12,30 @@ data.photographers.forEach((element) => {
 })
 console.log(photographers[0])
 console.log(media)
+
+
 //* ***************************************************génération dynamique de la partie description du photographe */
 
 const sectionInfo = document.querySelector('.photographer__description')
 
-function createAPhotographer({name,id,city,country,tagline,tags,portrait}){
+function createAPhotographer({
+  name,
+  id,
+  city,
+  country,
+  tagline,
+  tags,
+  portrait,
+}) {
   return {
-      name ,
-      id,
-      city, 
-      country,
-      tagline,
-      tags,  
-      portrait,  
-      generateInfo
+    name,
+    id,
+    city,
+    country,
+    tagline,
+    tags,
+    portrait,
+    generateInfo,
   }
   function generateInfo() {
     sectionInfo.innerHTML = `
@@ -46,17 +56,23 @@ function createAPhotographer({name,id,city,country,tagline,tags,portrait}){
       <img src="../img/Sample Photos/${name}/${portrait}" alt="" />
     </div> 
   
-    `    
-  } 
+    `
+  }
 }
-const photo0 = createAPhotographer(photographers[1])
-photo0.generateInfo()
-console.log(photo0);
+let position = window.location.href.indexOf('?')
+let idphoto = window.location.href.substr(position + 1)
+photographers.forEach((element) => {
+  if (element.id == idphoto) {
+    console.log(element)
+    const photo0 = createAPhotographer(element)
+    photo0.generateInfo()
+
+  }
+})
 
 // const sectionThumbnail = document.querySelector('.container__thumbnail')
 // function generateGallery({}){
 
 // }
-
 
 // console.log(media);
