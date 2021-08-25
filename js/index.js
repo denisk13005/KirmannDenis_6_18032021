@@ -4,8 +4,10 @@ const photographers = []
 const section = document.querySelector('.photographers__cards')
 const ul = document.querySelector('.tag>ul')
 async function init() {
+
   const data = await getDataPhotographers('index.json')
-  const photographersData = data.photographers // récupération des données liées aux photographes  
+  const photographersData = data.photographers // récupération des données liées aux photographes
+
   photographersData.forEach((element) => {
     photographers.push(new Photographer(element))
   })
@@ -49,7 +51,6 @@ async function init() {
           }
         })
         const setphotographersFilters = new Set(photographersFilters) // on supprime les doublons du tableau
-        console.log(setphotographersFilters)
         setphotographersFilters.forEach((photographer) => {
           // pour chaque photographe du tableau des photographes filtrés
 
@@ -71,35 +72,34 @@ async function init() {
       }
     })
   })
-  //
-
- 
-
   const photographersThumbnail = document.querySelectorAll(
     '.photographers__thumbnail'
   )
-
+  console.log(photographersThumbnail);
   let photographerToExport
   photographersThumbnail.forEach((thumbnail) => {
-    thumbnail.addEventListener('click', () => {
-      const name = thumbnail.childNodes[1].textContent.trim()
-      photographers.forEach((photographer) => {
-        if (photographer.name === name) {
-          photographerToExport = photographer
-          console.log(photographerToExport)
-        }
-      })
+  thumbnail.addEventListener('click', () => {
+    const name = thumbnail.childNodes[1].textContent.trim()
+    photographers.forEach((photographer) => {
+      if (photographer.name === name) {
+        photographerToExport = photographer
+        console.log(photographerToExport)
+      }
     })
   })
+})
+  
 }
 init()
-  //* ***********************************************apparition du boutton au scroll
+//* ***********************************************apparition du boutton au scroll
 
-  const btnScroll = document.querySelector('.mainRedirection')
-  window.addEventListener('scroll', (e) => {
-    if (window.scrollY >= 220) {
-      btnScroll.classList.add('mainRedirectionVisible')
-    } else {
-      btnScroll.classList.remove('mainRedirectionVisible')
-    }
-  })
+const btnScroll = document.querySelector('.mainRedirection')
+window.addEventListener('scroll', (e) => {
+  if (window.scrollY >= 220) {
+    btnScroll.classList.add('mainRedirectionVisible')
+  } else {
+    btnScroll.classList.remove('mainRedirectionVisible')
+  }
+})
+
+
