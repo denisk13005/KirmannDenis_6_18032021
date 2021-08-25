@@ -72,18 +72,8 @@ async function init() {
     })
   })
   //
-  //* ***********************************************apparition du boutton au scroll
 
-  const btnScroll = document.querySelector('.mainRedirection')
-  window.addEventListener('scroll', (e) => {
-    if (window.scrollY >= 220) {
-      btnScroll.classList.add('mainRedirectionVisible')
-    } else {
-      btnScroll.classList.remove('mainRedirectionVisible')
-    }
-  })
-
-  //* *********************************************************pages photographes
+ 
 
   const photographersThumbnail = document.querySelectorAll(
     '.photographers__thumbnail'
@@ -103,4 +93,13 @@ async function init() {
   })
 }
 init()
-export{photographers}
+  //* ***********************************************apparition du boutton au scroll
+
+  const btnScroll = document.querySelector('.mainRedirection')
+  window.addEventListener('scroll', (e) => {
+    if (window.scrollY >= 220) {
+      btnScroll.classList.add('mainRedirectionVisible')
+    } else {
+      btnScroll.classList.remove('mainRedirectionVisible')
+    }
+  })
