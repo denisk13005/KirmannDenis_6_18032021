@@ -72,24 +72,10 @@ async function init() {
       }
     })
   })
-  const photographersThumbnail = document.querySelectorAll(
-    '.photographers__thumbnail'
-  )
-  console.log(photographersThumbnail);
-  let photographerToExport
-  photographersThumbnail.forEach((thumbnail) => {
-  thumbnail.addEventListener('click', () => {
-    const name = thumbnail.childNodes[1].textContent.trim()
-    photographers.forEach((photographer) => {
-      if (photographer.name === name) {
-        photographerToExport = photographer
-        console.log(photographerToExport)
-      }
-    })
-  })
-})
   
 }
+  
+
 init()
 //* ***********************************************apparition du boutton au scroll
 
