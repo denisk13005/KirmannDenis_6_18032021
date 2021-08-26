@@ -1,11 +1,11 @@
 import { getDataPhotographers } from './utils.js'
 import { Photographer } from './objetPhotographers.js'
-const photographers = []
-const section = document.querySelector('.photographers__cards')
-const ul = document.querySelector('.tag>ul')
-async function init() {
 
+async function init() {
   const data = await getDataPhotographers('index.json')
+  const photographers = []
+  const section = document.querySelector('.photographers__cards')
+  const ul = document.querySelector('.tag>ul')
   const photographersData = data.photographers // récupération des données liées aux photographes
 
   photographersData.forEach((element) => {
@@ -30,11 +30,14 @@ async function init() {
   }
   generateLi()
 
+  //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
 
+
   document.querySelectorAll('.tag>ul>li').forEach((element) => {
-    element.addEventListener('click', () => {
+    element.addEventListener('click', (e) => {
+      
       section.innerHTML = ''
       photographersFilters = []
 
@@ -45,9 +48,11 @@ async function init() {
         photographers.forEach((photographer) => {
           // pour chaque photographe
 
-          if (photographer.tags.includes(element.dataset.name)) {
-            // on vérifie si la valeur de l'élément sélectionné est compris dans ses tags
+          if (photographer.tags.includes(element.dataset.name)) {// on vérifie si la valeur de l'élément sélectionné est compris dans ses tags
             photographersFilters.push(photographer) // si oui on le push dans le tableau des photographes filtrés
+            photographersFilters.forEach(element => {
+              
+            });
           }
         })
         const setphotographersFilters = new Set(photographersFilters) // on supprime les doublons du tableau
@@ -55,6 +60,9 @@ async function init() {
           // pour chaque photographe du tableau des photographes filtrés
 
           section.innerHTML += photographer.render()
+         
+            
+            
         }) // on rend à l'écran les vignettes des photographes voulus
       } else {
         tagsDesired.splice(tagsDesired.indexOf(element), 1) // si l'élément li est inclu dans le tableau on le supprime
@@ -70,11 +78,22 @@ async function init() {
           (photographer) => (section.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
         )
       }
+      //* *******************************************essai de classe sur les li des vignettes sélectionnées */
+      
+    //  const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')  
+    //  console.log(liThumbnail); 
+    //  const  liThumbnailActive = []
+    //  liThumbnail.forEach(li => {
+    //     if(li.dataset.name === e.currentTarget.dataset.name)
+    //     liThumbnailActive.push(li)
+    //  })
+    //  console.log(liThumbnailActive);
+
+     
+      
     })
   })
-  
 }
-  
 
 init()
 //* ***********************************************apparition du boutton au scroll
@@ -87,5 +106,3 @@ window.addEventListener('scroll', (e) => {
     btnScroll.classList.remove('mainRedirectionVisible')
   }
 })
-
-

@@ -60,6 +60,7 @@ header {
     display: flex;
     position: relative;
     width: auto;
+    border: $borderBlack;
   }
   .photographer__informations {
     margin-left: 50px;
@@ -129,7 +130,6 @@ header {
     margin-left: 30px;
     border-radius: 5px;
     background: #901c1c;
-
     color: white;
     font-size: 20px;
     font-style: normal;
@@ -139,7 +139,7 @@ header {
     text-align: center;
     border: none;
     cursor: pointer;
-    @media (max-width: 960px) {
+    @media (max-width: 1038px) {
       width: 170px;
       height: 35px;
       font-size: 18px;

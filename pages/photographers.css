@@ -212,6 +212,7 @@ header a svg {
   display: flex;
   position: relative;
   width: auto;
+  border: 1px solid black;
 }
 
 .photographer__description .photographer__informations {
@@ -313,7 +314,7 @@ header a svg {
   cursor: pointer;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1038px) {
   .photographer__description button {
     width: 170px;
     height: 35px;

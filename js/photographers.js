@@ -25,7 +25,7 @@ function createAPhotographer({
   country,
   tagline,
   tags,
-  portrait,
+  portrait
 }) {
   return {
     name,
@@ -35,7 +35,7 @@ function createAPhotographer({
     tagline,
     tags,
     portrait,
-    generateInfo,
+    generateInfo
   }
   function generateInfo() {
     sectionInfo.innerHTML = `

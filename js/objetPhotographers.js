@@ -27,7 +27,7 @@ class Photographer {
            <p>${this.price}€/jour</p>
          </div>
          <ul>
-            ${this.tags.map((tag) => `<li>#${tag}`).join('')}
+            ${this.tags.map((tag) => `<li data-name = ${tag}>#${tag}`).join('')}
          </ul>
         </div>
           `
