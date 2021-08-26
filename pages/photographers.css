@@ -211,10 +211,7 @@ header a svg {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  width: 70%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: auto;
 }
 
 .photographer__description .photographer__informations {
@@ -302,6 +299,7 @@ header a svg {
 .photographer__description button {
   height: 69px;
   min-width: 170px;
+  margin-left: 30px;
   border-radius: 5px;
   background: #901c1c;
   color: white;

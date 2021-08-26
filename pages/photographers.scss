@@ -59,8 +59,7 @@ header {
   .infoAndButton {
     display: flex;
     position: relative;
-    width: 70%;
-    justify-content: space-between;
+    width: auto;
   }
   .photographer__informations {
     margin-left: 50px;
@@ -127,8 +126,10 @@ header {
   button {
     height: 69px;
     min-width: 170px;
+    margin-left: 30px;
     border-radius: 5px;
     background: #901c1c;
+
     color: white;
     font-size: 20px;
     font-style: normal;
