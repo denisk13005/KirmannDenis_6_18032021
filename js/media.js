@@ -1,8 +1,9 @@
 import { getDataPhotographers } from './utils.js'
 
-
+//* *******************classe Photo avec sa méthode générateImage pour créer une vignette correspondant à la photo */
 class Photo {
   constructor({ title, tagline, image, likes }) {
+    // eslint-disable-next-line no-unused-expressions
     ;(this.title = title),
       (this.tagline = tagline),
       (this.image = image),
@@ -28,8 +29,10 @@ class Photo {
   }
 }
 
+//* ************************création de la classe Mp4 pour créer une vignette vidéo */
 class Mp4 {
-  constructor({ media }) {
+  constructor({ title, tagline, video, likes }) {
+    // eslint-disable-next-line no-unused-expressions
     ;(this.title = title),
       (this.tagline = tagline),
       (this.video = video),
@@ -41,15 +44,15 @@ class Mp4 {
     <div class="thumbnail">
           <div class="img__thumbnail">
             <video
-              src="../img/Sample Photos/Tracy Galindo/Art_Wooden_Horse_Sculpture.mp4"
+              src="../img/Sample Photos/Tracy Galindo/${this.video}"
               type="video/mp4"
             ></video>
           </div>
           <div class="thumbnail__description">
-            <p></p>
+            <p>${this.title}</p>
             <div class="like__count">
-              <p></p>
-              <img src="" alt="" />
+              <p>${this.likes}</p>
+              <img src="../img/heart-solid.svg" alt="" " alt="" />
             </div>
           </div>
     </div>
@@ -70,18 +73,25 @@ async function getMedia() {
       mediaToRender.push(element)
     }
   })
+
   mediaToRender.forEach((element) => {
     // eslint-disable-next-line no-prototype-builtins
     if (element.hasOwnProperty('image')) {
       const thumb = new Photo(element)
       thumb.generateImage()
     }
-    mediaToRender.forEach((element) => {
-      if (element.hasOwnProperty('video')) {
-        // console.log(element)
-      }
-    })
   })
+  const vid = mediaToRender.filter((el) => {
+    return el.video
+    
+  })
+  vid.forEach(element => {
+    const videoThumbnail =new Mp4(element)
+ videoThumbnail.generateMp4()
+  });
+ 
+
+  console.log(vid);
 }
 getMedia()
 // console.log(mediaToRender)
