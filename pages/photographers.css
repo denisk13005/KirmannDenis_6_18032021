@@ -494,6 +494,7 @@ header a svg {
   height: 300px;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 @media (max-width: 920px) {
@@ -519,6 +520,13 @@ header a svg {
     -o-object-position: center;
        object-position: center;
   }
+}
+
+.container__thumbnail .thumbnail .img__thumbnail video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .container__thumbnail .thumbnail__description {
@@ -548,6 +556,7 @@ header a svg {
 .container__thumbnail .thumbnail__description .like__count img {
   width: 17.5px;
   margin-left: 7px;
+  cursor: pointer;
 }
 
 .likeCountResume {

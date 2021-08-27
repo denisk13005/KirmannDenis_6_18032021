@@ -80,14 +80,15 @@ async function init() {
       }
       //* *******************************************essai de classe sur les li des vignettes sélectionnées */
       
-    //  const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')  
-    //  console.log(liThumbnail); 
-    //  const  liThumbnailActive = []
-    //  liThumbnail.forEach(li => {
-    //     if(li.dataset.name === e.currentTarget.dataset.name)
-    //     liThumbnailActive.push(li)
-    //  })
-    //  console.log(liThumbnailActive);
+     const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')  
+     console.log(liThumbnail); 
+     const  liThumbnailActive = []
+     liThumbnail.forEach(li => {
+        if(li.dataset.name === e.currentTarget.dataset.name)
+        liThumbnailActive.push(li)
+        
+     })
+     console.log(liThumbnailActive);
 
      
       
