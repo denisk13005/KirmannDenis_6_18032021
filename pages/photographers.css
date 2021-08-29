@@ -344,11 +344,9 @@ header a svg {
 
 @media (max-width: 440px) {
   .photographer__description .photo {
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     margin-top: 10px;
-    position: absolute;
-    left: 253px;
   }
 }
 
