@@ -16,7 +16,7 @@ class Photographer {
         <div class="photographers__thumbnail">
          <a href="./pages/photographers.html?${this.id }" >
            <div>
-             <img src="./img/Sample Photos/${this.name}/${
+             <img src="./img/Sample Photos/${this.id}/${
       this.portrait
     }" alt="photo de ${this.name}" /></div>
            <h2>${this.name}</h2>

@@ -82,7 +82,7 @@ class PhotographerInfo {
           <button>Contactez-moi</button> 
         </div>
         <div class="photo">
-          <img src="../img/Sample Photos/${this.name}/${
+          <img src="../img/Sample Photos/${this.id}/${
       this.portrait
     }" alt="" />
         </div> 

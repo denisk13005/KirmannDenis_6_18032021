@@ -146,7 +146,6 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: auto;
-  border: 1px solid green;
   position: relative;
 }
 
@@ -212,7 +211,6 @@ header a svg {
   display: flex;
   position: relative;
   width: auto;
-  border: 1px solid black;
 }
 
 .photographer__description .photographer__informations {
