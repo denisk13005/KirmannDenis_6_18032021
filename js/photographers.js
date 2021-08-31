@@ -57,14 +57,15 @@ const sectionInfo = document.querySelector('.photographer__description')
 //   }
 // }
 class PhotographerInfo {
-  constructor({ name, id, city, country, tags, tagline, portrait }) {
+  constructor({ name, id, city, country, tags, tagline, portrait, price }) {
     ;(this.name = name),
       (this.id = id),
       (this.city = city),
       (this.country = country),
       (this.tags = tags),
       (this.tagline = tagline),
-      (this.portrait = portrait)
+      (this.portrait = portrait),
+      this.price=price
   }
   generateInfo() {
     sectionInfo.innerHTML = `
@@ -84,10 +85,20 @@ class PhotographerInfo {
         <div class="photo">
           <img src="../img/Sample Photos/${this.id}/${this.portrait}" alt="" />
         </div> 
+        <div class='likeCountResume'>  
+          <div class='total__likes'>        
+          <p>compte des likes</p>
+          <img src='../img/heart-solid-black.svg'/>
+          </div>
+
+          <p>${this.price}€/jour</p>
+        
+        </div>
       
         `
   }
 }
+
 let position = window.location.href.indexOf('?')
 let idphoto = window.location.href.substr(position + 1)
 photographers.forEach((element) => {
@@ -100,12 +111,11 @@ photographers.forEach((element) => {
 /*********************************************rotation de la fleche du bouton de tri au click */
 const arrow = document.querySelector('.arrow')
 const blocDown = document.querySelectorAll('.bloc__down')
-console.log(blocDown);
+console.log(blocDown)
 console.log(arrow)
 arrow.addEventListener('click', () => {
   arrow.classList.toggle('rotate')
-  blocDown.forEach(element => {
+  blocDown.forEach((element) => {
     element.classList.toggle('active')
-  });
-
+  })
 })
