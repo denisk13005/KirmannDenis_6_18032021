@@ -199,7 +199,6 @@ header {
     width: 170px;
     height: auto;
     border-radius: 5px;
-    overflow: hidden;
   }
   .bloc {
     &__top {
@@ -227,21 +226,25 @@ header {
       }
     }
     &__down {
-      // display: block;
-      position: absolute;
-      width: 150px;
-      height: 64px;
-      line-height: 64px;
-      color: white;
-      font-size: 16px;
-      padding-left: 20px;
-      background-color: $color-primary;
+      display: none;
+      span {
+        width: 150px;
+        height: 64px;
+        line-height: 64px;
+        color: white;
+        font-size: 16px;
+        padding-left: 20px;
+        background-color: $color-primary;
+        border-top: 1px solid white;
+      }
     }
   }
   .active {
-    display: block;
-    position: relative;
-    border-top: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    border-top: 1px solid rgb(255, 255, 255);
   }
 }
 
@@ -256,6 +259,7 @@ header {
   margin-top: 58px;
   padding-left: 100px;
   padding-right: 100px;
+  // display: none;
   @media (max-width: 920px) {
     padding: 0;
     margin-top: 52px;
