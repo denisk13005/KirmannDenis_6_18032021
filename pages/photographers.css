@@ -275,6 +275,8 @@ header a svg {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .photographer__description .photographer__informations ul li {

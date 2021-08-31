@@ -103,6 +103,7 @@ header {
     ul {
       display: flex;
       text-align: center;
+      flex-wrap: wrap;
       @media (max-width: 960px) {
       }
 
