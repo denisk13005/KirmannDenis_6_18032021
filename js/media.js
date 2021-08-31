@@ -93,6 +93,7 @@ async function getMedia() {
     return el.video
     
   })
+  console.log(vid);
   vid.forEach(element => {
     const videoThumbnail =new Mp4(element)
  videoThumbnail.generateMp4()
@@ -101,14 +102,3 @@ async function getMedia() {
 
 }
 getMedia()
-// console.log(mediaToRender)
-//
-// photographers.forEach((element) => {
-//   if (element.id == idphoto) {
-//     console.log(element)
-//     const photo0 = createAPhotographer(element)
-//     photo0.generateInfo()
-
-//   }
-// })
-// console.log(idphoto);

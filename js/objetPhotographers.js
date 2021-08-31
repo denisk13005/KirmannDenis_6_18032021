@@ -1,6 +1,6 @@
 class Photographer {
   constructor({ name, id, city, country, tags, tagline, price, portrait }) {
-    // eslint-disable-next-line no-unused-expressions
+    // eslint-disable-next-line no-unused-expressions      
       this.name = name,
       this.id = id,
       this.city = city,

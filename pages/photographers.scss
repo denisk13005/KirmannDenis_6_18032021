@@ -147,6 +147,10 @@ header {
       left: 50%;
       transform: translate(-50%);
     }
+    .rotate {
+      transform: rotate(180deg);
+      transition: transform 0.2s linear;
+    }
   }
   .photo {
     width: 200px;
@@ -176,7 +180,7 @@ header {
 // **********partie tri
 .tri {
   display: flex;
-  align-items: center;
+  // align-items: center;
   margin-top: 9px;
   margin-left: 97px;
   @media (max-width: 960px) {
@@ -185,6 +189,7 @@ header {
   p {
     font-size: 18px;
     margin-right: 25px;
+    margin-top: 25px;
   }
   .dropDown {
     display: flex;
@@ -222,7 +227,7 @@ header {
       }
     }
     &__down {
-      display: block;
+      // display: block;
       position: absolute;
       width: 150px;
       height: 64px;
@@ -233,7 +238,14 @@ header {
       background-color: $color-primary;
     }
   }
+  .active {
+    display: block;
+    position: relative;
+    border-top: 1px solid white;
+    border-radius: 5px;
+  }
 }
+
 // ****************************gallerie
 .container__thumbnail {
   width: 100%;

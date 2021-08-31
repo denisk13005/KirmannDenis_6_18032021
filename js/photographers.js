@@ -82,9 +82,7 @@ class PhotographerInfo {
           <button>Contactez-moi</button> 
         </div>
         <div class="photo">
-          <img src="../img/Sample Photos/${this.id}/${
-      this.portrait
-    }" alt="" />
+          <img src="../img/Sample Photos/${this.id}/${this.portrait}" alt="" />
         </div> 
       
         `
@@ -97,4 +95,17 @@ photographers.forEach((element) => {
     const photographerInfos = new PhotographerInfo(element)
     photographerInfos.generateInfo()
   }
+})
+
+/*********************************************rotation de la fleche du bouton de tri au click */
+const arrow = document.querySelector('.arrow')
+const blocDown = document.querySelectorAll('.bloc__down')
+console.log(blocDown);
+console.log(arrow)
+arrow.addEventListener('click', () => {
+  arrow.classList.toggle('rotate')
+  blocDown.forEach(element => {
+    element.classList.toggle('active')
+  });
+
 })
