@@ -210,7 +210,6 @@ header {
       background-color: $color-primary;
       width: 170px;
       height: 69px;
-      border-radius: 5px;
       border: none;
       font-size: 18px;
       color: white;
@@ -243,7 +242,6 @@ header {
     display: block;
     position: relative;
     border-top: 1px solid white;
-    border-radius: 5px;
   }
 }
 
@@ -330,7 +328,7 @@ header {
   background-color: $color-primary-light;
   border-radius: 5px 5px 0px 0px;
   font-size: 20px;
-  @media (max-width: 960px) {
+  @media (max-width: 1040px) {
     display: none;
   }
   & > p {

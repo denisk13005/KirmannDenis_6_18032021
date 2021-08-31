@@ -1,18 +1,23 @@
 import { getDataPhotographers } from './utils.js'
 
-//* *******************classe Photo avec sa méthode générateImage pour créer une vignette correspondant à la photo */
-class Photo {
-  constructor({ title, tagline, image, likes , photographerId}) {
-      // eslint-disable-next-line no-unused-expressions
-      (this.title = title),
-      (this.tagline = tagline),
-      (this.image = image),
-      (this.likes = likes),
+class Media {
+  constructor({ title, tagline, likes , photographerId}) {
+      this.title = title;
+      this.tagline = tagline;      
+      this.likes = likes;
       this.photographerId = photographerId
   }
 
-  generateImage() {
-    sectionThumbnail.innerHTML += `
+}
+//* *******************classe Photo avec sa méthode générateImage pour créer une vignette correspondant à la photo */
+class Photo extends Media{  
+  constructor({ title, tagline, image, likes , photographerId}) {
+      super({ title, tagline, likes , photographerId});    
+      this.image = image;      
+  }
+
+  render() {
+    const div = `
     <div class="thumbnail">
           <div class="img__thumbnail">   
     <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="" />
@@ -27,22 +32,19 @@ class Photo {
     </div> 
   
     `
+    return div
   }
 }
 
 //* ************************création de la classe Mp4 pour créer une vignette vidéo */
-class Mp4 {
+class Mp4 extends Media{
   constructor({ title, tagline, video, likes,photographerId }) {
-    // eslint-disable-next-line no-unused-expressions
-    ;(this.title = title),
-      (this.tagline = tagline),
-      (this.video = video),
-      (this.likes = likes),
-      this.photographerId = photographerId
+    super({ title, tagline, likes,photographerId })   
+      this.video = video;  
   }
 
-  generateMp4() {
-    sectionThumbnail.innerHTML += `
+  render() {
+   const div = `
     <div class="thumbnail">
           <div class="img__thumbnail">
             <video
@@ -59,8 +61,11 @@ class Mp4 {
           </div>
     </div>
     `
+    return div
   }
 }
+
+
 
 const sectionThumbnail = document.querySelector('.container__thumbnail')
 const mediaToRender = []
@@ -86,7 +91,9 @@ async function getMedia() {
     // eslint-disable-next-line no-prototype-builtins
     if (element.hasOwnProperty('image')) {
       const thumb = new Photo(element)
-      thumb.generateImage()
+      const bc = thumb.render()
+      sectionThumbnail.innerHTML+= bc
+      
     }
   })
   const vid = mediaToRender.filter((el) => {
@@ -96,7 +103,8 @@ async function getMedia() {
   console.log(vid);
   vid.forEach(element => {
     const videoThumbnail =new Mp4(element)
- videoThumbnail.generateMp4()
+    const ab = videoThumbnail.render()
+    sectionThumbnail.innerHTML+= ab
   });
  
 

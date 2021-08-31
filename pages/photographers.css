@@ -417,7 +417,6 @@ header a svg {
   background-color: #901c1c;
   width: 170px;
   height: 69px;
-  border-radius: 5px;
   border: none;
   font-size: 18px;
   color: white;
@@ -459,7 +458,6 @@ header a svg {
   display: block;
   position: relative;
   border-top: 1px solid white;
-  border-radius: 5px;
 }
 
 .container__thumbnail {
@@ -590,7 +588,7 @@ header a svg {
   font-size: 20px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1040px) {
   .likeCountResume {
     display: none;
   }
