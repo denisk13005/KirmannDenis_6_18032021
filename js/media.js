@@ -93,7 +93,7 @@ export class Mp4 extends Media {
           <div class="img__thumbnail">
             <video
               src="../img/Sample Photos/${this.photographerId}/${this.video}"
-              type="video/mp4"
+              type="video/mp4"              
             ></video>  
           </div>  
           <div class="thumbnail__description">
