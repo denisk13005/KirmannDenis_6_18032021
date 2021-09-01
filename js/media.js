@@ -1,6 +1,6 @@
 // ***************************************création de la classe qui décriera le photographe sélectionné
 export class PhotographerInfo {
-  constructor({ name, id, city, country, tags, tagline, portrait, price }) {
+  constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
     this.name = name
     this.id = id
     this.city = city
@@ -11,7 +11,7 @@ export class PhotographerInfo {
     this.price = price
   }
 
-  render() {
+  render () {
     const div = `
         <div class ='infoAndButton'>
           <div class="photographer__informations">
@@ -46,7 +46,7 @@ export class PhotographerInfo {
 
 // **********************************************************création de la super classe media
 export class Media {
-  constructor({ title, tagline, likes, photographerId }) {
+  constructor ({ title, tagline, likes, photographerId }) {
     this.title = title
     this.tagline = tagline
     this.likes = likes
@@ -55,12 +55,12 @@ export class Media {
 }
 //* *******************classe Photo avec sa méthode render pour créer une vignette correspondant à la photo */
 export class Photo extends Media {
-  constructor({ title, tagline, image, likes, photographerId }) {
+  constructor ({ title, tagline, image, likes, photographerId }) {
     super({ title, tagline, likes, photographerId })
     this.image = image
   }
 
-  render() {
+  render () {
     const div = `
     <div class="thumbnail">
           <div class="img__thumbnail">   
@@ -82,12 +82,12 @@ export class Photo extends Media {
 
 //* ************************création de la classe Mp4 pour créer une vignette vidéo */
 export class Mp4 extends Media {
-  constructor({ title, tagline, video, likes, photographerId }) {
+  constructor ({ title, tagline, video, likes, photographerId }) {
     super({ title, tagline, likes, photographerId })
     this.video = video
   }
 
-  render() {
+  render () {
     const div = ` 
     <div class="thumbnail">
           <div class="img__thumbnail">
