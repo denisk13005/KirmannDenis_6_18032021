@@ -1,6 +1,7 @@
 import { getDataPhotographers } from './utils.js';
 import {Photo,Mp4,PhotographerInfo} from './media.js';
 
+
 // console.log(photographers);
 const data = await getDataPhotographers('../index.json')
 let media = []
@@ -30,8 +31,6 @@ photographers.forEach((element) => {
 /*********************************************rotation de la fleche du bouton de tri au click */
 const arrow = document.querySelector('.arrow')
 const blocDown = document.querySelectorAll('.bloc__down')
-console.log(blocDown)
-console.log(arrow)
 arrow.addEventListener('click', () => {
   arrow.classList.toggle('rotate')
   blocDown.forEach((element) => {
@@ -48,13 +47,7 @@ async function getMedia() {
   const position = window.location.href.indexOf('?')
   const idphoto = window.location.href.substr(position + 1)
   const media = data.media
-  const photographer = data.photographers
-  photographer.forEach(element=>{    
-    if(element.id === parseInt(idphoto)){
-      console.log(element);
-    }
-  })
-  
+  const photographer = data.photographers  
   media.forEach((element) => {
     if (element.photographerId === parseInt(idphoto)) {
       mediaToRender.push(element)
@@ -74,13 +67,41 @@ async function getMedia() {
     return el.video
     
   })
-  console.log(vid);
   vid.forEach(element => {
     const videoThumbnail =new Mp4(element)
     const ab = videoThumbnail.render()
     sectionThumbnail.innerHTML+= ab
   });
- 
+  const main = document.querySelector('.main')
+  const imgs = document.querySelectorAll('.img__thumbnail>img').forEach(img => img.addEventListener('click', (e)=>
+  { 
+    
+    console.log(e.currentTarget.src)
+    const div = `<div class="lightbox">
+      <button class="lightbox__close"></button>
+      <button class="lightbox__next"></button>
+      <button class="lightbox__prev"></button>
+      <div class="lightbox__container">
+        <img src="${e.currentTarget.src}" />
+      </div>
+    </div>`
+    console.log(div);
+    main.innerHTML += div
+
+
+  }))
+
 
 }
 getMedia()
+
+
+// /****************************************************************partie lightbox */
+
+// class Lightbox {
+//     static init (){
+
+//     }
+// }
+// Lightbox.init()
+
