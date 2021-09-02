@@ -733,7 +733,10 @@ header a svg {
 }
 
 .lightbox__container img {
-  height: 100%;
+  width: 100%;
+}
+
+.lightbox__container video {
   width: 100%;
 }
 /*# sourceMappingURL=photographers.css.map */
