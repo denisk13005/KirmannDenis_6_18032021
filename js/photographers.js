@@ -60,21 +60,33 @@ async function getMedia () {
   const main = document.querySelector('.main')
   document.querySelectorAll('.img__thumbnail>img').forEach((img) =>
     img.addEventListener('click', (e) => {
-      console.log(e.currentTarget.src)
-      const div = `<div class="lightbox">
-      <button class="lightbox__close"></button>
-      <button class="lightbox__next"></button>
-      <button class="lightbox__prev"></button>
-      <div class="lightbox__container">
-        <img src="${e.currentTarget.src}" />
+      console.log(
+        e.currentTarget.parentElement.parentElement.children[1].children[0]
+          .textContent
+      )
+      const div =
+
+      `<div class="lightbox">
+        <button class="lightbox__close"></button>
+        <button class="lightbox__next"></button>
+        <button class="lightbox__prev"></button>
+        <div class="lightbox__container">
+          <img src="${e.currentTarget.src}" />
+          <p>  ${e.currentTarget.parentElement.parentElement.children[1].children[0]
+            .textContent}</p>
+        </div>
       </div>
-    </div>`
+      
+      
+      `
+
       console.log(div)
       main.innerHTML += div
     })
   )
-  document.querySelectorAll('.img__thumbnail>video').forEach((v) => v.addEventListener('click', (e) => {
-    const div = `<div class="lightbox">
+  document.querySelectorAll('.img__thumbnail>video').forEach((v) =>
+    v.addEventListener('click', (e) => {
+      const div = `<div class="lightbox">
     <button class="lightbox__close"></button>
     <button class="lightbox__next"></button>
     <button class="lightbox__prev"></button>
@@ -86,8 +98,9 @@ async function getMedia () {
   ></video> 
     </div>
   </div>`
-    main.innerHTML += div
-  }))
+      main.innerHTML += div
+    })
+  )
 }
 getMedia()
 
