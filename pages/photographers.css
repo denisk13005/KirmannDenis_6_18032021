@@ -420,6 +420,7 @@ header a svg {
   font-size: 18px;
   color: white;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .tri .bloc__top img {
@@ -455,6 +456,7 @@ header a svg {
   padding-left: 20px;
   background-color: #901c1c;
   border-top: 1px solid white;
+  cursor: pointer;
 }
 
 .tri .active {
@@ -629,7 +631,7 @@ header a svg {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: white;
   z-index: 10;
   overflow: hidden;
 }
@@ -666,7 +668,7 @@ header a svg {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
   top: 50%;
-  left: 230px;
+  left: 250px;
   margin-left: 40px;
 }
 
@@ -734,9 +736,11 @@ header a svg {
 
 .lightbox__container img {
   width: 100%;
+  height: 100%;
 }
 
 .lightbox__container video {
   width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=photographers.css.map */

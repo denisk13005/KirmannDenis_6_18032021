@@ -18,7 +18,7 @@ const mediaToRender = []
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
-  const idphoto = window.location.href.substr(position + 1)
+  const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
   //* ***************************************************génération dynamique de la partie description du photographe */
@@ -27,7 +27,7 @@ async function getMedia () {
     photographers.push(element)
   })
   photographers.forEach((element) => {
-    if (element.id == idphoto) {
+    if (element.id === idphoto) {
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
@@ -35,7 +35,7 @@ async function getMedia () {
   })
   // *****************************************************génération des vignettes photos
   media.forEach((element) => {
-    if (element.photographerId === parseInt(idphoto)) {
+    if (element.photographerId === idphoto) {
       mediaToRender.push(element)
     }
   })
