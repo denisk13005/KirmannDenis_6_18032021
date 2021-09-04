@@ -173,8 +173,9 @@ header a p {
   font-size: 40px;
 }
 
-header a svg {
-  font-weight: bold;
+header a img {
+  height: 28px;
+  margin-top: 8px;
 }
 
 .photographer__description {
