@@ -108,18 +108,3 @@ export class Mp4 extends Media {
     return div
   }
 }
-//* ***************************************************classe lightbox *
-// class Lightbox {
-//   static init () {
-//     const imgs = document.querySelectorAll('.img__thumbnail>img').forEach(img => img.addEventListener('click', (e) => {
-//       new Lightbox(e.currentTarget.getAttribute('src'))
-//     }))
-//   }
-//   /**
-//    *
-//    * @param {string} path chemin de l'image
-//    */
-//   constructor (path) {
-
-//   }
-// }
