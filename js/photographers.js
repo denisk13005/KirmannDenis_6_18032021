@@ -105,10 +105,3 @@ async function getMedia () {
 getMedia()
 
 // /****************************************************************partie lightbox */
-
-// class Lightbox {
-//     static init (){
-
-//     }
-// }
-// Lightbox.init()
