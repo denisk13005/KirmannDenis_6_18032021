@@ -1,6 +1,6 @@
 class Photographer {
   constructor({ name, id, city, country, tags, tagline, price, portrait }) {
-    // eslint-disable-next-line no-unused-expressions
+    // eslint-disable-next-line no-unused-expressions      
       this.name = name,
       this.id = id,
       this.city = city,
@@ -16,7 +16,7 @@ class Photographer {
         <div class="photographers__thumbnail">
          <a href="./pages/photographers.html?${this.id }" >
            <div>
-             <img src="./img/Sample Photos/${this.name}/${
+             <img src="./img/Sample Photos/${this.id}/${
       this.portrait
     }" alt="photo de ${this.name}" /></div>
            <h2>${this.name}</h2>
@@ -27,7 +27,7 @@ class Photographer {
            <p>${this.price}€/jour</p>
          </div>
          <ul>
-            ${this.tags.map((tag) => `<li>#${tag}`).join('')}
+            ${this.tags.map((tag) => `<li data-name = ${tag}>#${tag}`).join('')}
          </ul>
         </div>
           `

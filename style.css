@@ -452,4 +452,17 @@ main section ul li {
   padding: 1px 6px;
   font-size: 12px;
 }
+
+main section ul .active {
+  background-color: #d3573c;
+  color: white;
+  -webkit-box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+  -webkit-transform: translate(0px, 3px);
+          transform: translate(0px, 3px);
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
 /*# sourceMappingURL=style.css.map */

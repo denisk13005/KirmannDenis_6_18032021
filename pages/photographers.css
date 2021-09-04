@@ -146,7 +146,6 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: auto;
-  border: 1px solid green;
   position: relative;
 }
 
@@ -211,10 +210,7 @@ header a svg {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  width: 70%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: auto;
 }
 
 .photographer__description .photographer__informations {
@@ -279,6 +275,8 @@ header a svg {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .photographer__description .photographer__informations ul li {
@@ -302,6 +300,7 @@ header a svg {
 .photographer__description button {
   height: 69px;
   min-width: 170px;
+  margin-left: 30px;
   border-radius: 5px;
   background: #901c1c;
   color: white;
@@ -315,7 +314,7 @@ header a svg {
   cursor: pointer;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1038px) {
   .photographer__description button {
     width: 170px;
     height: 35px;
@@ -327,6 +326,15 @@ header a svg {
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
   }
+}
+
+.photographer__description button .rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
 .photographer__description .photo {
@@ -347,11 +355,9 @@ header a svg {
 
 @media (max-width: 440px) {
   .photographer__description .photo {
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     margin-top: 10px;
-    position: absolute;
-    left: 253px;
   }
 }
 
@@ -366,9 +372,6 @@ header a svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-top: 9px;
   margin-left: 97px;
 }
@@ -382,6 +385,7 @@ header a svg {
 .tri p {
   font-size: 18px;
   margin-right: 25px;
+  margin-top: 25px;
 }
 
 .tri .dropDown {
@@ -396,7 +400,6 @@ header a svg {
   width: 170px;
   height: auto;
   border-radius: 5px;
-  overflow: hidden;
 }
 
 .tri .bloc__top {
@@ -413,11 +416,11 @@ header a svg {
   background-color: #901c1c;
   width: 170px;
   height: 69px;
-  border-radius: 5px;
   border: none;
   font-size: 18px;
   color: white;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .tri .bloc__top img {
@@ -441,8 +444,10 @@ header a svg {
 }
 
 .tri .bloc__down {
-  display: block;
-  position: absolute;
+  display: none;
+}
+
+.tri .bloc__down span {
   width: 150px;
   height: 64px;
   line-height: 64px;
@@ -450,6 +455,21 @@ header a svg {
   font-size: 16px;
   padding-left: 20px;
   background-color: #901c1c;
+  border-top: 1px solid white;
+  cursor: pointer;
+}
+
+.tri .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 68px;
+  border-top: 1px solid white;
 }
 
 .container__thumbnail {
@@ -495,6 +515,7 @@ header a svg {
   height: 300px;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 @media (max-width: 920px) {
@@ -520,6 +541,13 @@ header a svg {
     -o-object-position: center;
        object-position: center;
   }
+}
+
+.container__thumbnail .thumbnail .img__thumbnail video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .container__thumbnail .thumbnail__description {
@@ -549,6 +577,7 @@ header a svg {
 .container__thumbnail .thumbnail__description .like__count img {
   width: 17.5px;
   margin-left: 7px;
+  cursor: pointer;
 }
 
 .likeCountResume {
@@ -571,7 +600,7 @@ header a svg {
   font-size: 20px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1040px) {
   .likeCountResume {
     display: none;
   }
@@ -593,5 +622,131 @@ header a svg {
   width: 18px;
   height: 18px;
   margin-left: 7px;
+}
+
+/************************************************ lightbox ***********************************/
+.lightbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.lightbox__next,
+.lightbox__prev {
+  border-top: 5px solid #901c1c;
+  border-right: 5px solid #901c1c;
+  border-bottom: transparent;
+  border-left: transparent;
+  -webkit-transform: rotate(45deg) translateY(-50%);
+          transform: rotate(45deg) translateY(-50%);
+  height: 34px;
+  width: 34px;
+  background-color: transparent;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-right: 40px;
+  opacity: 0.5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.lightbox__next:hover,
+.lightbox__prev:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.lightbox__prev {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  top: 50%;
+  left: 250px;
+  margin-left: 40px;
+}
+
+.lightbox__next {
+  right: 270px;
+}
+
+.lightbox__close {
+  position: absolute;
+  right: 270px;
+  top: 15px;
+  width: 42px;
+  height: 42px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  background: transparent;
+  border: transparent;
+  opacity: 0.5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.lightbox__close:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.lightbox__close:before,
+.lightbox__close:after {
+  position: absolute;
+  left: 15px;
+  content: '';
+  height: 33px;
+  width: 3px;
+  background-color: #901c1c;
+}
+
+.lightbox__close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.lightbox__close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.lightbox__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1050px;
+  height: 900px;
+}
+
+.lightbox__container img {
+  width: 100%;
+  height: 70%;
+}
+
+.lightbox__container video {
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=photographers.css.map */
