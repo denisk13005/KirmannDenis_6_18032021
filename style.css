@@ -200,11 +200,6 @@ header .logo {
   display: flex;
   margin-left: 100px;
   margin-top: 35px;
-  font-weight: bold;
-  width: auto;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
 }
 
 @media (max-width: 1200px) {
@@ -224,14 +219,15 @@ header .logo p {
   }
 }
 
-header .logo svg {
-  font-weight: bold;
+header .logo img {
+  margin-top: 8px;
+  height: 28px;
 }
 
 @media (max-width: 1200px) {
-  header .logo svg {
-    height: 28px;
-    padding-top: 2px;
+  header .logo img {
+    height: 23px;
+    margin-top: 4px;
   }
 }
 

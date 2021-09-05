@@ -51,9 +51,6 @@ header {
     display: flex;
     margin-left: 100px;
     margin-top: 35px;
-    font-weight: bold;
-    width: auto;
-    height: max-content;
     @media (max-width: 1200px) {
       margin-left: 20px;
     }
@@ -64,11 +61,12 @@ header {
         font-size: 30px;
       }
     }
-    svg {
-      font-weight: bold;
+    img {
+      margin-top: 8px;
+      height: 28px;
       @media (max-width: 1200px) {
-        height: 28px;
-        padding-top: 2px;
+        height: 23px;
+        margin-top: 4px;
       }
     }
   }

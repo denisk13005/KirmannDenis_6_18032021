@@ -1,20 +1,20 @@
 class Photographer {
-  constructor({ name, id, city, country, tags, tagline, price, portrait }) {
-    // eslint-disable-next-line no-unused-expressions      
-      this.name = name,
-      this.id = id,
-      this.city = city,
-      this.country = country,
-      this.tags = tags,
-      this.tagline = tagline,
-      this.price = price,
-      this.portrait = portrait
+  constructor ({ name, id, city, country, tags, tagline, price, portrait }) {
+    // eslint-disable-next-line no-unused-expressions
+    this.name = name
+    this.id = id
+    this.city = city
+    this.country = country
+    this.tags = tags
+    this.tagline = tagline
+    this.price = price
+    this.portrait = portrait
   }
-  
-  render() {
+
+  render () {
     const div = `       
         <div class="photographers__thumbnail">
-         <a href="./pages/photographers.html?${this.id }" >
+         <a href="./pages/photographers.html?${this.id}" >
            <div>
              <img src="./img/Sample Photos/${this.id}/${
       this.portrait
