@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-import { Photo, Mp4, PhotographerInfo, Media } from './media.js'
+import { PhotographerInfo, Media } from './media.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
