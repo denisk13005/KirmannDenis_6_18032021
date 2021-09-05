@@ -52,6 +52,16 @@ export class Media {
     this.likes = likes
     this.photographerId = photographerId
   }
+
+  /** **************************************factory method */
+  static createMedia (element) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (element.hasOwnProperty('image')) {
+      return new Photo(element).render()
+    } else {
+      return new Mp4(element).render()
+    }
+  }
 }
 //* *******************classe Photo avec sa méthode render pour créer une vignette correspondant à la photo */
 export class Photo extends Media {

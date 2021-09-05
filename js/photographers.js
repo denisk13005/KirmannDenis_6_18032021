@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-import { Photo, Mp4, PhotographerInfo } from './media.js'
+import { Photo, Mp4, PhotographerInfo, Media } from './media.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -39,24 +39,12 @@ async function getMedia () {
       mediaToRender.push(element)
     }
   })
-
+  /** *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (element.hasOwnProperty('image')) {
-      const thumb = new Photo(element)
-      const bc = thumb.render()
-      sectionThumbnail.innerHTML += bc
-    }
+    const media = Media.createMedia(element)
+    sectionThumbnail.innerHTML += media
   })
-  // *****************************************************génération des vignettes vidéo
-  const vid = mediaToRender.filter((el) => {
-    return el.video
-  })
-  vid.forEach((element) => {
-    const videoThumbnail = new Mp4(element)
-    const ab = videoThumbnail.render()
-    sectionThumbnail.innerHTML += ab
-  })
+
   const main = document.querySelector('.main')
   document.querySelectorAll('.img__thumbnail>img').forEach((img) =>
     img.addEventListener('click', (e) => {
