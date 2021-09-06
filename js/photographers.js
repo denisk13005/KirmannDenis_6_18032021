@@ -1,5 +1,6 @@
 import { getDataPhotographers } from './utils.js'
 import { PhotographerInfo, Media } from './media.js'
+import { Lightbox } from './lightbox.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -46,47 +47,21 @@ async function getMedia () {
   })
 
   const main = document.querySelector('.main')
-  document.querySelectorAll('.img__thumbnail>img').forEach((img) =>
-    img.addEventListener('click', (e) => {
-      console.log(
-        e.currentTarget.parentElement.parentElement.children[1].children[0]
-          .textContent
-      )
-      const div =
-
-      `<div class="lightbox">
+  document.querySelectorAll('.thumbnail').forEach((element) =>
+    element.addEventListener('click', (e) => {
+      const div = `<div class="lightbox">
         <button class="lightbox__close"></button>
         <button class="lightbox__next"></button>
         <button class="lightbox__prev"></button>
         <div class="lightbox__container">
-          <img src="${e.currentTarget.src}" />
-          <p>  ${e.currentTarget.parentElement.parentElement.children[1].children[0]
-            .textContent}</p>
+          <img src="${e.currentTarget.firstElementChild.firstElementChild.src}" />
+          <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
         </div>
       </div>
       
       
       `
-
-      console.log(div)
-      main.innerHTML += div
-    })
-  )
-  document.querySelectorAll('.img__thumbnail>video').forEach((v) =>
-    v.addEventListener('click', (e) => {
-      const div = `<div class="lightbox">
-    <button class="lightbox__close"></button>
-    <button class="lightbox__next"></button>
-    <button class="lightbox__prev"></button>
-    <div class="lightbox__container">
-    <video
-    src="${e.currentTarget.src}"
-    type="video/mp4"   
-    autoplay           
-  ></video> 
-    </div>
-  </div>`
-      main.innerHTML += div
+      main.innerHTML = div
     })
   )
 }
