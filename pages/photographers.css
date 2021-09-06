@@ -651,14 +651,12 @@ header a img {
   border-left: transparent;
   -webkit-transform: rotate(45deg) translateY(-50%);
           transform: rotate(45deg) translateY(-50%);
-  height: 34px;
-  width: 34px;
+  height: 20px;
+  width: 20px;
   background-color: transparent;
   cursor: pointer;
   position: fixed;
-  right: 0;
   top: 50%;
-  margin-right: 40px;
   opacity: 0.5;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -671,22 +669,43 @@ header a img {
   transition: 0.3s;
 }
 
+@media (max-width: 500px) {
+  .lightbox__next,
+  .lightbox__prev {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 .lightbox__prev {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
   top: 50%;
-  left: 250px;
-  margin-left: 40px;
+  left: 394px;
+}
+
+@media (max-width: 500px) {
+  .lightbox__prev {
+    left: 24px;
+    top: 48%;
+  }
 }
 
 .lightbox__next {
-  right: 270px;
+  right: 400px;
+}
+
+@media (max-width: 500px) {
+  .lightbox__next {
+    right: 30px;
+    top: 48%;
+  }
 }
 
 .lightbox__close {
   position: absolute;
-  right: 270px;
-  top: 15px;
+  right: 380px;
+  top: 200px;
   width: 42px;
   height: 42px;
   opacity: 1;
@@ -706,14 +725,28 @@ header a img {
   transition: 0.3s;
 }
 
+@media (max-width: 500px) {
+  .lightbox__close {
+    top: 265px;
+    right: 5px;
+  }
+}
+
 .lightbox__close:before,
 .lightbox__close:after {
   position: absolute;
   left: 15px;
   content: '';
-  height: 33px;
+  height: 40px;
   width: 3px;
   background-color: #901c1c;
+}
+
+@media (max-width: 500px) {
+  .lightbox__close:before,
+  .lightbox__close:after {
+    height: 24px;
+  }
 }
 
 .lightbox__close:before {
@@ -737,17 +770,40 @@ header a img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: auto;
   width: 1050px;
   height: 900px;
+  overflow: hidden;
 }
 
 .lightbox__container img {
   width: 100%;
   height: 70%;
+  border-radius: 5px;
 }
 
 .lightbox__container video {
   width: 100%;
   height: 100%;
+}
+
+.lightbox__container p {
+  color: #901c1c;
+  font-size: 26px;
+  margin-top: 5px;
+}
+
+@media (max-width: 500px) {
+  .lightbox__container p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .lightbox__container {
+    max-width: 290px;
+    height: auto;
+    max-height: 248px;
+  }
 }
 /*# sourceMappingURL=photographers.css.map */
