@@ -317,6 +317,7 @@ header a img {
 
 @media (max-width: 1038px) {
   .photographer__description button {
+    margin-left: 0;
     width: 170px;
     height: 35px;
     font-size: 18px;

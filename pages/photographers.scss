@@ -140,6 +140,7 @@ header {
     border: none;
     cursor: pointer;
     @media (max-width: 1038px) {
+      margin-left: 0;
       width: 170px;
       height: 35px;
       font-size: 18px;
