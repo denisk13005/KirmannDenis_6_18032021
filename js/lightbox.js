@@ -1,21 +1,23 @@
 export class Lightbox {
-  constructor (path, tagline) {
-    this.path = e.target.getAttribute('src')
-    this.tagline = e.currentTarget.lastElementChild.firstElementChild.innerHTML
+  constructor ({ path, tagline, type }) {
+    this.path = path
+    // this.tagline = this.e.currentTarget.lastElementChild.firstElementChild.innerHTML
+    this.tagline = tagline
+    this.type = type
   }
 
-  static createThumbnail () {
-    if (e.target.nodeName === 'video') {
-      return new LightboxVideo(path, tagline).render()
+  static createThumbnail (e) {
+    if (this.type === 'video') {
+      return new LightboxVideo(e).render()
     } else {
-      return new LightboxImage(path, tagline).render()
+      return new LightboxImage(e).render()
     }
   }
 }
 
 class LightboxImage extends Lightbox {
-  constructor ({ path, tagline }) {
-    super(path, tagline)
+  constructor ({ path, tagline, type }) {
+    super({ path, tagline, type })
   }
 
   render () {
@@ -28,17 +30,15 @@ class LightboxImage extends Lightbox {
           <p>  ${this.tagline}</p>
         </div>
       </div>
-      
-      
+
       `
     return div
   }
 }
 
 class LightboxVideo extends Lightbox {
-  constructor ({ title, id, video }) {
-    super({ title, id })
-    this.video = video
+  constructor ({ path, tagline, type }) {
+    super({ path, tagline, type })
   }
 
   render () {

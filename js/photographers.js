@@ -16,6 +16,7 @@ arrow.addEventListener('click', () => {
 
 const sectionThumbnail = document.querySelector('.container__thumbnail')
 const mediaToRender = []
+
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
@@ -50,31 +51,9 @@ async function getMedia () {
   document.querySelectorAll('.thumbnail').forEach((element) =>
     element.addEventListener('click', (e) => {
       console.log(e.target.getAttribute('src'))
-      class Lightbox {
-        constructor (path, tagline) {
-          this.path = e.target.getAttribute('src')
-          this.tagline = e.currentTarget.lastElementChild.firstElementChild.innerHTML
-        }
-
-        render () {
-          const div = `<div class="lightbox">
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
-        <div class="lightbox__container">
-          <img src="${this.path}" />
-          <p>  ${this.tagline}</p>
-        </div>
-      </div>
-      
-      
-      `
-          return div
-        }
-      }
-      const light = new Lightbox()
-      const div = light.render()
-      main.innerHTML = div
+      console.log(e)
+      const light = Lightbox.createThumbnail(e)
+      main.innerHTML = light
     })
   )
 }
