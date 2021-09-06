@@ -1,21 +1,21 @@
 export class Lightbox {
-  constructor ({ title, id }) {
-    this.title = title
-    this.is = id
+  constructor (path, tagline) {
+    this.path = e.target.getAttribute('src')
+    this.tagline = e.currentTarget.lastElementChild.firstElementChild.innerHTML
   }
 
-  static createThumbnail (e) {
+  static createThumbnail () {
     if (e.target.nodeName === 'video') {
-      return new LightboxVideo().render()
+      return new LightboxVideo(path, tagline).render()
     } else {
-      return new LightboxImage().render()
+      return new LightboxImage(path, tagline).render()
     }
   }
 }
+
 class LightboxImage extends Lightbox {
-  constructor ({ title, id, image }) {
-    super({ title, id })
-    this.image = image
+  constructor ({ path, tagline }) {
+    super(path, tagline)
   }
 
   render () {
@@ -24,8 +24,8 @@ class LightboxImage extends Lightbox {
         <button class="lightbox__next"></button>
         <button class="lightbox__prev"></button>
         <div class="lightbox__container">
-          <img src="${e.currentTarget.firstElementChild.firstElementChild.src}" />
-          <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
+          <img src="${this.path}" />
+          <p>  ${this.tagline}</p>
         </div>
       </div>
       
@@ -34,6 +34,7 @@ class LightboxImage extends Lightbox {
     return div
   }
 }
+
 class LightboxVideo extends Lightbox {
   constructor ({ title, id, video }) {
     super({ title, id })
@@ -47,11 +48,11 @@ class LightboxVideo extends Lightbox {
     <button class="lightbox__prev"></button>
     <div class="lightbox__container">
     <video
-    src="${e.currentTarget.firstElementChild.firstElementChild.src}"
+    src="${this.path}"
     type="video/mp4"
     autoplay
   ></video>
-  <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
+  <p>  ${this.tagline}</p>
     </div>
   </div>`
     return div

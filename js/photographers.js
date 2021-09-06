@@ -49,18 +49,31 @@ async function getMedia () {
   const main = document.querySelector('.main')
   document.querySelectorAll('.thumbnail').forEach((element) =>
     element.addEventListener('click', (e) => {
-      const div = `<div class="lightbox">
+      console.log(e.target.getAttribute('src'))
+      class Lightbox {
+        constructor (path, tagline) {
+          this.path = e.target.getAttribute('src')
+          this.tagline = e.currentTarget.lastElementChild.firstElementChild.innerHTML
+        }
+
+        render () {
+          const div = `<div class="lightbox">
         <button class="lightbox__close"></button>
         <button class="lightbox__next"></button>
         <button class="lightbox__prev"></button>
         <div class="lightbox__container">
-          <img src="${e.currentTarget.firstElementChild.firstElementChild.src}" />
-          <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
+          <img src="${this.path}" />
+          <p>  ${this.tagline}</p>
         </div>
       </div>
       
       
       `
+          return div
+        }
+      }
+      const light = new Lightbox()
+      const div = light.render()
       main.innerHTML = div
     })
   )
