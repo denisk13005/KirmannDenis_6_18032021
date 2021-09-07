@@ -694,6 +694,7 @@ header a img {
 
 .lightbox__next {
   right: 400px;
+  top: 48%;
 }
 
 @media (max-width: 500px) {
@@ -706,7 +707,7 @@ header a img {
 .lightbox__close {
   position: absolute;
   right: 380px;
-  top: 200px;
+  top: 120px;
   width: 42px;
   height: 42px;
   opacity: 1;
@@ -728,7 +729,7 @@ header a img {
 
 @media (max-width: 500px) {
   .lightbox__close {
-    top: 265px;
+    top: 290px;
     right: 5px;
   }
 }
@@ -786,6 +787,7 @@ header a img {
 .lightbox__container video {
   width: 100%;
   height: auto;
+  border-radius: 5px;
 }
 
 .lightbox__container p {

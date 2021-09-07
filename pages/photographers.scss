@@ -403,6 +403,7 @@ header {
 }
 .lightbox__next {
   right: 400px;
+  top: 48%;
   @media (max-width: 500px) {
     right: 30px;
     top: 48%;
@@ -412,7 +413,7 @@ header {
 .lightbox__close {
   position: absolute;
   right: 380px;
-  top: 200px;
+  top: 120px;
   width: 42px;
   height: 42px;
   opacity: 1;
@@ -427,7 +428,7 @@ header {
     transition: 0.3s;
   }
   @media (max-width: 500px) {
-    top: 265px;
+    top: 290px;
     right: 5px;
   }
 }
@@ -465,6 +466,7 @@ header {
   video {
     width: 100%;
     height: auto;
+    border-radius: 5px;
   }
   p {
     color: $color-primary;
