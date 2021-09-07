@@ -48,11 +48,15 @@ async function getMedia () {
   })
 
   const main = document.querySelector('.main')
-  document.querySelectorAll('.thumbnail').forEach((element) =>
+  const tabLight = document.querySelectorAll('.thumbnail')
+  tabLight.forEach((element) =>
     element.addEventListener('click', (e) => {
       console.log(e)
       const light = Lightbox.createThumbnail(e)
-      main.innerHTML = light
+      main.innerHTML += light
+      document.querySelector('.lightbox__close').addEventListener('click', () => {
+        window.location.reload()
+      })
     })
   )
 }
