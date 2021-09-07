@@ -50,7 +50,6 @@ async function getMedia () {
   const main = document.querySelector('.main')
   document.querySelectorAll('.thumbnail').forEach((element) =>
     element.addEventListener('click', (e) => {
-      console.log(e.target.getAttribute('src'))
       console.log(e)
       const light = Lightbox.createThumbnail(e)
       main.innerHTML = light

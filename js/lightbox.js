@@ -1,25 +1,20 @@
 export class Lightbox {
-  constructor ({ path, tagline, type }) {
+  constructor (path, tagline) {
     this.path = path
     // this.tagline = this.e.currentTarget.lastElementChild.firstElementChild.innerHTML
     this.tagline = tagline
-    this.type = type
   }
 
   static createThumbnail (e) {
-    if (this.type === 'video') {
-      return new LightboxVideo(e).render()
+    if (e.target.localName === 'video') {
+      return new LightboxVideo(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
     } else {
-      return new LightboxImage(e).render()
+      return new LightboxImage(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
     }
   }
 }
 
 class LightboxImage extends Lightbox {
-  constructor ({ path, tagline, type }) {
-    super({ path, tagline, type })
-  }
-
   render () {
     const div = `<div class="lightbox">
         <button class="lightbox__close"></button>
@@ -37,10 +32,6 @@ class LightboxImage extends Lightbox {
 }
 
 class LightboxVideo extends Lightbox {
-  constructor ({ path, tagline, type }) {
-    super({ path, tagline, type })
-  }
-
   render () {
     const div = `<div class="lightbox">
     <button class="lightbox__close"></button>
