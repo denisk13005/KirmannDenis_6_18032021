@@ -1,4 +1,4 @@
-async function getDataPhotographers(url) {
+async function getDataPhotographers (url) {
   const resp = await fetch(url)
     .then(async (response) => {
       if (!response.ok) {

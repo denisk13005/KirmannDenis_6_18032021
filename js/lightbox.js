@@ -1,45 +1,37 @@
 export class Lightbox {
-  constructor ({ title, id }) {
-    this.title = title
-    this.is = id
+  constructor (path, tagline) {
+    this.path = path
+    // this.tagline = this.e.currentTarget.lastElementChild.firstElementChild.innerHTML
+    this.tagline = tagline
   }
 
   static createThumbnail (e) {
-    if (e.target.nodeName === 'video') {
-      return new LightboxVideo().render()
+    if (e.target.localName === 'video') {
+      return new LightboxVideo(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
     } else {
-      return new LightboxImage().render()
+      return new LightboxImage(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
     }
   }
 }
-class LightboxImage extends Lightbox {
-  constructor ({ title, id, image }) {
-    super({ title, id })
-    this.image = image
-  }
 
+class LightboxImage extends Lightbox {
   render () {
     const div = `<div class="lightbox">
         <button class="lightbox__close"></button>
         <button class="lightbox__next"></button>
         <button class="lightbox__prev"></button>
         <div class="lightbox__container">
-          <img src="${e.currentTarget.firstElementChild.firstElementChild.src}" />
-          <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
+          <img src="${this.path}" />
+          <p>  ${this.tagline}</p>
         </div>
       </div>
-      
-      
+
       `
     return div
   }
 }
-class LightboxVideo extends Lightbox {
-  constructor ({ title, id, video }) {
-    super({ title, id })
-    this.video = video
-  }
 
+class LightboxVideo extends Lightbox {
   render () {
     const div = `<div class="lightbox">
     <button class="lightbox__close"></button>
@@ -47,11 +39,11 @@ class LightboxVideo extends Lightbox {
     <button class="lightbox__prev"></button>
     <div class="lightbox__container">
     <video
-    src="${e.currentTarget.firstElementChild.firstElementChild.src}"
+    src="${this.path}"
     type="video/mp4"
     autoplay
   ></video>
-  <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
+  <p>  ${this.tagline}</p>
     </div>
   </div>`
     return div

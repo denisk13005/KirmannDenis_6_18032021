@@ -16,6 +16,7 @@ arrow.addEventListener('click', () => {
 
 const sectionThumbnail = document.querySelector('.container__thumbnail')
 const mediaToRender = []
+
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
@@ -47,21 +48,15 @@ async function getMedia () {
   })
 
   const main = document.querySelector('.main')
-  document.querySelectorAll('.thumbnail').forEach((element) =>
+  const tabLight = document.querySelectorAll('.thumbnail')
+  tabLight.forEach((element) =>
     element.addEventListener('click', (e) => {
-      const div = `<div class="lightbox">
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
-        <div class="lightbox__container">
-          <img src="${e.currentTarget.firstElementChild.firstElementChild.src}" />
-          <p>  ${e.currentTarget.lastElementChild.firstElementChild.innerHTML}</p>
-        </div>
-      </div>
-      
-      
-      `
-      main.innerHTML = div
+      console.log(e)
+      const light = Lightbox.createThumbnail(e)
+      main.innerHTML += light
+      document.querySelector('.lightbox__close').addEventListener('click', () => {
+        window.location.reload()
+      })
     })
   )
 }
