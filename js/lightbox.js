@@ -1,20 +1,35 @@
 export class Lightbox {
-  constructor (path, tagline) {
-    this.path = path
-    // this.tagline = this.e.currentTarget.lastElementChild.firstElementChild.innerHTML
-    this.tagline = tagline
+  constructor (media, main) {
+    this.media = media
+    this.main = main
   }
 
-  static createThumbnail (e) {
-    if (e.target.localName === 'video') {
-      return new LightboxVideo(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
-    } else {
-      return new LightboxImage(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
-    }
+  render () {
+    this.media.forEach((element) =>
+      element.addEventListener('click', (e) => {
+        console.log(e)
+        const light = LightboxFactory.createThumbnail(e)
+        this.main.innerHTML += light
+        document.querySelector('.lightbox__close').addEventListener('click', () => {
+          window.location.reload()
+        })
+      })
+    )
+  }
+
+  next () {
+
+  }
+}
+export class LightboxMedia {
+  constructor (path, tagline, index) {
+    this.path = path
+    this.tagline = tagline
+    this.index = index
   }
 }
 
-class LightboxImage extends Lightbox {
+class LightboxImage extends LightboxMedia {
   render () {
     const div = `<div class="lightbox">
         <button class="lightbox__close"></button>
@@ -31,7 +46,7 @@ class LightboxImage extends Lightbox {
   }
 }
 
-class LightboxVideo extends Lightbox {
+class LightboxVideo extends LightboxMedia {
   render () {
     const div = `<div class="lightbox">
     <button class="lightbox__close"></button>
@@ -47,5 +62,15 @@ class LightboxVideo extends Lightbox {
     </div>
   </div>`
     return div
+  }
+}
+
+export class LightboxFactory {
+  static createThumbnail (e) {
+    if (e.target.localName === 'video') {
+      return new LightboxVideo(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
+    } else {
+      return new LightboxImage(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
+    }
   }
 }

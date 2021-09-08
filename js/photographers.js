@@ -1,6 +1,6 @@
 import { getDataPhotographers } from './utils.js'
-import { PhotographerInfo, Media } from './media.js'
-import { Lightbox } from './lightbox.js'
+import { PhotographerInfo, Media, MediaFactory } from './media.js'
+import { Lightbox, LightboxFactory } from './lightbox.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -43,23 +43,25 @@ async function getMedia () {
   })
   /** *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
-    const media = Media.createMedia(element)
+    const media = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += media
   })
 
+  // /****************************************************************partie lightbox */
   const main = document.querySelector('.main')
-  const tabLight = document.querySelectorAll('.thumbnail')
-  tabLight.forEach((element) =>
-    element.addEventListener('click', (e) => {
-      console.log(e)
-      const light = Lightbox.createThumbnail(e)
-      main.innerHTML += light
-      document.querySelector('.lightbox__close').addEventListener('click', () => {
-        window.location.reload()
-      })
-    })
-  )
+  const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+  const light = new Lightbox(tabLight, main)
+  light.render()
+
+  // tabLight.forEach((element) =>
+  //   element.addEventListener('click', (e) => {
+  //     console.log(e)
+  //     const light = LightboxFactory.createThumbnail(e)
+  //     main.innerHTML += light
+  //     document.querySelector('.lightbox__close').addEventListener('click', () => {
+  //       window.location.reload()
+  //     })
+  //   })
+  // )
 }
 getMedia()
-
-// /****************************************************************partie lightbox */
