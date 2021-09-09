@@ -46,17 +46,18 @@ export class PhotographerInfo {
 
 // **********************************************************création de la super classe media
 export class Media {
-  constructor ({ title, tagline, likes, photographerId }) {
+  constructor ({ title, tagline, likes, photographerId, date }) {
     this.title = title
     this.tagline = tagline
     this.likes = likes
     this.photographerId = photographerId
+    this.date = date
   }
 }
 //* *******************classe Photo avec sa méthode render pour créer une vignette correspondant à la photo */
 export class Photo extends Media {
-  constructor ({ title, tagline, image, likes, photographerId }) {
-    super({ title, tagline, likes, photographerId })
+  constructor ({ title, tagline, image, likes, photographerId, date }) {
+    super({ title, tagline, likes, photographerId, date })
     this.image = image
   }
 
@@ -82,8 +83,8 @@ export class Photo extends Media {
 
 //* ************************création de la classe Mp4 pour créer une vignette vidéo */
 export class Mp4 extends Media {
-  constructor ({ title, tagline, video, likes, photographerId }) {
-    super({ title, tagline, likes, photographerId })
+  constructor ({ title, tagline, video, likes, photographerId, date }) {
+    super({ title, tagline, likes, photographerId, date })
     this.video = video
   }
 
