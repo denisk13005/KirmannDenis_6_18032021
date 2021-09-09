@@ -7,18 +7,17 @@ export class Lightbox {
   render () {
     this.media.forEach((element) =>
       element.addEventListener('click', (e) => {
-        console.log(e)
-        const light = LightboxFactory.createThumbnail(e)
-        this.main.innerHTML += light
+        const light = LightboxFactory.createThumbnail(element)
+        this.main.innerHTML = light
+        document.querySelector('.lightbox__next').addEventListener('click', () => {
+          console.log(this.media.indexOf(element))
+        })
+        console.log(this.media)
         document.querySelector('.lightbox__close').addEventListener('click', () => {
           window.location.reload()
         })
       })
     )
-  }
-
-  next () {
-
   }
 }
 export class LightboxMedia {
@@ -26,6 +25,10 @@ export class LightboxMedia {
     this.path = path
     this.tagline = tagline
     this.index = index
+  }
+
+  render () {
+
   }
 }
 
@@ -66,11 +69,11 @@ class LightboxVideo extends LightboxMedia {
 }
 
 export class LightboxFactory {
-  static createThumbnail (e) {
-    if (e.target.localName === 'video') {
-      return new LightboxVideo(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
+  static createThumbnail (element) {
+    if (element.children[0].localName === 'video') {
+      return new LightboxVideo(element.children[0].getAttribute('src'), element.children[0].getAttribute('alt')).render()
     } else {
-      return new LightboxImage(e.target.getAttribute('src'), e.target.getAttribute('alt')).render()
+      return new LightboxImage(element.children[0].getAttribute('src'), element.children[0].getAttribute('alt')).render()
     }
   }
 }

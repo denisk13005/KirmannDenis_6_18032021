@@ -52,7 +52,6 @@ async function getMedia () {
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
   light.render()
-
   // tabLight.forEach((element) =>
   //   element.addEventListener('click', (e) => {
   //     console.log(e)
