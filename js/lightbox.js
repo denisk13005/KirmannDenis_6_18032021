@@ -4,39 +4,34 @@
  * @param {number} index index de l'élément actuel
  */
 export class Lightbox {
-  constructor (media, main, index) {
+  constructor (media, main) {
     this.media = media
     this.main = main
-    this.index = index
   }
 
   render () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
         const path = element.children[0].getAttribute('src')
-        const tagline = element.children[0].getAttribute('alt')
+        const title = element.children[0].getAttribute('alt')
         const type = element.children[0].localName
-        const light = new LightboxMedia(path, tagline, index, type)
+        const light = new LightboxMedia(path, title, index, type)
         this.main.innerHTML += light.render()
-        const croix = document.querySelector('.lightbox__close')
-        const lightbox = document.querySelector('.lightbox')
-        croix.addEventListener('click', () => {
-          this.main.removeChild(lightbox)
-        })
       })
     )
   }
 }
+
 /**
  *@param {URL} path url du media à afficher
- *@param {string} tagline description du media à afficher
+ *@param {string} title description du media à afficher
  *@param {number} index index du media à afficher
  *@param {string} type format du média à afficher
  */
 export class LightboxMedia {
-  constructor (path, tagline, index, type) {
+  constructor (path, title, index, type) {
     this.path = path
-    this.tagline = tagline
+    this.title = title
     this.index = index
     this.type = type
   }
@@ -64,7 +59,7 @@ export class LightboxMedia {
                 type="video/mp4"
                     autoplay
               ></video>     
-              <p>  ${this.tagline}</p>
+              <p>  ${this.title}</p>
         </div>
 
      `
@@ -76,56 +71,9 @@ export class LightboxMedia {
     const img = `
           <div class="lightbox__container">
              <img src="${this.path}" />
-             <p>  ${this.tagline}</p>
+             <p>  ${this.title}</p>
           </div>
     `
     return img
   }
 }
-
-// class LightboxImage extends LightboxMedia {
-//   // render () {
-//   //   const div = `
-//   //       <div class="lightbox__container">
-//   //         <img src="${this.path}" />
-//   //         <p>  ${this.tagline}</p>
-//   //       </div>
-//   //     `
-//   //   return div
-//   // }
-// }
-
-// class LightboxVideo extends LightboxMedia {
-//   // render () {
-//   //   const div = `<div class="lightbox">
-//   //   <button class="lightbox__close"></button>
-//   //   <button class="lightbox__next"></button>
-//   //   <button class="lightbox__prev"></button>
-//   //   <div class="lightbox__container">
-//   //   <video
-//   //   src="${this.path}"
-//   //   type="video/mp4"
-//   //   autoplay
-//   // ></video>
-//   // <p>  ${this.tagline}</p>
-//   //   </div>
-//   // </div>`
-//   //   return div
-//   // }
-// }
-
-// export class LightboxFactory {
-//   static createThumbnail (element) {
-//     if (element.children[0].localName === 'video') {
-//       return new LightboxVideo(
-//         element.children[0].getAttribute('src'),
-//         element.children[0].getAttribute('alt')
-//       ).render()
-//     } else {
-//       return new LightboxImage(
-//         element.children[0].getAttribute('src'),
-//         element.children[0].getAttribute('alt')
-//       ).render()
-//     }
-//   }
-// }

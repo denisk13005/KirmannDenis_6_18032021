@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-import { PhotographerInfo, MediaFactory, Media } from './media.js'
+import { PhotographerInfo, MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
@@ -52,6 +52,7 @@ async function getMedia () {
   // /****************************************************************partie lightbox */
   const main = document.querySelector('.main')
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+  console.log(tabLight)
   const light = new Lightbox(tabLight, main)
   light.render()
 }
