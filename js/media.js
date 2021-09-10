@@ -1,4 +1,14 @@
 // ***************************************création de la classe qui décriera le photographe sélectionné
+/**
+ * @param {string} name nom du photographe
+ * @param {number} id id du photographe
+ * @param {string} city
+ * @param {country} country
+ * @param {string} tags
+ * @param {string} tagline citation
+ * @param {string} portrait nom de la photo
+ * @param {number} price tarif journalier du photographe
+ */
 export class PhotographerInfo {
   constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
     this.name = name
@@ -45,10 +55,17 @@ export class PhotographerInfo {
 }
 
 // **********************************************************création de la super classe media
+/**
+ * @param {string} title titre du media
+ * @param {string} description description du media
+ * @param {number} likes nombre de like du media
+ * @param {number} photographerId
+ * @param {date} date date du media
+ */
 export class Media {
-  constructor ({ title, tagline, likes, photographerId, date }) {
+  constructor ({ title, description, likes, photographerId, date }) {
     this.title = title
-    this.tagline = tagline
+    this.description = description
     this.likes = likes
     this.photographerId = photographerId
     this.date = date
@@ -56,8 +73,8 @@ export class Media {
 }
 //* *******************classe Photo avec sa méthode render pour créer une vignette correspondant à la photo */
 export class Photo extends Media {
-  constructor ({ title, tagline, image, likes, photographerId, date }) {
-    super({ title, tagline, likes, photographerId, date })
+  constructor ({ title, description, image, likes, photographerId, date }) {
+    super({ title, description, likes, photographerId, date })
     this.image = image
   }
 
@@ -83,8 +100,8 @@ export class Photo extends Media {
 
 //* ************************création de la classe Mp4 pour créer une vignette vidéo */
 export class Mp4 extends Media {
-  constructor ({ title, tagline, video, likes, photographerId, date }) {
-    super({ title, tagline, likes, photographerId, date })
+  constructor ({ title, description, video, likes, photographerId, date }) {
+    super({ title, description, likes, photographerId, date })
     this.video = video
   }
 

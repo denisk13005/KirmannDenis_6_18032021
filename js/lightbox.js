@@ -1,3 +1,8 @@
+/**
+ * @param {HTMLElement} media liste des media a afficher
+ * @param {HTMLElement} main
+ * @param {number} index index de l'élément actuel
+ */
 export class Lightbox {
   constructor (media, main, index) {
     this.media = media
@@ -8,28 +13,26 @@ export class Lightbox {
   render () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
-        console.log(index)
-        console.log(this.media)
         const path = element.children[0].getAttribute('src')
         const tagline = element.children[0].getAttribute('alt')
         const type = element.children[0].localName
-        const light = new LightboxMedia(path, tagline, index, type).render()
-        this.main.innerHTML = light
-        document
-          .querySelector('.lightbox__next')
-          .addEventListener('click', (e) => {
-            console.log('click')
-          })
-        console.log(this.media)
-        document
-          .querySelector('.lightbox__close')
-          .addEventListener('click', () => {
-            window.location.reload()
-          })
+        const light = new LightboxMedia(path, tagline, index, type)
+        this.main.innerHTML += light.render()
+        const croix = document.querySelector('.lightbox__close')
+        const lightbox = document.querySelector('.lightbox')
+        croix.addEventListener('click', () => {
+          this.main.removeChild(lightbox)
+        })
       })
     )
   }
 }
+/**
+ *@param {URL} path url du media à afficher
+ *@param {string} tagline description du media à afficher
+ *@param {number} index index du media à afficher
+ *@param {string} type format du média à afficher
+ */
 export class LightboxMedia {
   constructor (path, tagline, index, type) {
     this.path = path

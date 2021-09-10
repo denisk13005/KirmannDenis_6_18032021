@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-import { PhotographerInfo, MediaFactory } from './media.js'
+import { PhotographerInfo, MediaFactory, Media } from './media.js'
 import { Lightbox } from './lightbox.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
@@ -35,6 +35,7 @@ async function getMedia () {
       sectionInfo.innerHTML = photographe
     }
   })
+
   // *****************************************************génération des médias à retourner
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
@@ -53,16 +54,5 @@ async function getMedia () {
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
   light.render()
-
-  // tabLight.forEach((element) =>
-  //   element.addEventListener('click', (e) => {
-  //     console.log(e)
-  //     const light = LightboxFactory.createThumbnail(e)
-  //     main.innerHTML += light
-  //     document.querySelector('.lightbox__close').addEventListener('click', () => {
-  //       window.location.reload()
-  //     })
-  //   })
-  // )
 }
 getMedia()
