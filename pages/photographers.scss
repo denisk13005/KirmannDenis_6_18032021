@@ -482,3 +482,63 @@ header {
     max-height: 248px;
   }
 }
+
+//*******************modale******************
+
+.formulaire {
+  position: relative;
+  margin: auto;
+  display: none;
+  visibility: hidden;
+  flex-direction: column;
+  width: 669px;
+  height: 900px;
+  background-color: $color-mainRedirecttion;
+  border-radius: 5px;
+  .active {
+    display: flex;
+  }
+  h1 {
+    font-size: 64px;
+    font-family: dm_sans_regular;
+    margin-top: 4%;
+    margin-left: 5.5%;
+    margin-bottom: 19px;
+  }
+  img {
+    position: absolute;
+    font-size: 15px;
+    right: 6%;
+    top: 4%;
+    cursor: pointer;
+  }
+  label {
+    font-size: 36px;
+    font-family: dm_sans_regular;
+    margin-left: 35px;
+    margin-bottom: 5px;
+  }
+  input {
+    width: 88%;
+    height: 68px;
+    margin: 0 auto;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  textarea {
+    width: 88%;
+    height: 170px;
+    margin: 0 auto;
+    font-size: 26px;
+  }
+  #submit {
+    color: white;
+    background-color: $color-primary;
+    width: 170px;
+    height: 69px;
+    position: absolute;
+    bottom: 5.5%;
+    left: 35px;
+  }
+}

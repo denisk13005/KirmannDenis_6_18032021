@@ -34,7 +34,7 @@ export class PhotographerInfo {
               </ul>
             </nav>
           </div> 
-          <button>Contactez-moi</button> 
+          <button class = 'contact'>Contactez-moi</button> 
         </div>
         <div class="photo">
           <img src="../img/Sample Photos/${this.id}/${this.portrait}" alt="" />

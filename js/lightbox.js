@@ -30,7 +30,7 @@ export class Lightbox {
   }
 
   next () {
-    media.forEach((element, index) => {
+    this.media.forEach((element, index) => {
       const indexNext = index + 1
       console.log(indexNext)
       const path = this.media[indexNext].children[0].getAttribute('src')

@@ -809,4 +809,74 @@ header a img {
     max-height: 248px;
   }
 }
+
+.formulaire {
+  position: relative;
+  margin: auto;
+  display: none;
+  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 669px;
+  height: 900px;
+  background-color: #db8876;
+  border-radius: 5px;
+}
+
+.formulaire .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.formulaire h1 {
+  font-size: 64px;
+  font-family: dm_sans_regular;
+  margin-top: 4%;
+  margin-left: 5.5%;
+  margin-bottom: 19px;
+}
+
+.formulaire img {
+  position: absolute;
+  font-size: 15px;
+  right: 6%;
+  top: 4%;
+  cursor: pointer;
+}
+
+.formulaire label {
+  font-size: 36px;
+  font-family: dm_sans_regular;
+  margin-left: 35px;
+  margin-bottom: 5px;
+}
+
+.formulaire input {
+  width: 88%;
+  height: 68px;
+  margin: 0 auto;
+  font-size: 25px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.formulaire textarea {
+  width: 88%;
+  height: 170px;
+  margin: 0 auto;
+  font-size: 26px;
+}
+
+.formulaire #submit {
+  color: white;
+  background-color: #901c1c;
+  width: 170px;
+  height: 69px;
+  position: absolute;
+  bottom: 5.5%;
+  left: 35px;
+}
 /*# sourceMappingURL=photographers.css.map */

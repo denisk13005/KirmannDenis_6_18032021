@@ -23,18 +23,27 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
+
   //* ***************************************************génération dynamique de la partie description du photographe */
 
   data.photographers.forEach((element) => {
     photographers.push(element)
   })
+  let nameOfPhotographerId // nom du photographe sélectionné
   photographers.forEach((element) => {
     if (element.id === idphoto) {
+      nameOfPhotographerId = element.name
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
     }
   })
+  console.log(nameOfPhotographerId)
+  //* *************************modale de contact */
+
+  const contact = document.querySelector('.contact')
+  console.log(contact)
+  contact.addEventListener('click', open())
 
   // *****************************************************génération des médias à retourner
   media.forEach((element) => {
@@ -56,4 +65,5 @@ async function getMedia () {
   const light = new Lightbox(tabLight, main)
   light.render()
 }
+
 getMedia()
