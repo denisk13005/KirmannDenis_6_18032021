@@ -12,13 +12,35 @@ export class Lightbox {
   render () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
+        console.log(index)
         const path = element.children[0].getAttribute('src')
         const title = element.children[0].getAttribute('alt')
         const type = element.children[0].localName
         const light = new LightboxMedia(path, title, index, type)
         this.main.innerHTML += light.render()
+        const nextMedia = document.querySelector('.lightbox__next')
+
+        nextMedia.addEventListener('click', () => {
+          const lightNext = new Lightbox()
+          this.main.innerHTML += lightNext.next()
+        })
       })
+
     )
+  }
+
+  next () {
+    media.forEach((element, index) => {
+      const indexNext = index + 1
+      console.log(indexNext)
+      const path = this.media[indexNext].children[0].getAttribute('src')
+      const title = this.media[indexNext].children[0].getAttribute('alt')
+      const type = this.media[indexNext].children[0].localName
+      const light = new LightboxMedia(path, title, this.index, type)
+      this.main.innerHTML += light.render()
+      console.log(indexNext)
+      this.index++
+    })
   }
 }
 
