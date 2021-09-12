@@ -1,7 +1,7 @@
 import { getDataPhotographers } from './utils.js'
 import { PhotographerInfo, MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
-import { open } from './modale.js'
+import { contactPhotographer } from './modale.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -43,34 +43,43 @@ async function getMedia () {
   })
   console.log(nameOfPhotographerId)
   //* *************************modale de contact */
+  contactPhotographer(nameOfPhotographerId)
 
-  const contact = document.querySelector('.contact')
-  console.log(contact)
+  // const contact = document.querySelector('.contact')
 
-  const form = document.createElement('form')
-  form.classList.add('formulaire')
-  contact.addEventListener('click', () => {
-    const modale = `    
-    <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
-    <img src="../img/croix.png" alt="fermer la modale de contact" />
-    <label for="firstname">Prénom</label>
-    <input type="text" name="firstname" id="firstname" />
-    <label for="name">Nom</label>
-    <input type="text" name="name" id="name" />
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" />
-    <label for="message">Votre message</label>
-    <textarea name="message" id="message"></textarea>
-    <input id="submit" type="submit" value="Envoyer" />    
-    `
-    form.innerHTML = modale
-    main.appendChild(form)
-    // fermeture de la modale au click sur la croix
-    const closeModal = document.querySelector('.formulaire>img')
-    closeModal.addEventListener('click', () => {
-      main.removeChild(form)
-    })
-  })
+  // const form = document.createElement('form')
+  // form.classList.add('formulaire')
+  // contact.addEventListener('click', () => {
+  //   const modale = `
+  //   <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
+  //   <img src="../img/croix.png" alt="fermer la modale de contact" />
+  //   <label for="firstname">Prénom</label>
+  //   <input type="text" name="firstname" id="firstname" />
+  //   <span class = "firstname"></span>
+  //   <label for="name">Nom</label>
+  //   <input type="text" name="name" id="name" />
+  //   <span class = "name"></span>
+  //   <label for="email">Email</label>
+  //   <input type="email" name="email" id="email" />
+  //   <span class = "email"></span>
+  //   <label for="message">Votre message</label>
+  //   <textarea name="message" id="message"></textarea>
+  //   <span class = "message"></span>
+  //   <input id="submit" type="submit" value="Envoyer" />
+  //   `
+  //   form.innerHTML = modale
+  //   main.appendChild(form)
+  //   // fermeture de la modale au click sur la croix
+  //   const closeModal = document.querySelector('.formulaire>img')
+  //   closeModal.addEventListener('click', () => {
+  //     main.removeChild(form)
+  //   })
+  //   const submitButton = document.getElementById('submit')
+  //   submitButton.addEventListener('click', (e) => {
+  //     e.preventDefault()
+  //     main.removeChild(form)
+  //   })
+  // })
 
   // })
 
