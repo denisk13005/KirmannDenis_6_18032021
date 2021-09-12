@@ -486,7 +486,9 @@ header {
 //*******************modale******************
 
 .formulaire {
-  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
   margin: auto;
   display: none;
   visibility: hidden;
@@ -495,9 +497,7 @@ header {
   height: 900px;
   background-color: $color-mainRedirecttion;
   border-radius: 5px;
-  .active {
-    display: flex;
-  }
+  transform: translate(-50%, -50%);
   h1 {
     font-size: 64px;
     font-family: dm_sans_regular;
@@ -541,4 +541,9 @@ header {
     bottom: 5.5%;
     left: 35px;
   }
+}
+.active {
+  display: flex;
+  visibility: visible;
+  z-index: 20;
 }

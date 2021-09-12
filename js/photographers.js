@@ -1,6 +1,7 @@
 import { getDataPhotographers } from './utils.js'
 import { PhotographerInfo, MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
+import { open } from './modale.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -15,6 +16,8 @@ arrow.addEventListener('click', () => {
 })
 
 const sectionThumbnail = document.querySelector('.container__thumbnail')
+const main = document.querySelector('.main')
+
 const mediaToRender = []
 
 async function getMedia () {
@@ -43,7 +46,33 @@ async function getMedia () {
 
   const contact = document.querySelector('.contact')
   console.log(contact)
-  contact.addEventListener('click', open())
+
+  const form = document.createElement('form')
+  form.classList.add('formulaire')
+  contact.addEventListener('click', () => {
+    form.classList.add('active')
+    const modale = `    
+    <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
+    <img src="../img/croix.png" alt="fermer la modale de contact" />
+    <label for="firstname">Prénom</label>
+    <input type="text" name="firstname" id="firstname" />
+    <label for="name">Nom</label>
+    <input type="text" name="name" id="name" />
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" />
+    <label for="message">Votre message</label>
+    <textarea name="message" id="message"></textarea>
+    <input id="submit" type="submit" value="Envoyer" />    
+    `
+    form.innerHTML = modale
+    main.appendChild(form)
+    const closeModal = document.querySelector('.active>img')
+    closeModal.addEventListener('click', () => {
+      main.removeChild(form)
+    })
+  })
+
+  // })
 
   // *****************************************************génération des médias à retourner
   media.forEach((element) => {
@@ -56,12 +85,9 @@ async function getMedia () {
     const media = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += media
   })
-  console.log(mediaToRender)
 
   // /****************************************************************partie lightbox */
-  const main = document.querySelector('.main')
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
-  console.log(tabLight)
   const light = new Lightbox(tabLight, main)
   light.render()
 }

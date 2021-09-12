@@ -811,7 +811,9 @@ header a img {
 }
 
 .formulaire {
-  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
   margin: auto;
   display: none;
   visibility: hidden;
@@ -823,12 +825,8 @@ header a img {
   height: 900px;
   background-color: #db8876;
   border-radius: 5px;
-}
-
-.formulaire .active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .formulaire h1 {
@@ -878,5 +876,13 @@ header a img {
   position: absolute;
   bottom: 5.5%;
   left: 35px;
+}
+
+.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  z-index: 20;
 }
 /*# sourceMappingURL=photographers.css.map */

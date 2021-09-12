@@ -1,8 +1,9 @@
 
-export function open (photographe) {
+export function open (name) {
+  const main = document.querySelector('.main')
   const modale = `
   <form method="GET" class="formulaire">
-  <h1>Contactez-moi<br />${photographe}</h1>
+  <h1>Contactez-moi<br />${name}</h1>
   <img src="../img/croix.png" alt="fermer la modale de contact" />
   <label for="firstname">Prénom</label>
   <input type="text" name="firstname" id="firstname" />
@@ -16,5 +17,6 @@ export function open (photographe) {
 </form>
   
   `
-  return modale
+  main.innerHTML += modale
+  document.querySelector('.formulaire').classList.add('active')
 }
