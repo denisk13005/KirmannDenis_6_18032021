@@ -50,7 +50,6 @@ async function getMedia () {
   const form = document.createElement('form')
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
-    form.classList.add('active')
     const modale = `    
     <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
     <img src="../img/croix.png" alt="fermer la modale de contact" />
@@ -66,7 +65,8 @@ async function getMedia () {
     `
     form.innerHTML = modale
     main.appendChild(form)
-    const closeModal = document.querySelector('.active>img')
+    // fermeture de la modale au click sur la croix
+    const closeModal = document.querySelector('.formulaire>img')
     closeModal.addEventListener('click', () => {
       main.removeChild(form)
     })

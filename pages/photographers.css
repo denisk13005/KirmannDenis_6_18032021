@@ -815,8 +815,10 @@ header a img {
   left: 50%;
   top: 50%;
   margin: auto;
-  display: none;
-  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -876,13 +878,5 @@ header a img {
   position: absolute;
   bottom: 5.5%;
   left: 35px;
-}
-
-.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: visible;
-  z-index: 20;
 }
 /*# sourceMappingURL=photographers.css.map */
