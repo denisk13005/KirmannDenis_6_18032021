@@ -829,6 +829,7 @@ header a img {
   border-radius: 5px;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .formulaire h1 {
@@ -870,7 +871,8 @@ header a img {
   font-size: 26px;
 }
 
-.formulaire #submit {
+.formulaire #submit,
+.formulaire #close__msg {
   color: white;
   background-color: #901c1c;
   width: 170px;
@@ -878,5 +880,19 @@ header a img {
   position: absolute;
   bottom: 5.5%;
   left: 35px;
+}
+
+.formulaire p {
+  color: white;
+  font-size: 34px;
+  margin: auto;
+  text-align: center;
+  line-height: 104px;
+}
+
+.formulaire #close__msg {
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
 }
 /*# sourceMappingURL=photographers.css.map */
