@@ -60,7 +60,7 @@ async function getMedia () {
   // /****************************************************************partie lightbox */
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
-  light.render()
+  light.start()
 }
 
 getMedia()

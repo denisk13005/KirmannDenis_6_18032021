@@ -9,47 +9,72 @@ export class Lightbox {
     this.main = main
   }
 
-  render () {
+  clickIndex (index) {
+    if (index >= this.media.length || index < 0) {
+      index = 0
+    }
+    const element = this.media[index]
+    console.log(element)
+    this.currentIndex = index
+    this.render(element)
+  }
+
+  clickNext () {
+    this.currentIndex += 1
+    this.clickIndex(this.currentIndex)
+  }
+
+  clickPrev () {
+    this.currentIndex -= 1
+    this.clickIndex(this.currentIndex)
+  }
+
+  start () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
-        const light = document.createElement('div')
-        light.classList.add('lightbox')
-        const path = element.children[0].getAttribute('src')
-        const title = element.children[0].getAttribute('alt')
-        const type = element.children[0].localName
-        const icone = new LightboxMedia(path, title, index, type)
-        light.innerHTML = icone.render()
-        this.main.appendChild(light)
-        // fermeture de la lightbox
-        const closeIcone = document.querySelector('.lightbox__close')
-        closeIcone.addEventListener('click', () => this.main.removeChild(light))
-        // changement de média
-        const arrowNext = document.querySelectorAll('.lightbox__next')
-        console.log(arrowNext)
-        arrowNext.forEach(arrow => {
-          arrow.addEventListener('click', () => {
-            console.log(arrow)
-            console.log(index)
-            const indexNext = index + 1
-            this.main.removeChild(light)
-            const lightNext = document.createElement('section')
-            lightNext.classList.add('lightbox')
-            const path = this.media[indexNext].children[0].getAttribute('src')
-            const title = this.media[indexNext].children[0].getAttribute('alt')
-            const type = this.media[indexNext].children[0].localName
-            const icone = new LightboxMedia(path, title, index, type)
-            lightNext.innerHTML = icone.render()
-            this.main.appendChild(lightNext)
-            index++
-            console.log(index)
-            if (index === 9) {
-              index = 0
-            }
-          })
-        })
+        const lightbox = document.createElement('div')
+        lightbox.classList.add('lightbox')
+        const div = `
+      
+        <button class="lightbox__close"></button>
+        <button class="lightbox__next"></button>
+        <button class="lightbox__prev"></button>
+        <div class="lightbox__container">
+        
+        </div>
+     
+     
+    `
+        this.main.appendChild(lightbox)
+        lightbox.innerHTML = div
+        this.clickIndex(index)
       })
 
     )
+  }
+
+  render (element) {
+    const container = document.querySelector('.lightbox__container')
+    const path = element.children[0].getAttribute('src')
+    const title = element.children[0].getAttribute('alt')
+    const type = element.children[0].localName
+    const icone = new LightboxMedia(path, title, this.currentIndex, type)
+    container.innerHTML += icone.render()
+    // fermeture de la lightbox
+    const closeIcone = document.querySelector('.lightbox__close')
+    closeIcone.addEventListener('click', () => {
+      this.main.lastChild.remove()
+      console.log(typeof this.clickIndex)
+    })
+    // changement de média
+    const arrowNext = document.querySelector('.lightbox__next')
+    console.log(arrowNext)
+    arrowNext.addEventListener('click', () => {
+      this.clickIndex(element)
+    })
+    const arrowPrev = document.querySelector('.lightbox__prev')
+    arrowPrev.addEventListener('click', this.clickPrev)
+    console.log(arrowNext)
   }
 }
 
@@ -71,12 +96,9 @@ export class LightboxMedia {
     const children = this.type === 'video' ? this.renderVideo() : this.renderImage()
 
     const div = `
-   
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
+     
         ${children}
-    
+      
     `
     return div
   }
@@ -84,14 +106,14 @@ export class LightboxMedia {
   renderVideo () {
     const vid = `
    
-     <div class="lightbox__container">
+     
            <video
                 src="${this.path}"
                 type="video/mp4"
                     autoplay
               ></video>     
               <p>  ${this.title}</p>
-        </div>
+       
 
      `
 
@@ -100,10 +122,10 @@ export class LightboxMedia {
 
   renderImage () {
     const img = `
-          <div class="lightbox__container">
+          
              <img src="${this.path}" />
              <p>  ${this.title}</p>
-          </div>
+         
     `
     return img
   }
