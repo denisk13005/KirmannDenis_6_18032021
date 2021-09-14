@@ -1,6 +1,7 @@
 import { getDataPhotographers } from './utils.js'
-import { PhotographerInfo, Media } from './media.js'
+import { PhotographerInfo, MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
+import { contactPhotographer } from './modale.js'
 
 const sectionInfo = document.querySelector('.photographer__description')
 
@@ -15,6 +16,8 @@ arrow.addEventListener('click', () => {
 })
 
 const sectionThumbnail = document.querySelector('.container__thumbnail')
+const main = document.querySelector('.main')
+
 const mediaToRender = []
 
 async function getMedia () {
@@ -23,19 +26,26 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
+
   //* ***************************************************génération dynamique de la partie description du photographe */
 
   data.photographers.forEach((element) => {
     photographers.push(element)
   })
+  let nameOfPhotographerId // nom du photographe sélectionné
   photographers.forEach((element) => {
     if (element.id === idphoto) {
+      nameOfPhotographerId = element.name
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
     }
   })
-  // *****************************************************génération des vignettes photos
+  console.log(nameOfPhotographerId)
+  //* *************************modale de contact */
+  contactPhotographer(nameOfPhotographerId)
+
+  // *****************************************************génération des médias à retourner
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
       mediaToRender.push(element)
@@ -43,23 +53,14 @@ async function getMedia () {
   })
   /** *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
-    const media = Media.createMedia(element)
+    const media = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += media
   })
 
-  const main = document.querySelector('.main')
-  const tabLight = document.querySelectorAll('.thumbnail')
-  tabLight.forEach((element) =>
-    element.addEventListener('click', (e) => {
-      console.log(e)
-      const light = Lightbox.createThumbnail(e)
-      main.innerHTML += light
-      document.querySelector('.lightbox__close').addEventListener('click', () => {
-        window.location.reload()
-      })
-    })
-  )
+  // /****************************************************************partie lightbox */
+  const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+  const light = new Lightbox(tabLight, main)
+  light.start()
 }
-getMedia()
 
-// /****************************************************************partie lightbox */
+getMedia()
