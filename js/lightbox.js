@@ -63,8 +63,8 @@ export class Lightbox {
     // fermeture de la lightbox
     const closeIcone = document.querySelector('.lightbox__close')
     closeIcone.addEventListener('click', () => {
-      this.main.lastChild.remove()
-      console.log(typeof this.clickIndex)
+      const light = document.querySelector('.lightbox')
+      this.main.removeChild(light)
     })
     // changement de média
     const arrowNext = document.querySelector('.lightbox__next')
