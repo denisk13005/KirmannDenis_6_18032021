@@ -10,32 +10,20 @@ export function contactPhotographer (nameOfPhotographerId) {
     <img src="../img/croix.png" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
-    <span class = "firstname"></span>
+    <span class = "firstnameSpan"></span>
     <label for="name">Nom</label>
     <input type="text" name="name" id="name" required/>
-    <span class = "name"></span>     
+    <span class = "nameSpan"></span>     
     <label for="email">Email</label>
     <input type="email" name="email" id="email" required/>
-    <span class = "email"></span>     
+    <span class = "emailSpan"></span>     
     <label for="message">Votre message</label>
     <textarea name="message" id="message" required></textarea>
-    <span class = "message"></span>     
+    <span class = "messageSpan"></span>     
     <input id="submit" type="submit" value="Envoyer" />    
     `
     form.innerHTML = modale
     main.appendChild(form)
-    let erreur
-    // INJECTION DES ATTRIBUTS EN CAS DE PROBLEME
-    function setAtt (value) {
-      value.parentElement.setAttribute('data-error', erreur)
-      value.parentElement.setAttribute('data-error-visible', 'true')
-    }
-
-    // SUPRESSION DES ATTRIBUTS
-    function removeAtt (value) {
-      value.parentElement.removeAttribute('data-error')
-      value.parentElement.removeAttribute('data-error-visible')
-    }
 
     // TEST DE LA LONGUEUR ET DE LA VALIDITÉE DU CHAMP NOM ET PRENOM
     function testFirstAndLast (input) {
@@ -46,11 +34,10 @@ export function contactPhotographer (nameOfPhotographerId) {
     // FONCTION DE TEST DU PRENOM
     function testFirstName () {
       if (testFirstAndLast(first.value.trim())) {
-        removeAtt(first)
+        document.querySelector('.firstnameSpan').innerHTML = ''
         return true
       } else {
-        erreur = 'veuillez entrer un prénom de 2 lettres minimum'
-        setAtt(first)
+        document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
         return false
       }
     }
@@ -60,11 +47,10 @@ export function contactPhotographer (nameOfPhotographerId) {
 
     function testLastName () {
       if (testFirstAndLast(last.value.trim())) {
-        removeAtt(last)
+        document.querySelector('.nameSpan').innerHTML = ''
         return true
       } else {
-        erreur = 'veuillez entrer un nom de 2 lettres minimum'
-        setAtt(last)
+        document.querySelector('.nameSpan').innerHTML = 'veuillez entrez un nom de 2 lettres minimum et sans caractères spéciaux'
         return false
       }
     }
@@ -79,8 +65,10 @@ export function contactPhotographer (nameOfPhotographerId) {
 
     function email () {
       if (testMail(mail)) {
+        document.querySelector('.emailSpan').innerHTML = ''
         return true
       } else {
+        document.querySelector('.emailSpan').innerHTML = 'veuillez entrez un email valide '
         return false
       }
     }
@@ -89,8 +77,11 @@ export function contactPhotographer (nameOfPhotographerId) {
 
     function textArea () {
       if (testFirstAndLast(textarea.value.trim())) {
+        document.querySelector('.messageSpan').innerHTML = ''
         return true
       } else {
+        document.querySelector('.messageSpan').innerHTML = 'veuillez entrez un message valide '
+
         return false
       }
     }

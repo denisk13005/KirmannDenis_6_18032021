@@ -942,4 +942,9 @@ header a img {
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
 }
+
+.formulaire span {
+  color: red;
+  margin-left: 35px;
+}
 /*# sourceMappingURL=photographers.css.map */
