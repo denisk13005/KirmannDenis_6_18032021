@@ -564,14 +564,11 @@ header {
     background-color: $color-primary;
     width: 170px;
     height: 69px;
-    position: absolute;
-    bottom: 5.5%;
-    left: 35px;
+
     @media (max-width: 500px) {
+      margin: auto;
+      width: 170px;
       height: 35px;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 75px;
     }
   }
   p {
@@ -588,5 +585,10 @@ header {
   span {
     color: red;
     margin-left: 35px;
+    @media (max-width: 500px) {
+      margin-left: 16px;
+      margin-right: 46px;
+      width: 90%;
+    }
   }
 }
