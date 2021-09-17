@@ -560,6 +560,7 @@ header {
   }
   #submit,
   #close__msg {
+    cursor: pointer;
     color: white;
     background-color: $color-primary;
     width: 170px;
