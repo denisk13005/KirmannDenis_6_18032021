@@ -909,6 +909,7 @@ header a img {
 
 .formulaire #submit,
 .formulaire #close__msg {
+  cursor: pointer;
   color: white;
   background-color: #901c1c;
   width: 170px;
