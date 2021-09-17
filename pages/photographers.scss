@@ -564,14 +564,13 @@ header {
     background-color: $color-primary;
     width: 170px;
     height: 69px;
-    position: absolute;
-    bottom: 5.5%;
-    left: 35px;
+    margin-left: 35px;
+    margin-top: 26px;
+
     @media (max-width: 500px) {
+      margin: 26px auto;
+      width: 170px;
       height: 35px;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 75px;
     }
   }
   p {
@@ -582,11 +581,17 @@ header {
     line-height: 104px;
   }
   #close__msg {
-    left: 50%;
-    transform: translate(-50%);
+    margin: auto;
+    margin-bottom: 25px;
   }
+
   span {
     color: red;
     margin-left: 35px;
+    @media (max-width: 500px) {
+      margin-left: 16px;
+      margin-right: 46px;
+      width: 90%;
+    }
   }
 }

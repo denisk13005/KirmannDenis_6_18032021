@@ -913,19 +913,16 @@ header a img {
   background-color: #901c1c;
   width: 170px;
   height: 69px;
-  position: absolute;
-  bottom: 5.5%;
-  left: 35px;
+  margin-left: 35px;
+  margin-top: 26px;
 }
 
 @media (max-width: 500px) {
   .formulaire #submit,
   .formulaire #close__msg {
+    margin: 26px auto;
+    width: 170px;
     height: 35px;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%);
-    bottom: 75px;
   }
 }
 
@@ -938,13 +935,20 @@ header a img {
 }
 
 .formulaire #close__msg {
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  margin: auto;
+  margin-bottom: 25px;
 }
 
 .formulaire span {
   color: red;
   margin-left: 35px;
+}
+
+@media (max-width: 500px) {
+  .formulaire span {
+    margin-left: 16px;
+    margin-right: 46px;
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=photographers.css.map */
