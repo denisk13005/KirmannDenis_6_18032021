@@ -83,6 +83,10 @@ export class Lightbox {
     )
   }
 
+  /**
+   *
+   * @param {HTLMElement} element media sélectionné
+   */
   render (element) {
     const container = document.querySelector('.lightbox__container')
     const path = element.children[0].getAttribute('src')
@@ -96,17 +100,16 @@ export class Lightbox {
 /**
  *@param {URL} path url du media à afficher
  *@param {string} title description du media à afficher
- *@param {number} index index du media à afficher
  *@param {string} type format du média à afficher
  */
 export class LightboxMedia {
-  constructor (path, title, index, type) {
+  constructor (path, title, type) {
     this.path = path
     this.title = title
-    this.index = index
     this.type = type
   }
 
+  // factory qui renvoie la bonne balise html en fonction du type de média
   render () {
     const children = this.type === 'video' ? this.renderVideo() : this.renderImage()
 
