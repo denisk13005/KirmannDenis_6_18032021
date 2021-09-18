@@ -92,7 +92,7 @@ export class Lightbox {
     const path = element.children[0].getAttribute('src')
     const title = element.children[0].getAttribute('alt')
     const type = element.children[0].localName
-    const icone = new LightboxMedia(path, title, this.currentIndex, type)
+    const icone = new LightboxMedia(path, title, type)
     container.innerHTML = icone.render()
   }
 }
