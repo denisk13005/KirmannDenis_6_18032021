@@ -4,7 +4,12 @@ import { Photographer } from './objetPhotographers.js'
 async function init () {
   const data = await getDataPhotographers('index.json')
   const photographers = []
-  const section = document.querySelector('.photographers__cards')
+  const main = document.getElementById('main')
+  const section = document.createElement('section')
+  section.classList.add('photographers__cards')
+  main.appendChild(section)
+
+  const photographersCards = document.querySelector('.photographers__cards')
   const ul = document.querySelector('.tag>ul')
   const photographersData = data.photographers // récupération des données liées aux photographes
 
@@ -12,7 +17,7 @@ async function init () {
     photographers.push(new Photographer(element))
   })
   photographers.forEach((element) => {
-    section.innerHTML += element.render()
+    photographersCards.innerHTML += element.render()
   })
   function generateLi () {
     const tagArray = []
@@ -36,7 +41,7 @@ async function init () {
 
   document.querySelectorAll('.tag>ul>li').forEach((element) => {
     element.addEventListener('click', (e) => {
-      section.innerHTML = ''
+      photographersCards.innerHTML = ''
       photographersFilters = []
 
       if (!tagsDesired.includes(element)) {
@@ -57,7 +62,7 @@ async function init () {
         setphotographersFilters.forEach((photographer) => {
           // pour chaque photographe du tableau des photographes filtrés
 
-          section.innerHTML += photographer.render()
+          photographersCards.innerHTML += photographer.render()
         }) // on rend à l'écran les vignettes des photographes voulus
       } else {
         tagsDesired.splice(tagsDesired.indexOf(element), 1) // si l'élément li est inclu dans le tableau on le supprime
@@ -70,7 +75,7 @@ async function init () {
       }
       if (tagsDesired.length === 0) {
         photographers.forEach(
-          (photographer) => (section.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
+          (photographer) => (photographersCards.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
         )
       }
       //* *******************************************essai de classe sur les li des vignettes sélectionnées */
