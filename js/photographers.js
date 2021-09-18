@@ -29,9 +29,7 @@ async function getMedia () {
   let totalLikes = 0
   media.forEach(element => {
     if (element.photographerId === idphoto) {
-      console.log(element.likes)
       totalLikes += element.likes
-      console.log(totalLikes)
     }
   })
 
@@ -51,6 +49,7 @@ async function getMedia () {
       sectionInfo.innerHTML = photographe
     }
   })
+
   console.log(nameOfPhotographerId)
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
@@ -66,7 +65,11 @@ async function getMedia () {
     const media = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += media
   })
-
+  // ******************************************************incrémenttion de totalLikes
+  const hearts = document.querySelectorAll('#heart')
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => console.log(totalLikes = totalLikes + 1))
+  })
   // /****************************************************************partie lightbox */
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)

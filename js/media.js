@@ -43,7 +43,7 @@ export class PhotographerInfo {
         <div class='likeCountResume'>  
           <div class='total__likes'>        
           <p>${this.likesCount}</p>
-          <img class=""src='../img/heart-solid-black.svg'/>
+          <img src='../img/heart-solid-black.svg'/>
           </div>
 
           <p>${this.price}€/jour</p>
@@ -51,11 +51,8 @@ export class PhotographerInfo {
         </div>
       
         `
+
     return div
-  }
-
-  likesCount () {
-
   }
 }
 
@@ -93,7 +90,7 @@ export class Photo extends Media {
             <p>${this.title}</p>
             <div class="like__count">
               <p>${this.likes}</p>
-              <img src="../img/heart-solid.svg" alt="" />
+              <img id="heart" src="../img/heart-solid.svg" alt="" />
             </div>  
           </div>  
     </div>       
@@ -124,7 +121,7 @@ export class Mp4 extends Media {
             <p>${this.title}</p>
             <div class="like__count">
               <p>${this.likes}</p>
-              <img src="../img/heart-solid.svg" alt="" " alt="" />
+              <img id="heart" src="../img/heart-solid.svg" alt="" " alt="" />
             </div>  
           </div>  
     </div>      
