@@ -26,6 +26,14 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
+  let totalLikes = 0
+  media.forEach(element => {
+    if (element.photographerId === idphoto) {
+      console.log(element.likes)
+      totalLikes += element.likes
+      console.log(totalLikes)
+    }
+  })
 
   //* ***************************************************génération dynamique de la partie description du photographe */
 
@@ -36,6 +44,8 @@ async function getMedia () {
   photographers.forEach((element) => {
     if (element.id === idphoto) {
       nameOfPhotographerId = element.name
+      element.likesCount = totalLikes
+      console.log(element)
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe

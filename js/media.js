@@ -10,7 +10,7 @@
  * @param {number} price tarif journalier du photographe
  */
 export class PhotographerInfo {
-  constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
+  constructor ({ name, id, city, country, tags, tagline, portrait, price, likesCount }) {
     this.name = name
     this.id = id
     this.city = city
@@ -19,6 +19,7 @@ export class PhotographerInfo {
     this.tagline = tagline
     this.portrait = portrait
     this.price = price
+    this.likesCount = likesCount
   }
 
   render () {
@@ -41,8 +42,8 @@ export class PhotographerInfo {
         </div> 
         <div class='likeCountResume'>  
           <div class='total__likes'>        
-          <p>compte des likes</p>
-          <img src='../img/heart-solid-black.svg'/>
+          <p>${this.likesCount}</p>
+          <img class=""src='../img/heart-solid-black.svg'/>
           </div>
 
           <p>${this.price}€/jour</p>
@@ -51,6 +52,10 @@ export class PhotographerInfo {
       
         `
     return div
+  }
+
+  likesCount () {
+
   }
 }
 
