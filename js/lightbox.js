@@ -7,16 +7,31 @@ export class Lightbox {
   constructor (media, main) {
     this.media = media
     this.main = main
+    document.addEventListener('keyup', this.onKeyUp.bind(this))
   }
 
   clickIndex (index) {
-    if (index >= this.media.length || index < 0) {
+    if (index >= this.media.length) {
       index = 0
+    } else if (index < 0) {
+      index = this.media.length - 1
     }
     const element = this.media[index]
     console.log(element)
     this.currentIndex = index
     this.render(element)
+  }
+
+  onKeyUp (e) {
+    if (e.key === 'Escape') {
+      this.close(e)
+    }
+    if (e.key === 'ArrowRight') {
+      this.clickNext(e)
+    }
+    if (e.key === 'ArrowLeft') {
+      this.clickPrev(e)
+    }
   }
 
   clickNext () {
@@ -27,6 +42,11 @@ export class Lightbox {
   clickPrev () {
     this.currentIndex -= 1
     this.clickIndex(this.currentIndex)
+  }
+
+  close () {
+    const light = document.querySelector('.lightbox')
+    this.main.removeChild(light)
   }
 
   start () {
@@ -48,6 +68,16 @@ export class Lightbox {
         this.main.appendChild(lightbox)
         lightbox.innerHTML = div
         this.clickIndex(index)
+        // fermeture de la lightbox
+        const closeIcone = document.querySelector('.lightbox__close')
+        closeIcone.addEventListener('click', this.close.bind(this))
+        // changement de média
+        const arrowNext = document.querySelector('.lightbox__next')
+        console.log(arrowNext)
+        arrowNext.addEventListener('click', this.clickNext.bind(this))
+        const arrowPrev = document.querySelector('.lightbox__prev')
+        arrowPrev.addEventListener('click', this.clickPrev.bind(this))
+        console.log(arrowNext)
       })
 
     )
@@ -59,22 +89,7 @@ export class Lightbox {
     const title = element.children[0].getAttribute('alt')
     const type = element.children[0].localName
     const icone = new LightboxMedia(path, title, this.currentIndex, type)
-    container.innerHTML += icone.render()
-    // fermeture de la lightbox
-    const closeIcone = document.querySelector('.lightbox__close')
-    closeIcone.addEventListener('click', () => {
-      const light = document.querySelector('.lightbox')
-      this.main.removeChild(light)
-    })
-    // changement de média
-    const arrowNext = document.querySelector('.lightbox__next')
-    console.log(arrowNext)
-    arrowNext.addEventListener('click', () => {
-      this.clickIndex(element)
-    })
-    const arrowPrev = document.querySelector('.lightbox__prev')
-    arrowPrev.addEventListener('click', this.clickPrev)
-    console.log(arrowNext)
+    container.innerHTML = icone.render()
   }
 }
 
