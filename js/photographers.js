@@ -89,7 +89,6 @@ async function getMedia () {
       let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
       imageLike++
       imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
-      console.log(imageLikeContent)
       const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
       totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
     })
