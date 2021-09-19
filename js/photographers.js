@@ -26,6 +26,12 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
+  let totalLikes = 0
+  media.forEach((element) => {
+    if (element.photographerId === idphoto) {
+      totalLikes += element.likes
+    }
+  })
 
   //* ***************************************************génération dynamique de la partie description du photographe */
 
@@ -33,14 +39,19 @@ async function getMedia () {
     photographers.push(element)
   })
   let nameOfPhotographerId // nom du photographe sélectionné
+  let price = 0
   photographers.forEach((element) => {
     if (element.id === idphoto) {
       nameOfPhotographerId = element.name
+      price = element.price
+      element.likesCount = totalLikes
+      console.log(element)
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
     }
   })
+
   console.log(nameOfPhotographerId)
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
@@ -55,6 +66,32 @@ async function getMedia () {
   mediaToRender.forEach((element) => {
     const media = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += media
+  })
+  // ******************************************************incrémenttion de totalLikes
+  const likeCountResume = document.createElement('div')
+  likeCountResume.classList.add('likeCountResume')
+  likeCountResume.innerHTML = `
+      <div class="total__likes">
+        <p>${totalLikes}</p>
+        <img src="../img/heart-solid-black.svg" />
+      </div>
+
+      <p class='price'>${price}€/jour</p>
+  `
+  document.body.appendChild(likeCountResume)
+
+  const hearts = document.querySelectorAll('#heart')
+  totalLikes += 1
+  hearts.forEach((heart) => {
+    heart.addEventListener('click', () => {
+      const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
+      const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
+      let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
+      imageLike++
+      imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
+      const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
+      totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
+    })
   })
 
   // /****************************************************************partie lightbox */

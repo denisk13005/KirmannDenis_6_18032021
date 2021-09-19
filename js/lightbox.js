@@ -17,7 +17,6 @@ export class Lightbox {
       index = this.media.length - 1
     }
     const element = this.media[index]
-    console.log(element)
     this.currentIndex = index
     this.render(element)
   }
@@ -73,11 +72,9 @@ export class Lightbox {
         closeIcone.addEventListener('click', this.close.bind(this))
         // changement de média
         const arrowNext = document.querySelector('.lightbox__next')
-        console.log(arrowNext)
         arrowNext.addEventListener('click', this.clickNext.bind(this))
         const arrowPrev = document.querySelector('.lightbox__prev')
         arrowPrev.addEventListener('click', this.clickPrev.bind(this))
-        console.log(arrowNext)
       })
 
     )

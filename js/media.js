@@ -10,7 +10,7 @@
  * @param {number} price tarif journalier du photographe
  */
 export class PhotographerInfo {
-  constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
+  constructor ({ name, id, city, country, tags, tagline, portrait, price, likesCount }) {
     this.name = name
     this.id = id
     this.city = city
@@ -19,6 +19,7 @@ export class PhotographerInfo {
     this.tagline = tagline
     this.portrait = portrait
     this.price = price
+    this.likesCount = likesCount
   }
 
   render () {
@@ -39,17 +40,10 @@ export class PhotographerInfo {
         <div class="photo">
           <img src="../img/Sample Photos/${this.id}/${this.portrait}" alt="" />
         </div> 
-        <div class='likeCountResume'>  
-          <div class='total__likes'>        
-          <p>compte des likes</p>
-          <img src='../img/heart-solid-black.svg'/>
-          </div>
-
-          <p>${this.price}€/jour</p>
         
-        </div>
       
         `
+
     return div
   }
 }
@@ -88,7 +82,7 @@ export class Photo extends Media {
             <p>${this.title}</p>
             <div class="like__count">
               <p>${this.likes}</p>
-              <img src="../img/heart-solid.svg" alt="" />
+              <img id="heart" src="../img/heart-solid.svg" alt="" />
             </div>  
           </div>  
     </div>       
@@ -119,7 +113,7 @@ export class Mp4 extends Media {
             <p>${this.title}</p>
             <div class="like__count">
               <p>${this.likes}</p>
-              <img src="../img/heart-solid.svg" alt="" " alt="" />
+              <img id="heart" src="../img/heart-solid.svg" alt="" " alt="" />
             </div>  
           </div>  
     </div>      
