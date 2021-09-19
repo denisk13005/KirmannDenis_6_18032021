@@ -40,15 +40,7 @@ export class PhotographerInfo {
         <div class="photo">
           <img src="../img/Sample Photos/${this.id}/${this.portrait}" alt="" />
         </div> 
-        <div class='likeCountResume'>  
-          <div class='total__likes'>        
-          <p>${this.likesCount}</p>
-          <img src='../img/heart-solid-black.svg'/>
-          </div>
-
-          <p>${this.price}€/jour</p>
         
-        </div>
       
         `
 
