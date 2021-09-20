@@ -232,6 +232,7 @@ header {
     &__down {
       display: none;
       span {
+        position: relative;
         width: 150px;
         height: 64px;
         line-height: 64px;
@@ -239,8 +240,17 @@ header {
         font-size: 16px;
         padding-left: 20px;
         background-color: $color-primary;
-        border-top: 1px solid white;
         cursor: pointer;
+        &::before {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          content: '';
+          width: 80%;
+          height: 1px;
+          color: white;
+          border-bottom: 1px solid white;
+        }
       }
     }
   }
