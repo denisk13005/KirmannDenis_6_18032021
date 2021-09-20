@@ -3,22 +3,25 @@ import { PhotographerInfo, MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
 import { contactPhotographer } from './modale.js'
 
-const sectionInfo = document.querySelector('.photographer__description')
+const sectionInfo = document.querySelector('.photographer__description')// entête description du photographe
+const sectionThumbnail = document.querySelector('.container__thumbnail')// section contenant les médias du photographe
+const main = document.querySelector('.main')
 
-/** *******************************************rotation de la fleche du bouton de tri au click */
+/** *******************************************  Partie tri des médias  *************/
 const arrow = document.querySelector('.arrow')
 const blocDown = document.querySelectorAll('.bloc__down')
+const popularity = document.querySelector('.bloc__top')
+popularity.addEventListener('click', () => console.log('click'))
+console.log(popularity)
 arrow.addEventListener('click', () => {
   arrow.classList.toggle('rotate')
   blocDown.forEach((element) => {
     element.classList.toggle('active')
+    element.addEventListener('click', (e) => {
+      console.log(e)
+    })
   })
 })
-
-const sectionThumbnail = document.querySelector('.container__thumbnail')
-const main = document.querySelector('.main')
-
-const mediaToRender = []
 
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
@@ -44,7 +47,6 @@ async function getMedia () {
     if (element.id === idphoto) {
       nameOfPhotographerId = element.name
       price = element.price
-      element.likesCount = totalLikes
       console.log(element)
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
@@ -57,6 +59,8 @@ async function getMedia () {
   contactPhotographer(nameOfPhotographerId)
 
   // *****************************************************génération des médias à retourner
+  const mediaToRender = []
+
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
       mediaToRender.push(element)
@@ -64,8 +68,8 @@ async function getMedia () {
   })
   /** *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
-    const media = MediaFactory.createMedia(element)
-    sectionThumbnail.innerHTML += media
+    const thumbnail = MediaFactory.createMedia(element)
+    sectionThumbnail.innerHTML += thumbnail
   })
   // ******************************************************incrémenttion de totalLikes
   const likeCountResume = document.createElement('div')
@@ -94,7 +98,7 @@ async function getMedia () {
     })
   })
 
-  // /****************************************************************partie lightbox */
+  // /****************************************************************Lightbox ***********/
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
   light.start()

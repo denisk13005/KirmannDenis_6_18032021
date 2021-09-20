@@ -10,7 +10,7 @@
  * @param {number} price tarif journalier du photographe
  */
 export class PhotographerInfo {
-  constructor ({ name, id, city, country, tags, tagline, portrait, price, likesCount }) {
+  constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
     this.name = name
     this.id = id
     this.city = city
@@ -19,7 +19,6 @@ export class PhotographerInfo {
     this.tagline = tagline
     this.portrait = portrait
     this.price = price
-    this.likesCount = likesCount
   }
 
   render () {
