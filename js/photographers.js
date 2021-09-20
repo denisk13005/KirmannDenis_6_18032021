@@ -7,22 +7,6 @@ const sectionInfo = document.querySelector('.photographer__description')// entê
 const sectionThumbnail = document.querySelector('.container__thumbnail')// section contenant les médias du photographe
 const main = document.querySelector('.main')
 
-/** *******************************************  Partie tri des médias  *************/
-const arrow = document.querySelector('.arrow')
-const blocDown = document.querySelectorAll('.bloc__down')
-const popularity = document.querySelector('.bloc__top')
-popularity.addEventListener('click', () => console.log('click'))
-console.log(popularity)
-arrow.addEventListener('click', () => {
-  arrow.classList.toggle('rotate')
-  blocDown.forEach((element) => {
-    element.classList.toggle('active')
-    element.addEventListener('click', (e) => {
-      console.log(e)
-    })
-  })
-})
-
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
@@ -57,6 +41,24 @@ async function getMedia () {
   console.log(nameOfPhotographerId)
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
+
+  /** *******************************************  Partie tri des médias  *************/
+  const arrow = document.querySelector('.arrow')
+  const blocDown = document.querySelector('.bloc__down')
+  const valueButton = document.querySelector('.bloc__top')
+  let filterChoice // stocke le choix de filtre des médias
+  arrow.addEventListener('click', () => {
+    arrow.classList.toggle('rotate')
+    blocDown.classList.toggle('active')
+  })
+
+  blocDown.addEventListener('click', (e) => {
+    blocDown.classList.toggle('active')
+    arrow.classList.toggle('rotate')
+    filterChoice = e.target.textContent
+    valueButton.textContent = filterChoice
+    console.log(filterChoice)
+  })
 
   // *****************************************************génération des médias à retourner
   const mediaToRender = []

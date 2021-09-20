@@ -182,10 +182,25 @@ header {
 
 // **********partie tri
 .tri {
+  position: relative;
   display: flex;
-  // align-items: center;
   margin-top: 9px;
   margin-left: 97px;
+  width: max-content;
+  img {
+    position: absolute;
+    z-index: 12;
+    right: 10px;
+    top: 26px;
+    width: 16px;
+    transition: transform 0.1s linear;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+  .rotate {
+    //animation de la flèche au click
+    transform: rotate(-180deg);
+  }
   @media (max-width: 960px) {
     display: none;
   }
@@ -215,19 +230,6 @@ header {
       font-size: 18px;
       color: white;
       padding-left: 20px;
-      cursor: pointer;
-
-      img {
-        width: 16px;
-        margin-right: 18px;
-        transform: rotate(0deg);
-        transition: transform 0.1s linear;
-      }
-      .rotate {
-        //animation de la flèche au click
-        transform: rotate(180deg);
-        transition: transform 0.1s linear;
-      }
     }
     &__down {
       display: none;
