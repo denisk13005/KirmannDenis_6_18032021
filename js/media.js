@@ -75,7 +75,7 @@ export class Photo extends Media {
     const div = `
     <div class="thumbnail">
           <div class="img__thumbnail">   
-    <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.title}" />      
+    <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.description}" />      
           </div>
           <div class="thumbnail__description">
             <p>${this.title}</p>
@@ -105,7 +105,7 @@ export class Mp4 extends Media {
             <video
               src="../img/Sample Photos/${this.photographerId}/${this.video}"
               type="video/mp4"    
-              alt ="${this.title}"          
+              alt ="${this.description}"          
             ></video>  
           </div>  
           <div class="thumbnail__description">

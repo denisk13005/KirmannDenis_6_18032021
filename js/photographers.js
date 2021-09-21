@@ -67,11 +67,11 @@ async function getMedia () {
   //* **********************************************filtre sur les médias */
   console.log(mediaToRender[0])
   blocDown.addEventListener('click', (e) => {
-    sectionThumbnail.innerHTML = ''
-    blocDown.classList.toggle('active')
-    arrow.classList.toggle('rotate')
+    sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
+    blocDown.classList.toggle('active')// on fait disparaître le bloc-down
+    arrow.classList.toggle('rotate')// on remet la flêche à l'endroit
     filterChoice = e.target.textContent
-    valueButton.textContent = filterChoice
+    valueButton.textContent = filterChoice// on affiche la valeur choisie dans le bouton
     if (filterChoice === 'Titre') {
       mediaToRender.sort(function (a, b) {
         return a.title.localeCompare(b.title)
