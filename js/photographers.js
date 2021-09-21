@@ -13,6 +13,7 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
+  //* ****************************************************génération du nombres total de likes sur les médias du photographe */
   let totalLikes = 0
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
@@ -91,6 +92,7 @@ async function getMedia () {
       sectionThumbnail.innerHTML += thumbnail
     })
     count()
+    totalLikes -= 1
     const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
     const light = new Lightbox(tabLight, main)
     light.start()
@@ -101,7 +103,7 @@ async function getMedia () {
     sectionThumbnail.innerHTML += thumbnail
   })
 
-  // ******************************************************incrémenttion de totalLikes
+  // ******************************************************incrémentation de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
   likeCountResume.innerHTML = `
@@ -115,7 +117,7 @@ async function getMedia () {
   document.body.appendChild(likeCountResume)
   function count () {
     const hearts = document.querySelectorAll('#heart')
-    // totalLikes += 1
+    totalLikes += 1
     hearts.forEach((heart) => {
       heart.addEventListener('click', () => {
         const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
