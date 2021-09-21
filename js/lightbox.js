@@ -23,13 +23,13 @@ export class Lightbox {
 
   onKeyUp (e) {
     if (e.key === 'Escape') {
-      this.close(e)
+      this.close()
     }
     if (e.key === 'ArrowRight') {
-      this.clickNext(e)
+      this.clickNext()
     }
     if (e.key === 'ArrowLeft') {
-      this.clickPrev(e)
+      this.clickPrev()
     }
   }
 
@@ -60,10 +60,8 @@ export class Lightbox {
         <button class="lightbox__prev"></button>
         <div class="lightbox__container">
         
-        </div>
-     
-     
-    `
+        </div>     
+      `
         this.main.appendChild(lightbox)
         lightbox.innerHTML = div
         this.clickIndex(index)

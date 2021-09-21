@@ -52,7 +52,7 @@ export class PhotographerInfo {
  * @param {string} title titre du media
  * @param {string} description description du media
  * @param {number} likes nombre de like du media
- * @param {number} photographerId
+ * @param {number} photographerId identifiant du photographe
  * @param {date} date date du media
  */
 export class Media {
