@@ -42,23 +42,17 @@ async function getMedia () {
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
 
-  /** *******************************************  Partie tri des médias  *************/
+  /** *******************************************  Animation de la fleche et des éléments de la partie tri  *************/
   const arrow = document.querySelector('.arrow')
   const blocDown = document.querySelector('.bloc__down')
   const valueButton = document.querySelector('.bloc__top')
   let filterChoice // stocke le choix de filtre des médias
+  // animation de la fleche + apparition des choix
   arrow.addEventListener('click', () => {
     arrow.classList.toggle('rotate')
     blocDown.classList.toggle('active')
   })
-
-  blocDown.addEventListener('click', (e) => {
-    blocDown.classList.toggle('active')
-    arrow.classList.toggle('rotate')
-    filterChoice = e.target.textContent
-    valueButton.textContent = filterChoice
-    console.log(filterChoice)
-  })
+  // récupération de la valeur choisie
 
   // *****************************************************génération des médias à retourner
   const mediaToRender = []
@@ -66,13 +60,43 @@ async function getMedia () {
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
       mediaToRender.push(element)
+      console.log(element.date)
     }
   })
-  /** *****************************************************création des vignettes grace a la factory */
+
+  //* **********************************************filtre sur les médias */
+  console.log(mediaToRender[0])
+  blocDown.addEventListener('click', (e) => {
+    sectionThumbnail.innerHTML = ''
+    blocDown.classList.toggle('active')
+    arrow.classList.toggle('rotate')
+    filterChoice = e.target.textContent
+    valueButton.textContent = filterChoice
+    if (filterChoice === 'Titre') {
+      mediaToRender.sort(function (a, b) {
+        return a.title.localeCompare(b.title)
+      })
+    } else if (filterChoice === 'Date') {
+      mediaToRender.sort(function (a, b) {
+        return new Date(a.date) - new Date(b.date)
+      })
+    } else {
+      mediaToRender.sort(function (a, b) {
+        return a.likes - b.likes
+      })
+    }
+
+    mediaToRender.forEach((element) => {
+      const thumbnail = MediaFactory.createMedia(element)
+      sectionThumbnail.innerHTML += thumbnail
+    })
+  })
+  //* * *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
     const thumbnail = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += thumbnail
   })
+
   // ******************************************************incrémenttion de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
