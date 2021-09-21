@@ -90,6 +90,10 @@ async function getMedia () {
       const thumbnail = MediaFactory.createMedia(element)
       sectionThumbnail.innerHTML += thumbnail
     })
+    count()
+    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+    const light = new Lightbox(tabLight, main)
+    light.start()
   })
   //* * *****************************************************création des vignettes grace a la factory */
   mediaToRender.forEach((element) => {
@@ -101,29 +105,30 @@ async function getMedia () {
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
   likeCountResume.innerHTML = `
-      <div class="total__likes">
-        <p>${totalLikes}</p>
-        <img src="../img/heart-solid-black.svg" />
-      </div>
+    <div class="total__likes">
+      <p>${totalLikes}</p>
+      <img src="../img/heart-solid-black.svg" />
+    </div>
 
-      <p class='price'>${price}€/jour</p>
-  `
+    <p class='price'>${price}€/jour</p>
+`
   document.body.appendChild(likeCountResume)
-
-  const hearts = document.querySelectorAll('#heart')
-  totalLikes += 1
-  hearts.forEach((heart) => {
-    heart.addEventListener('click', () => {
-      const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
-      const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
-      let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
-      imageLike++
-      imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
-      const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
-      totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
+  function count () {
+    const hearts = document.querySelectorAll('#heart')
+    // totalLikes += 1
+    hearts.forEach((heart) => {
+      heart.addEventListener('click', () => {
+        const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
+        const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
+        let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
+        imageLike++
+        imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
+        const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
+        totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
+      })
     })
-  })
-
+  }
+  count()
   // /****************************************************************Lightbox ***********/
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
