@@ -30,7 +30,7 @@ export class PhotographerInfo {
             <h3>${this.tagline}</h3>
             <nav>
               <ul>
-              ${this.tags.map((tag) => `<li>#${tag}`).join('')}
+              ${this.tags.map((tag) => `<li class='li'>#${tag}`).join('')}
               </ul>
             </nav>
           </div> 

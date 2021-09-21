@@ -104,7 +104,7 @@ export class LightboxMedia {
     this.type = type
   }
 
-  // factory qui renvoie la bonne balise html en fonction du type de média
+  // ***factory qui renvoie la bonne balise html en fonction du type de média
   render () {
     const children = this.type === 'video' ? this.renderVideo() : this.renderImage()
 
