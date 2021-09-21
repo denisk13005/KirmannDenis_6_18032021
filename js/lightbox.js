@@ -87,7 +87,7 @@ export class Lightbox {
   render (element) {
     const container = document.querySelector('.lightbox__container')
     const path = element.children[0].getAttribute('src')
-    const title = element.children[0].getAttribute('alt')
+    const title = element.children[0].getAttribute('title')
     const type = element.children[0].localName
     const icone = new LightboxMedia(path, title, type)
     container.innerHTML = icone.render()
