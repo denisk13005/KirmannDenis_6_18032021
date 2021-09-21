@@ -10,7 +10,7 @@
  * @param {number} price tarif journalier du photographe
  */
 export class PhotographerInfo {
-  constructor ({ name, id, city, country, tags, tagline, portrait, price, likesCount }) {
+  constructor ({ name, id, city, country, tags, tagline, portrait, price }) {
     this.name = name
     this.id = id
     this.city = city
@@ -19,7 +19,6 @@ export class PhotographerInfo {
     this.tagline = tagline
     this.portrait = portrait
     this.price = price
-    this.likesCount = likesCount
   }
 
   render () {
@@ -76,7 +75,7 @@ export class Photo extends Media {
     const div = `
     <div class="thumbnail">
           <div class="img__thumbnail">   
-    <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.title}" />      
+    <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.description}" title="${this.title}"/>      
           </div>
           <div class="thumbnail__description">
             <p>${this.title}</p>
@@ -106,7 +105,8 @@ export class Mp4 extends Media {
             <video
               src="../img/Sample Photos/${this.photographerId}/${this.video}"
               type="video/mp4"    
-              alt ="${this.title}"          
+              alt ="${this.description}"
+              title="${this.title}"          
             ></video>  
           </div>  
           <div class="thumbnail__description">

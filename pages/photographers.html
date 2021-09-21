@@ -21,17 +21,20 @@
 
       <div class="tri">
         <p>Trier par</p>
-
         <div class="dropDown">
-          <button class="bloc__top">
-            Popularité
-            <img class="arrow" src="../img/chevron-down-solid.svg" alt="" />
-          </button>
+          <button class="bloc__top">Popularité</button>
           <div class="bloc__down">
-            <span>Date</span>
-            <span>Titre</span>
+            <span id="popularité">Popularité</span>
+            <span id="date">Date</span>
+            <span id="titre">Titre</span>
           </div>
         </div>
+        <img
+          class="arrow"
+          src="../img/chevron-down-solid.svg"
+          alt=""
+          aria-haspopup="listbox"
+        />
       </div>
 
       <section class="container__thumbnail"></section>

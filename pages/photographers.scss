@@ -182,10 +182,25 @@ header {
 
 // **********partie tri
 .tri {
+  position: relative;
   display: flex;
-  // align-items: center;
   margin-top: 9px;
   margin-left: 97px;
+  width: max-content;
+  img {
+    position: absolute;
+    z-index: 12;
+    right: 10px;
+    top: 26px;
+    width: 16px;
+    transition: transform 0.1s linear;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+  .rotate {
+    //animation de la flèche au click
+    transform: rotate(-180deg);
+  }
   @media (max-width: 960px) {
     display: none;
   }
@@ -215,22 +230,11 @@ header {
       font-size: 18px;
       color: white;
       padding-left: 20px;
-      cursor: pointer;
-      img {
-        width: 16px;
-        margin-right: 18px;
-        transform: rotate(0deg);
-        transition: transform 0.1s linear;
-      }
-      .rotate {
-        //animation de la flèche au click
-        transform: rotate(180deg);
-        transition: transform 0.1s linear;
-      }
     }
     &__down {
       display: none;
       span {
+        position: relative;
         width: 150px;
         height: 64px;
         line-height: 64px;
@@ -238,8 +242,17 @@ header {
         font-size: 16px;
         padding-left: 20px;
         background-color: $color-primary;
-        border-top: 1px solid white;
         cursor: pointer;
+        &::before {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          content: '';
+          width: 80%;
+          height: 1px;
+          color: white;
+          border-bottom: 1px solid white;
+        }
       }
     }
   }
@@ -364,7 +377,7 @@ header {
   width: 100%;
   height: 100vh;
   background-color: rgba($color: #fff, $alpha: 1);
-  z-index: 10;
+  z-index: 100;
   overflow: hidden;
 }
 .lightbox__next,
