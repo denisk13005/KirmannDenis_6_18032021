@@ -32,7 +32,6 @@ async function getMedia () {
     if (element.id === idphoto) {
       nameOfPhotographerId = element.name
       price = element.price
-      console.log(element)
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
@@ -40,10 +39,14 @@ async function getMedia () {
   })
 
   console.log(nameOfPhotographerId)
+  //* *******************************************générationb dynamique du nom de la page photographe ********************/
+  const head = document.querySelector('head>title')
+  head.innerHTML = nameOfPhotographerId + ' Page'
+  console.log(head.textContent)
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
 
-  /** *******************************************  Animation de la fleche et des éléments de la partie tri  *************/
+  /** *******************************************  Animation de la fleche et des éléments de la partie tri  *****************/
   const arrow = document.querySelector('.arrow')
   const blocDown = document.querySelector('.bloc__down')
   const valueButton = document.querySelector('.bloc__top')
@@ -57,16 +60,36 @@ async function getMedia () {
 
   // *****************************************************génération des médias à retourner
   const mediaToRender = []
-
+  let filteredMedias = []
   media.forEach((element) => {
     if (element.photographerId === idphoto) {
       mediaToRender.push(element)
-      console.log(element.date)
     }
   })
+  const photographerLi = document.querySelectorAll('.li')
 
+  photographerLi.forEach(li => li.addEventListener('click', () => {
+    filteredMedias = []
+    const liSelected = li.textContent.substr(1)
+    console.log(liSelected)
+    mediaToRender.forEach(el => {
+      if (el.tags[0] === liSelected.trim()) {
+        filteredMedias.push(el)
+      }
+    })
+    console.log(filteredMedias)
+    sectionThumbnail.innerHTML = ''
+    filteredMedias.forEach(element => {
+      const thumbnail = MediaFactory.createMedia(element)
+      sectionThumbnail.innerHTML += thumbnail
+    })
+    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+    const light = new Lightbox(tabLight, main)
+    light.start()
+  }))
+
+  console.log(photographerLi)
   //* **********************************************filtre sur les médias */
-  console.log(mediaToRender[0])
   blocDown.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
     blocDown.classList.toggle('active')// on fait disparaître le bloc-down
@@ -102,7 +125,6 @@ async function getMedia () {
     const thumbnail = MediaFactory.createMedia(element)
     sectionThumbnail.innerHTML += thumbnail
   })
-
   // ******************************************************incrémentation de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
@@ -132,6 +154,7 @@ async function getMedia () {
   }
   count()
   // /****************************************************************Lightbox ***********/
+
   const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
   const light = new Lightbox(tabLight, main)
   light.start()
