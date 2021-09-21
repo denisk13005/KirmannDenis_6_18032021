@@ -119,12 +119,12 @@ async function getMedia () {
     hearts.forEach((heart) => {
       heart.addEventListener('click', () => {
         const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
+        const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
+        totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
         const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
         let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
         imageLike++
         imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
-        const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
-        totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
       })
     })
   }
