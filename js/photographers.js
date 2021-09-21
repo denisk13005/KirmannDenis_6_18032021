@@ -83,9 +83,7 @@ async function getMedia () {
       const thumbnail = MediaFactory.createMedia(element)
       sectionThumbnail.innerHTML += thumbnail
     })
-    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
-    const light = new Lightbox(tabLight, main)
-    light.start()
+    openLightbox()
   }))
 
   console.log(photographerLi)
@@ -110,21 +108,19 @@ async function getMedia () {
       })
     }
 
+    generateMedias()
+    count()
+    totalLikes -= 1
+    openLightbox()
+  })
+  //* * *****************************************************création des vignettes grace a la factory */
+  function generateMedias () {
     mediaToRender.forEach((element) => {
       const thumbnail = MediaFactory.createMedia(element)
       sectionThumbnail.innerHTML += thumbnail
     })
-    count()
-    totalLikes -= 1
-    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
-    const light = new Lightbox(tabLight, main)
-    light.start()
-  })
-  //* * *****************************************************création des vignettes grace a la factory */
-  mediaToRender.forEach((element) => {
-    const thumbnail = MediaFactory.createMedia(element)
-    sectionThumbnail.innerHTML += thumbnail
-  })
+  }
+  generateMedias()
   // ******************************************************incrémentation de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
@@ -154,10 +150,12 @@ async function getMedia () {
   }
   count()
   // /****************************************************************Lightbox ***********/
-
-  const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
-  const light = new Lightbox(tabLight, main)
-  light.start()
+  function openLightbox () {
+    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+    const light = new Lightbox(tabLight, main)
+    light.start()
+  }
+  openLightbox()
 }
 
 getMedia()
