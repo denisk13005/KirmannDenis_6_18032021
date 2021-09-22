@@ -370,8 +370,9 @@ header {
 /************************************************ lightbox ***********************************/
 .lightbox {
   display: flex;
-  justify-content: center;
   position: fixed;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -379,95 +380,59 @@ header {
   background-color: rgba($color: #fff, $alpha: 1);
   z-index: 100;
   overflow: hidden;
+  button{
+    background-color: transparent;
+    height: min-content;
+    cursor: pointer;
+    border: none;
+  }
+  &__prev{
+    width: 50px;
+    img{
+      width: 100%;
+      border: none;
+      @media(max-width:500px){
+        width: 50%;
+      }
+    }
+  }
+  
 }
-.lightbox__next,
-.lightbox__prev {
-  border-top: 5px solid $color-primary;
-  border-right: 5px solid $color-primary;
-  border-bottom: transparent;
-  border-left: transparent;
-  transform: rotate(45deg) translateY(-50%);
-  height: 20px;
-  width: 20px;
+.right{
+  width: 50px;
+  display: flex;
+  height: 900px;
+  justify-content: center;
+  flex-direction: column;
   background-color: transparent;
-  cursor: pointer;
-  position: fixed;
-  top: 50%;
-  opacity: 0.5;
-  transition: 0.3s;
-  &:hover {
-    opacity: 1;
-    transition: 0.3s;
+  position: relative;
+  @media(max-width:500px){
+    height: 350px;
   }
-  @media (max-width: 500px) {
-    width: 14px;
-    height: 14px;
+  
+  img{
+    transform: rotate(180deg);
+    width: 100%;
+    @media(max-width: 500px){
+      width: 50%;
+    }
   }
+  
+
+}
+.lightbox__close{
+  position: absolute;
+  top: 14%;
+  width: 80%;
+
 }
 
-.lightbox__prev {
-  transform: rotate(-135deg);
-  top: 50%;
-  left: 394px;
-  @media (max-width: 500px) {
-    left: 24px;
-    top: 48%;
-  }
-}
-.lightbox__next {
-  right: 400px;
-  top: 48%;
-  @media (max-width: 500px) {
-    right: 30px;
-    top: 48%;
-  }
-}
 
-.lightbox__close {
-  position: absolute;
-  right: 380px;
-  top: 120px;
-  width: 42px;
-  height: 42px;
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(0.7);
-  background: transparent;
-  border: transparent;
-  opacity: 0.5;
-  transition: 0.3s;
-  &:hover {
-    opacity: 1;
-    transition: 0.3s;
-  }
-  @media (max-width: 500px) {
-    top: 290px;
-    right: 5px;
-  }
-}
-.lightbox__close:before,
-.lightbox__close:after {
-  position: absolute;
-  left: 15px;
-  content: '';
-  height: 40px;
-  width: 3px;
-  background-color: $color-primary;
-  @media (max-width: 500px) {
-    height: 24px;
-  }
-}
-.lightbox__close:before {
-  transform: rotate(45deg);
-}
-.lightbox__close:after {
-  transform: rotate(-45deg);
-}
 .lightbox__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin: auto 0px ;
   width: 1050px;
   height: 900px;
   overflow: hidden;
