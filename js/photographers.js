@@ -58,7 +58,7 @@ async function getMedia () {
   })
   // récupération de la valeur choisie
 
-  // *****************************************************génération des médias à retourner
+  // *****************************************************génération des médias à retourner**************************************/
   const mediaToRender = []
   let filteredMedias = []
   media.forEach((element) => {
@@ -66,6 +66,8 @@ async function getMedia () {
       mediaToRender.push(element)
     }
   })
+
+  //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
 
   photographerLi.forEach(li => li.addEventListener('click', () => {
