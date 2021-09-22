@@ -276,7 +276,7 @@ header {
   margin-top: 58px;
   padding-left: 100px;
   padding-right: 100px;
-  // display: none;
+  margin-bottom: 100px;
   @media (max-width: 920px) {
     padding: 0;
     margin-top: 52px;
@@ -391,7 +391,7 @@ header {
     img{
       width: 100%;
       border: none;
-      @media(max-width:500px){
+      @media(max-width:900px){
         width: 50%;
       }
     }
@@ -401,19 +401,19 @@ header {
 .right{
   width: 50px;
   display: flex;
-  height: 900px;
+  height: 630px;
   justify-content: center;
   flex-direction: column;
   background-color: transparent;
   position: relative;
-  @media(max-width:500px){
-    height: 350px;
+  @media(max-width:900px){
+    height: 280px;
   }
   
   img{
     transform: rotate(180deg);
     width: 100%;
-    @media(max-width: 500px){
+    @media(max-width: 900px){
       width: 50%;
     }
   }
@@ -422,8 +422,8 @@ header {
 }
 .lightbox__close{
   position: absolute;
-  top: 14%;
   width: 80%;
+  top: 0;
 
 }
 
@@ -450,11 +450,12 @@ header {
     color: $color-primary;
     font-size: 26px;
     margin-top: 5px;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       font-size: 18px;
     }
   }
-  @media (max-width: 500px) {
+ 
+  @media (max-width: 900px) {
     max-width: 290px;
     height: auto;
     max-height: 248px;
@@ -486,7 +487,7 @@ header {
     margin-top: 4%;
     margin-left: 5.5%;
     margin-bottom: 19px;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       font-size: 36px;
       margin-bottom: 26px;
       margin-top: 20px;
@@ -500,7 +501,7 @@ header {
     right: 6%;
     top: 4%;
     cursor: pointer;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       width: 18px;
       top: 3%;
     }
@@ -510,7 +511,7 @@ header {
     font-family: dm_sans_regular;
     margin-left: 35px;
     margin-bottom: 5px;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       font-size: 24px;
       margin-left: 17px;
     }
@@ -523,7 +524,7 @@ header {
     border-radius: 5px;
     margin-bottom: 5px;
     border: none;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       width: 338px;
       height: 52px;
       margin-bottom: 14px;
@@ -546,7 +547,7 @@ header {
     margin-left: 35px;
     margin-top: 26px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       margin: 26px auto;
       width: 170px;
       height: 35px;
@@ -567,7 +568,7 @@ header {
   span {
     color: red;
     margin-left: 35px;
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
       margin-left: 16px;
       margin-right: 46px;
       width: 90%;

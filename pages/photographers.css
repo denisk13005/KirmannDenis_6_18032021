@@ -505,6 +505,7 @@ header a img {
   margin-top: 58px;
   padding-left: 100px;
   padding-right: 100px;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 920px) {
@@ -680,7 +681,7 @@ header a img {
   border: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .lightbox__prev img {
     width: 50%;
   }
@@ -691,7 +692,7 @@ header a img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 900px;
+  height: 630px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -703,9 +704,9 @@ header a img {
   position: relative;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .right {
-    height: 350px;
+    height: 280px;
   }
 }
 
@@ -715,7 +716,7 @@ header a img {
   width: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .right img {
     width: 50%;
   }
@@ -723,8 +724,8 @@ header a img {
 
 .lightbox__close {
   position: absolute;
-  top: 14%;
   width: 80%;
+  top: 0;
 }
 
 .lightbox__container {
@@ -762,13 +763,13 @@ header a img {
   margin-top: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .lightbox__container p {
     font-size: 18px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .lightbox__container {
     max-width: 290px;
     height: auto;
@@ -808,7 +809,7 @@ header a img {
   margin-bottom: 19px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire h1 {
     font-size: 36px;
     margin-bottom: 26px;
@@ -826,7 +827,7 @@ header a img {
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire img {
     width: 18px;
     top: 3%;
@@ -840,7 +841,7 @@ header a img {
   margin-bottom: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire label {
     font-size: 24px;
     margin-left: 17px;
@@ -857,7 +858,7 @@ header a img {
   border: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire input {
     width: 338px;
     height: 52px;
@@ -884,7 +885,7 @@ header a img {
   margin-top: 26px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire #submit,
   .formulaire #close__msg {
     margin: 26px auto;
@@ -911,7 +912,7 @@ header a img {
   margin-left: 35px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire span {
     margin-left: 16px;
     margin-right: 46px;
