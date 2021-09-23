@@ -34,7 +34,6 @@ async function init () {
     ) // crée les li corespondantes au tag
   }
   generateLi()
-
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
@@ -88,8 +87,9 @@ async function init () {
     })
   })
 }
-
-init()
+window.onload = function () {
+  init()
+}
 //* ***********************************************apparition du boutton au scroll
 
 const btnScroll = document.querySelector('.mainRedirection')

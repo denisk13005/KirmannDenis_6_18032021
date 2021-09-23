@@ -497,10 +497,11 @@ header {
   }
   img {
     position: absolute;
-    width: 42px;
+    width: 38px;
     right: 6%;
     top: 4%;
     cursor: pointer;
+
     @media (max-width: 900px) {
       width: 18px;
       top: 3%;

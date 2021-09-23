@@ -158,5 +158,6 @@ async function getMedia () {
   }
   openLightbox()
 }
-
-getMedia()
+window.onload = function () {
+  getMedia()
+}

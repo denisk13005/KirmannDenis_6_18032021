@@ -7,7 +7,7 @@ export function contactPhotographer (nameOfPhotographerId) {
   contact.addEventListener('click', () => {
     const modale = `    
     <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
-    <img src="../img/croix.png" alt="fermer la modale de contact" />    
+    <img src="../img/croixModale.svg" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -102,7 +102,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         const validMsg = `
       
       <p>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
-      <img src="../img/croix.png" alt="fermer la modale de validation d'envoi du message" />
+      <img src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
       <input id="close__msg" type="submit" value="Fermer" />
       `
         form.innerHTML = validMsg
