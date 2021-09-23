@@ -1,17 +1,18 @@
 @import '../sass/base/reset';
 @import '../sass/utils/variables';
 @import '../sass/utils/keyframes';
-@font-face {
-  font-family: 'dm_sans';
-  src: url(../font/DM_Sans/DMSans-Medium.ttf);
-}
-@font-face {
-  font-family: 'dm_sans_regular';
-  src: url(../font/DM_Sans/DMSans-Regular.ttf);
-}
+// @font-face {
+//   font-family: 'dm_sans';
+//   src: url(../font/DM_Sans/DMSans-Medium.ttf);
+// }
+// @font-face {
+//   font-family: 'dm_sans_regular';
+//   src: url(../font/DM_Sans/DMSans-Regular.ttf);
+// }
 
 body {
-  font-family: dm_sans;
+  font-family: 'DM sans';
+  font-weight: 500;
   width: 100%;
   max-width: 1440px;
   margin: auto;
@@ -70,7 +71,8 @@ header {
     h1,
     h2,
     h3 {
-      font-family: dm_sans_regular;
+      font-family: 'DM sans';
+      font-weight: 400;
     }
     h1 {
       font-size: 64px;
@@ -479,11 +481,12 @@ header {
   background-color: $color-mainRedirecttion;
   border-radius: 5px;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 20;
 
   h1 {
     font-size: 64px;
-    font-family: dm_sans_regular;
+    font-family: 'DM sans';
+    font-weight: 400;
     margin-top: 4%;
     margin-left: 5.5%;
     margin-bottom: 19px;
@@ -509,7 +512,8 @@ header {
   }
   label {
     font-size: 36px;
-    font-family: dm_sans_regular;
+    font-family: 'DM sans';
+    font-weight: 400;
     margin-left: 35px;
     margin-bottom: 5px;
     @media (max-width: 900px) {

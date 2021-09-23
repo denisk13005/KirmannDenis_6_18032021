@@ -131,21 +131,12 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: 'dm_sans';
-  src: url(/font/DM_Sans/DMSans-Medium.ttf);
-}
-
-@font-face {
-  font-family: 'dm_sans_regular';
-  src: url(./font/DM_Sans/DMSans-Regular.ttf);
-}
-
 body {
   max-width: 1440px;
   height: auto;
   margin: 0 auto;
-  font-family: dm_sans;
+  font-family: 'DM sans';
+  font-weight: 500;
   position: relative;
 }
 
@@ -321,14 +312,20 @@ main h1 {
   top: 35px;
   color: #901c1c;
   font-size: 36px;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 @media (max-width: 1200px) {
   main h1 {
-    font-size: 14px;
     top: 15px;
     right: 22px;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  main h1 {
+    font-size: 14px;
   }
 }
 
@@ -383,7 +380,8 @@ main section .photographers__thumbnail a h2 {
   font-size: 36px;
   color: #d3573c;
   margin-top: 20px;
-  font-family: dm_sans_regular;
+  font-family: 'DM sans';
+  font-weight: 400;
 }
 
 main section .photographers__thumbnail a div {
