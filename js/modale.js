@@ -94,7 +94,6 @@ export function contactPhotographer (nameOfPhotographerId) {
 
     const submit = document.getElementById('submit')
     submit.addEventListener('click', (e) => {
-      console.log('click')
       e.preventDefault()
       if (testFirstName() && testLastName() && email() && textArea()) {
         console.log('prénom ' + first.value + ', nom ' + last.value + ', email ' + mail.value + ' , message ' + textarea.value)
