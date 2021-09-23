@@ -34,7 +34,6 @@ async function init () {
     ) // crée les li corespondantes au tag
   }
   generateLi()
-
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
@@ -81,17 +80,16 @@ async function init () {
       //* *******************************************essai de classe sur les li des vignettes sélectionnées */
 
       const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')
-      console.log(liThumbnail)
       const liThumbnailActive = []
       liThumbnail.forEach(li => {
         if (li.dataset.name === e.currentTarget.dataset.name) { liThumbnailActive.push(li) }
       })
-      console.log(liThumbnailActive)
     })
   })
 }
-
-init()
+window.onload = function () {
+  init()
+}
 //* ***********************************************apparition du boutton au scroll
 
 const btnScroll = document.querySelector('.mainRedirection')

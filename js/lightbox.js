@@ -53,14 +53,22 @@ export class Lightbox {
       element.addEventListener('click', (e) => {
         const lightbox = document.createElement('div')
         lightbox.classList.add('lightbox')
-        const div = `
-      
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
+        const div = `      
+        <button class="lightbox__prev">
+          <img src="../img/fleche.jpg" alt="">                   
+        </button>
         <div class="lightbox__container">
-        
-        </div>     
+
+        </div>   
+        <div class='right'>  
+          <button class="lightbox__close">
+            <img src= "../img/croix.jpg"
+          </button>
+          <button class="lightbox__next">
+            <img src="../img/fleche.jpg" alt="">            
+          </button>
+        </div>
+
       `
         this.main.appendChild(lightbox)
         lightbox.innerHTML = div

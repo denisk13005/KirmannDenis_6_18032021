@@ -505,6 +505,7 @@ header a img {
   margin-top: 58px;
   padding-left: 100px;
   padding-right: 100px;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 920px) {
@@ -646,10 +647,13 @@ header a img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: fixed;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: fixed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -659,121 +663,69 @@ header a img {
   overflow: hidden;
 }
 
-.lightbox__next,
-.lightbox__prev {
-  border-top: 5px solid #901c1c;
-  border-right: 5px solid #901c1c;
-  border-bottom: transparent;
-  border-left: transparent;
-  -webkit-transform: rotate(45deg) translateY(-50%);
-          transform: rotate(45deg) translateY(-50%);
-  height: 20px;
-  width: 20px;
+.lightbox button {
   background-color: transparent;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   cursor: pointer;
-  position: fixed;
-  top: 50%;
-  opacity: 0.5;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.lightbox__next:hover,
-.lightbox__prev:hover {
-  opacity: 1;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-@media (max-width: 500px) {
-  .lightbox__next,
-  .lightbox__prev {
-    width: 14px;
-    height: 14px;
-  }
+  border: none;
 }
 
 .lightbox__prev {
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-  top: 50%;
-  left: 394px;
+  width: 50px;
 }
 
-@media (max-width: 500px) {
-  .lightbox__prev {
-    left: 24px;
-    top: 48%;
+.lightbox__prev img {
+  width: 100%;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .lightbox__prev img {
+    width: 50%;
   }
 }
 
-.lightbox__next {
-  right: 400px;
-  top: 48%;
+.right {
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 630px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: transparent;
+  position: relative;
 }
 
-@media (max-width: 500px) {
-  .lightbox__next {
-    right: 30px;
-    top: 48%;
+@media (max-width: 900px) {
+  .right {
+    height: 280px;
+  }
+}
+
+.right img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .right img {
+    width: 50%;
   }
 }
 
 .lightbox__close {
   position: absolute;
-  right: 380px;
-  top: 120px;
-  width: 42px;
-  height: 42px;
-  opacity: 1;
-  cursor: pointer;
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
-  background: transparent;
-  border: transparent;
-  opacity: 0.5;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.lightbox__close:hover {
-  opacity: 1;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-@media (max-width: 500px) {
-  .lightbox__close {
-    top: 290px;
-    right: 5px;
-  }
-}
-
-.lightbox__close:before,
-.lightbox__close:after {
-  position: absolute;
-  left: 15px;
-  content: '';
-  height: 40px;
-  width: 3px;
-  background-color: #901c1c;
-}
-
-@media (max-width: 500px) {
-  .lightbox__close:before,
-  .lightbox__close:after {
-    height: 24px;
-  }
-}
-
-.lightbox__close:before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.lightbox__close:after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  width: 80%;
+  top: 0;
 }
 
 .lightbox__container {
@@ -787,7 +739,7 @@ header a img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto;
+  margin: auto 0px;
   width: 1050px;
   height: 900px;
   overflow: hidden;
@@ -811,13 +763,13 @@ header a img {
   margin-top: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .lightbox__container p {
     font-size: 18px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .lightbox__container {
     max-width: 290px;
     height: auto;
@@ -857,7 +809,7 @@ header a img {
   margin-bottom: 19px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire h1 {
     font-size: 36px;
     margin-bottom: 26px;
@@ -869,13 +821,13 @@ header a img {
 
 .formulaire img {
   position: absolute;
-  width: 42px;
+  width: 38px;
   right: 6%;
   top: 4%;
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire img {
     width: 18px;
     top: 3%;
@@ -889,7 +841,7 @@ header a img {
   margin-bottom: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire label {
     font-size: 24px;
     margin-left: 17px;
@@ -906,7 +858,7 @@ header a img {
   border: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire input {
     width: 338px;
     height: 52px;
@@ -933,7 +885,7 @@ header a img {
   margin-top: 26px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire #submit,
   .formulaire #close__msg {
     margin: 26px auto;
@@ -960,7 +912,7 @@ header a img {
   margin-left: 35px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .formulaire span {
     margin-left: 16px;
     margin-right: 46px;

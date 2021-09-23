@@ -58,7 +58,7 @@ async function getMedia () {
   })
   // récupération de la valeur choisie
 
-  // *****************************************************génération des médias à retourner
+  // *****************************************************génération des médias à retourner**************************************/
   const mediaToRender = []
   let filteredMedias = []
   media.forEach((element) => {
@@ -66,6 +66,8 @@ async function getMedia () {
       mediaToRender.push(element)
     }
   })
+
+  //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
 
   photographerLi.forEach(li => li.addEventListener('click', () => {
@@ -104,7 +106,7 @@ async function getMedia () {
       })
     } else {
       mediaToRender.sort(function (a, b) {
-        return a.likes - b.likes
+        return b.likes - a.likes
       })
     }
 
@@ -139,8 +141,7 @@ async function getMedia () {
     hearts.forEach((heart) => {
       heart.addEventListener('click', () => {
         const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
-        const totalLikesIncr = totalLikes++ // on incrémente le nombre total de like sur les média du photographe
-        totalLikesP.innerHTML = totalLikesIncr // on le remplace par la valeur incrémentée
+        totalLikesP.innerHTML = totalLikes++ // on incrémente la valeur total de likes
         const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
         let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
         imageLike++
@@ -157,5 +158,6 @@ async function getMedia () {
   }
   openLightbox()
 }
-
-getMedia()
+window.onload = function () {
+  getMedia()
+}
