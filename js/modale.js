@@ -57,7 +57,7 @@ export function contactPhotographer (nameOfPhotographerId) {
 
     // TEST DE LA VALIDITE DE L EMAIL
     function testMail (input) {
-      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.value)
+      return /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.value)
     }
 
     // FONCTION DE TEST DU MAIL
