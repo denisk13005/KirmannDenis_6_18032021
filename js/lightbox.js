@@ -131,7 +131,8 @@ export class LightboxMedia {
            <video
                 src="${this.path}"
                 type="video/mp4"
-                    autoplay
+                controls="controls"
+                autoplay
               ></video>     
               <p>  ${this.title}</p>
        
