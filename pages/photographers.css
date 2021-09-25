@@ -166,6 +166,7 @@ header a p {
 
 header a img {
   height: 28px;
+  width: 30px;
   margin-top: 8px;
 }
 
@@ -586,6 +587,7 @@ header a img {
 
 .container__thumbnail .thumbnail__description .like__count img {
   width: 17.5px;
+  height: 17.5px;
   margin-left: 7px;
   cursor: pointer;
 }

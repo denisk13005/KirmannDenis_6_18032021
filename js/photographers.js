@@ -129,7 +129,7 @@ async function getMedia () {
   likeCountResume.innerHTML = `
     <div class="total__likes">
       <p>${totalLikes}</p>
-      <img src="../img/heart-solid-black.svg" />
+      <img src="../img/heart-solid-black.svg" alt =""/>
     </div>
 
     <p class='price'>${price}€/jour</p>
