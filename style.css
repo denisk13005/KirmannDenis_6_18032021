@@ -219,6 +219,7 @@ header .logo img {
 @media (max-width: 1200px) {
   header .logo img {
     height: 23px;
+    width: 28px;
     margin-top: 4px;
   }
 }
