@@ -1,12 +1,12 @@
 /**
  * @param {HTMLElement} media liste des media a afficher
- * @param {HTMLElement} main
+ * @param {HTMLElement} body
  * @param {number} index index de l'élément actuel
  */
 export class Lightbox {
-  constructor (media, main) {
+  constructor (media, body) {
     this.media = media
-    this.main = main
+    this.body = body
     document.addEventListener('keyup', this.onKeyUp.bind(this))
   }
 
@@ -45,7 +45,7 @@ export class Lightbox {
 
   close () {
     const light = document.querySelector('.lightbox')
-    this.main.removeChild(light)
+    this.body.removeChild(light)
   }
 
   start () {
@@ -70,7 +70,7 @@ export class Lightbox {
         </div>
 
       `
-        this.main.appendChild(lightbox)
+        this.body.appendChild(lightbox)
         lightbox.innerHTML = div
         this.clickIndex(index)
         // fermeture de la lightbox

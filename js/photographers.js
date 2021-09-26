@@ -5,8 +5,7 @@ import { contactPhotographer } from './modale.js'
 
 const sectionInfo = document.querySelector('.photographer__description')// entête description du photographe
 const sectionThumbnail = document.querySelector('.container__thumbnail')// section contenant les médias du photographe
-const main = document.querySelector('.main')
-
+const body = document.querySelector('body')
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
@@ -153,7 +152,7 @@ async function getMedia () {
   // /****************************************************************Lightbox ***********/
   function openLightbox () {
     const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
-    const light = new Lightbox(tabLight, main)
+    const light = new Lightbox(tabLight, body)
     light.start()
   }
   openLightbox()
