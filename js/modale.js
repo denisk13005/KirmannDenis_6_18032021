@@ -5,12 +5,12 @@ export function contactPhotographer (nameOfPhotographerId) {
   const main = document.querySelector('main')
   const header = document.querySelector('header')
   const form = document.createElement('form')
-
+  form.setAttribute('aria-describedby', 'description')
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
-    <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
-    
+    <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1>
+    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>
     <img class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
@@ -60,6 +60,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return true
       } else {
         document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
+        document.querySelector('.firstnameSpan').focus()
 
         return false
       }

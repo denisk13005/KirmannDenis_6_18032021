@@ -385,25 +385,24 @@ header {
   background-color: rgba($color: #fff, $alpha: 1);
   z-index: 100;
   overflow: hidden;
-  button{
+  button {
     background-color: transparent;
     height: min-content;
     cursor: pointer;
     border: none;
   }
-  &__prev{
+  &__prev {
     width: 50px;
-    img{
+    img {
       width: 100%;
       border: none;
-      @media(max-width:900px){
+      @media (max-width: 900px) {
         width: 50%;
       }
     }
   }
-  
 }
-.right{
+.right {
   width: 50px;
   display: flex;
   height: 630px;
@@ -411,33 +410,29 @@ header {
   flex-direction: column;
   background-color: transparent;
   position: relative;
-  @media(max-width:900px){
+  @media (max-width: 900px) {
     height: 280px;
   }
-  
-  img{
+
+  img {
     transform: rotate(180deg);
     width: 100%;
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 50%;
     }
   }
-  
-
 }
-.lightbox__close{
+.lightbox__close {
   position: absolute;
   width: 80%;
   top: 0;
-
 }
-
 
 .lightbox__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto 0px ;
+  margin: auto 0px;
   width: 1050px;
   height: 900px;
   overflow: hidden;
@@ -459,7 +454,7 @@ header {
       font-size: 18px;
     }
   }
- 
+
   @media (max-width: 900px) {
     max-width: 290px;
     height: auto;
@@ -568,6 +563,10 @@ header {
     text-align: center;
     line-height: 104px;
   }
+  #description {
+    display: none;
+  }
+
   #close__msg {
     margin: auto;
     margin-bottom: 25px;

@@ -899,6 +899,10 @@ header a img {
   line-height: 104px;
 }
 
+.formulaire #description {
+  display: none;
+}
+
 .formulaire #close__msg {
   margin: auto;
   margin-bottom: 25px;
