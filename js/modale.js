@@ -124,12 +124,14 @@ export function contactPhotographer (nameOfPhotographerId) {
         // création de la modale de validation
         const validMsg = `
       
-      <p>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
+      <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
       <img src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
       <input id="close__msg" type="submit" value="Fermer" />
       `
         form.innerHTML = validMsg
         const closeMsg = document.getElementById('close__msg')
+        document.getElementById('description').style.display = 'block' // affiche le message de validation d'envoi du formulaire
+        closeMsg.focus()
         const closeMsgCrux = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
