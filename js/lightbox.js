@@ -51,9 +51,9 @@ export class Lightbox {
   start () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
-        const lightbox = document.createElement('div')
+        const lightbox = document.createElement('section')
         lightbox.classList.add('lightbox')
-        const div = `      
+        const lightboxContainer = `      
         <button class="lightbox__prev">
           <img src="../img/fleche.jpg" alt="">                   
         </button>
@@ -71,8 +71,9 @@ export class Lightbox {
 
       `
         this.body.appendChild(lightbox)
-        lightbox.innerHTML = div
+        lightbox.innerHTML = lightboxContainer
         this.clickIndex(index)
+
         // fermeture de la lightbox
         const closeIcone = document.querySelector('.lightbox__close')
         closeIcone.addEventListener('click', this.close.bind(this))
