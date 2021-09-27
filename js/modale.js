@@ -1,7 +1,6 @@
 
 export function contactPhotographer (nameOfPhotographerId) {
   const contact = document.querySelector('.contact')
-  const main = document.querySelector('.main')
   const body = document.querySelector('body')
   const form = document.createElement('form')
   form.classList.add('formulaire')
@@ -25,6 +24,12 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
+    console.log(form)
+    form.addEventListener('keyup', (e) => {
+      if (e.key === 'Escape') {
+        body.removeChild(form)
+      }
+    })
 
     // TEST DE LA LONGUEUR ET DE LA VALIDITÉE DU CHAMP NOM ET PRENOM
     function testFirstAndLast (input) {

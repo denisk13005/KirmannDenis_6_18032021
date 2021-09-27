@@ -87,7 +87,6 @@ async function getMedia () {
     openLightbox()
   }))
 
-  console.log(photographerLi)
   //* **********************************************filtre sur les médias */
   blocDown.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
