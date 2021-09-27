@@ -110,7 +110,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         const closeMsgCrux = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
-          main.removeChild(form)
+          body.removeChild(form)
           e.preventDefault()
         })
         closeMsgCrux.addEventListener('click', () => {
