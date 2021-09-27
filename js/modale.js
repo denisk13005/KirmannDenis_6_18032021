@@ -2,6 +2,7 @@
 export function contactPhotographer (nameOfPhotographerId) {
   const contact = document.querySelector('.contact')
   const main = document.querySelector('.main')
+  const body = document.querySelector('body')
   const form = document.createElement('form')
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
@@ -23,7 +24,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     <input id="submit" type="submit" value="Envoyer" />    
     `
     form.innerHTML = modale
-    main.appendChild(form)
+    body.appendChild(form)
 
     // TEST DE LA LONGUEUR ET DE LA VALIDITÉE DU CHAMP NOM ET PRENOM
     function testFirstAndLast (input) {
@@ -89,7 +90,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     // fermeture de la modale au click sur la croix
     const closeModal = document.querySelector('.formulaire>img')
     closeModal.addEventListener('click', () => {
-      main.removeChild(form)
+      body.removeChild(form)
     })
 
     const submit = document.getElementById('submit')
@@ -109,11 +110,11 @@ export function contactPhotographer (nameOfPhotographerId) {
         const closeMsgCrux = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
-          main.removeChild(form)
+          body.removeChild(form)
           e.preventDefault()
         })
         closeMsgCrux.addEventListener('click', () => {
-          main.removeChild(form)
+          body.removeChild(form)
         })
       }
     })

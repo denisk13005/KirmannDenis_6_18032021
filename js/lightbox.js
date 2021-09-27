@@ -1,12 +1,12 @@
 /**
  * @param {HTMLElement} media liste des media a afficher
- * @param {HTMLElement} main
+ * @param {HTMLElement} body
  * @param {number} index index de l'élément actuel
  */
 export class Lightbox {
-  constructor (media, main) {
+  constructor (media, body) {
     this.media = media
-    this.main = main
+    this.body = body
     document.addEventListener('keyup', this.onKeyUp.bind(this))
   }
 
@@ -45,15 +45,15 @@ export class Lightbox {
 
   close () {
     const light = document.querySelector('.lightbox')
-    this.main.removeChild(light)
+    this.body.removeChild(light)
   }
 
   start () {
     this.media.forEach((element, index) =>
       element.addEventListener('click', (e) => {
-        const lightbox = document.createElement('div')
+        const lightbox = document.createElement('section')
         lightbox.classList.add('lightbox')
-        const div = `      
+        const lightboxContainer = `      
         <button class="lightbox__prev">
           <img src="../img/fleche.jpg" alt="">                   
         </button>
@@ -70,9 +70,10 @@ export class Lightbox {
         </div>
 
       `
-        this.main.appendChild(lightbox)
-        lightbox.innerHTML = div
+        this.body.appendChild(lightbox)
+        lightbox.innerHTML = lightboxContainer
         this.clickIndex(index)
+
         // fermeture de la lightbox
         const closeIcone = document.querySelector('.lightbox__close')
         closeIcone.addEventListener('click', this.close.bind(this))
