@@ -2,6 +2,8 @@
 export function contactPhotographer (nameOfPhotographerId) {
   const contact = document.querySelector('.contact')
   const body = document.querySelector('body')
+  const main = document.querySelector('main')
+  const header = document.querySelector('header')
   const form = document.createElement('form')
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
@@ -24,10 +26,18 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
-    console.log(form)
+    form.setAttribute('role', 'dialog')
+    main.setAttribute('aria-hidden', 'true')
+    header.setAttribute('aria-hidden', 'true')
+    // fermeture de la modale au click sur echap
+    function close () {
+      body.removeChild(form)
+      main.removeAttribute('aria-hidden')
+      header.removeAttribute('aria-hidden')
+    }
     form.addEventListener('keyup', (e) => {
       if (e.key === 'Escape') {
-        body.removeChild(form)
+        close()
       }
     })
 
@@ -95,7 +105,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     // fermeture de la modale au click sur la croix
     const closeModal = document.querySelector('.formulaire>img')
     closeModal.addEventListener('click', () => {
-      body.removeChild(form)
+      close()
     })
 
     const submit = document.getElementById('submit')
@@ -115,11 +125,11 @@ export function contactPhotographer (nameOfPhotographerId) {
         const closeMsgCrux = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
-          body.removeChild(form)
+          close()
           e.preventDefault()
         })
         closeMsgCrux.addEventListener('click', () => {
-          body.removeChild(form)
+          close()
         })
       }
     })
