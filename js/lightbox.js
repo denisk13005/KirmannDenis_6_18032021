@@ -3,6 +3,9 @@
  * @param {HTMLElement} body
  * @param {number} index index de l'élément actuel
  */
+const main = document.querySelector('main')
+const header = document.querySelector('header')
+
 export class Lightbox {
   constructor (media, body) {
     this.media = media
@@ -46,6 +49,9 @@ export class Lightbox {
   close () {
     const light = document.querySelector('.lightbox')
     this.body.removeChild(light)
+    // supression des attributes aria hiden
+    main.removeAttribute('aria-hiden')
+    header.removeAttribute('aria-hiden')
   }
 
   start () {
@@ -73,11 +79,18 @@ export class Lightbox {
         this.body.appendChild(lightbox)
         lightbox.innerHTML = lightboxContainer
         this.clickIndex(index)
+        // ajout des attributs aria-hiden
+        main.setAttribute('aria-hiden', 'true')
+        header.setAttribute('aria-hiden', 'true')
+        console.log(typeof likeCountResume)
 
         // fermeture de la lightbox
         const closeIcone = document.querySelector('.lightbox__close')
-        closeIcone.addEventListener('click', this.close.bind(this))
+        closeIcone.addEventListener('click', () => {
+          this.close()
+        })
         // changement de média
+
         const arrowNext = document.querySelector('.lightbox__next')
         arrowNext.addEventListener('click', this.clickNext.bind(this))
         const arrowPrev = document.querySelector('.lightbox__prev')
