@@ -34,10 +34,10 @@ async function getMedia () {
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
+      console.log(photographe)
     }
   })
 
-  console.log(nameOfPhotographerId)
   //* *******************************************générationb dynamique du nom de la page photographe ********************/
   const head = document.querySelector('head>title')
   head.innerHTML = nameOfPhotographerId + ' Page'
@@ -87,7 +87,6 @@ async function getMedia () {
     openLightbox()
   }))
 
-  console.log(photographerLi)
   //* **********************************************filtre sur les médias */
   blocDown.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias

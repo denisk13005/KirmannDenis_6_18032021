@@ -1,14 +1,17 @@
 
 export function contactPhotographer (nameOfPhotographerId) {
   const contact = document.querySelector('.contact')
-  const main = document.querySelector('.main')
   const body = document.querySelector('body')
+  const main = document.querySelector('main')
+  const header = document.querySelector('header')
   const form = document.createElement('form')
+
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
     <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
-    <img src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    
+    <img class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -25,6 +28,24 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
+    const crux = document.querySelector('.crux')
+    console.log(crux)
+    document.getElementById('firstname').focus()
+
+    form.setAttribute('role', 'dialog')
+    main.setAttribute('aria-hidden', 'true')
+    header.setAttribute('aria-hidden', 'true')
+    // fermeture de la modale au click sur echap
+    function close () {
+      body.removeChild(form)
+      main.removeAttribute('aria-hidden')
+      header.removeAttribute('aria-hidden')
+    }
+    form.addEventListener('keyup', (e) => {
+      if (e.key === 'Escape') {
+        close()
+      }
+    })
 
     // TEST DE LA LONGUEUR ET DE LA VALIDITÉE DU CHAMP NOM ET PRENOM
     function testFirstAndLast (input) {
@@ -39,6 +60,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return true
       } else {
         document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
+
         return false
       }
     }
@@ -90,7 +112,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     // fermeture de la modale au click sur la croix
     const closeModal = document.querySelector('.formulaire>img')
     closeModal.addEventListener('click', () => {
-      body.removeChild(form)
+      close()
     })
 
     const submit = document.getElementById('submit')
@@ -110,11 +132,11 @@ export function contactPhotographer (nameOfPhotographerId) {
         const closeMsgCrux = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
-          main.removeChild(form)
+          close()
           e.preventDefault()
         })
         closeMsgCrux.addEventListener('click', () => {
-          body.removeChild(form)
+          close()
         })
       }
     })
