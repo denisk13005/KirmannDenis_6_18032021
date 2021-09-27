@@ -5,11 +5,13 @@ export function contactPhotographer (nameOfPhotographerId) {
   const main = document.querySelector('main')
   const header = document.querySelector('header')
   const form = document.createElement('form')
+
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
     <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
-    <img src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    
+    <img class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -26,6 +28,10 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
+    const crux = document.querySelector('.crux')
+    console.log(crux)
+    document.getElementById('firstname').focus()
+
     form.setAttribute('role', 'dialog')
     main.setAttribute('aria-hidden', 'true')
     header.setAttribute('aria-hidden', 'true')
@@ -54,6 +60,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return true
       } else {
         document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
+
         return false
       }
     }
