@@ -20,7 +20,7 @@
   <body>
     <header>
       <p id="acceuil">retournez à l'écran d'acceuil</p>
-      <a href="../index.html" aria-describedby="acceuil">
+      <a href="../index.html" aria-describedby="acceuil" aria-label="fisheye">
         <p>Fish</p>
         <img src="../img/logo.svg" alt="" />
         <p>ye</p>
@@ -34,9 +34,9 @@
         <div class="dropDown">
           <button class="bloc__top">Popularité</button>
           <div class="bloc__down">
-            <span id="popularité">Popularité</span>
-            <span id="date">Date</span>
-            <span id="titre">Titre</span>
+            <span tabindex="1" id="popularité">Popularité</span>
+            <span tabindex="2" id="date">Date</span>
+            <span tabindex="3" id="titre">Titre</span>
           </div>
         </div>
         <img
@@ -44,6 +44,8 @@
           src="../img/chevron-down-solid.svg"
           alt=""
           aria-haspopup="listbox"
+          tabindex="0"
+          aria-label="ouvrir la liste de tri"
         />
       </div>
 
