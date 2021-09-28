@@ -34,11 +34,10 @@ async function getMedia () {
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
-      console.log(photographe)
     }
   })
 
-  //* *******************************************générationb dynamique du nom de la page photographe ********************/
+  //* *******************************************génération dynamique du nom de la page photographe ********************/
   const head = document.querySelector('head>title')
   head.innerHTML = nameOfPhotographerId + ' Page'
   console.log(head.textContent)
@@ -150,8 +149,14 @@ async function getMedia () {
   }
   count()
   // /****************************************************************Lightbox ***********/
+  const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
+  tabLight.forEach(el => el.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      el.click()
+    }
+  }))
+
   function openLightbox () {
-    const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
     const light = new Lightbox(tabLight, body)
     light.start()
   }
