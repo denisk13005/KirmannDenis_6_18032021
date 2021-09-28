@@ -30,7 +30,7 @@ async function init () {
     const setTab = new Set(tagArray) // supprime les doublons du tableau unique
     setTab.forEach(
       (element) =>
-        (ul.innerHTML += `<li data-name='${element}'>#${element}</li>`)
+        (ul.innerHTML += `<li tabindex="0"  data-name='${element}'>#${element}</li>`)
     ) // crée les li corespondantes au tag
   }
   generateLi()
@@ -39,6 +39,12 @@ async function init () {
   let photographersFilters = []
 
   document.querySelectorAll('.tag>ul>li').forEach((element) => {
+    element.addEventListener('keyup', (e) => {
+      console.log(e)
+    })
+    element.addEventListener('focus', () => {
+      console.log(element)
+    })
     element.addEventListener('click', (e) => {
       photographersCards.innerHTML = ''
       photographersFilters = []
@@ -79,14 +85,15 @@ async function init () {
       }
       //* *******************************************essai de classe sur les li des vignettes sélectionnées */
 
-      const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')
-      const liThumbnailActive = []
-      liThumbnail.forEach(li => {
-        if (li.dataset.name === e.currentTarget.dataset.name) { liThumbnailActive.push(li) }
-      })
+      // const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')
+      // const liThumbnailActive = []
+      // liThumbnail.forEach(li => {
+      //   if (li.dataset.name === e.currentTarget.dataset.name) { liThumbnailActive.push(li) }
+      // })
     })
   })
 }
+
 window.onload = function () {
   init()
 }
