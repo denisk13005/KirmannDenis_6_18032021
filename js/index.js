@@ -37,6 +37,7 @@ async function init () {
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
+
   function mediaSorting (element) {
     photographersCards.innerHTML = ''
     photographersFilters = []
@@ -79,7 +80,9 @@ async function init () {
 
   document.querySelectorAll('.tag>ul>li').forEach((element) => {
     element.addEventListener('keyup', (e) => {
-      mediaSorting(element)
+      if (e.key === 'Enter') {
+        mediaSorting(element)
+      }
     })
 
     element.addEventListener('click', () => {
