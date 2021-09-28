@@ -37,59 +37,53 @@ async function init () {
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
+  function mediaSorting (element) {
+    photographersCards.innerHTML = ''
+    photographersFilters = []
+
+    if (!tagsDesired.includes(element)) {
+      // si l'élément li n'est pas inclus dans le tableau tagsDesired :
+      tagsDesired.push(element) // on le push
+      element.classList.toggle('active') // on lui ajoute la classe active pour simuler un bouton enfoncé
+      photographers.forEach((photographer) => {
+        // pour chaque photographe
+
+        if (photographer.tags.includes(element.dataset.name)) { // on vérifie si la valeur de l'élément sélectionné est compris dans ses tags
+          photographersFilters.push(photographer) // si oui on le push dans le tableau des photographes filtrés
+          photographersFilters.forEach(element => {
+
+          })
+        }
+      })
+      const setphotographersFilters = new Set(photographersFilters) // on supprime les doublons du tableau
+      setphotographersFilters.forEach((photographer) => {
+        // pour chaque photographe du tableau des photographes filtrés
+
+        photographersCards.innerHTML += photographer.render()
+      }) // on rend à l'écran les vignettes des photographes voulus
+    } else {
+      tagsDesired.splice(tagsDesired.indexOf(element), 1) // si l'élément li est inclu dans le tableau on le supprime
+      element.classList.remove('active') // on lui lève le classe active
+    }
+    if (tagsDesired.length > 1) {
+      tagsDesired[1].classList.add('active') // on ajoute la classe active au nouveau tag sélectionné
+      tagsDesired[0].classList.remove('active') // on retire la classe active au tag qu'on ne veut plus
+      tagsDesired.splice(tagsDesired[0], 1) // on supprime du tableau le tag qu'on ne veut plus
+    }
+    if (tagsDesired.length === 0) {
+      photographers.forEach(
+        (photographer) => (photographersCards.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
+      )
+    }
+  }
 
   document.querySelectorAll('.tag>ul>li').forEach((element) => {
     element.addEventListener('keyup', (e) => {
-      console.log(e)
+      mediaSorting(element)
     })
-    element.addEventListener('focus', () => {
-      console.log(element)
-    })
-    element.addEventListener('click', (e) => {
-      photographersCards.innerHTML = ''
-      photographersFilters = []
 
-      if (!tagsDesired.includes(element)) {
-        // si l'élément li n'est pas inclus dans le tableau tagsDesired :
-        tagsDesired.push(element) // on le push
-        element.classList.toggle('active') // on lui ajoute la classe active pour simuler un bouton enfoncé
-        photographers.forEach((photographer) => {
-          // pour chaque photographe
-
-          if (photographer.tags.includes(element.dataset.name)) { // on vérifie si la valeur de l'élément sélectionné est compris dans ses tags
-            photographersFilters.push(photographer) // si oui on le push dans le tableau des photographes filtrés
-            photographersFilters.forEach(element => {
-
-            })
-          }
-        })
-        const setphotographersFilters = new Set(photographersFilters) // on supprime les doublons du tableau
-        setphotographersFilters.forEach((photographer) => {
-          // pour chaque photographe du tableau des photographes filtrés
-
-          photographersCards.innerHTML += photographer.render()
-        }) // on rend à l'écran les vignettes des photographes voulus
-      } else {
-        tagsDesired.splice(tagsDesired.indexOf(element), 1) // si l'élément li est inclu dans le tableau on le supprime
-        element.classList.remove('active') // on lui lève le classe active
-      }
-      if (tagsDesired.length > 1) {
-        tagsDesired[1].classList.add('active') // on ajoute la classe active au nouveau tag sélectionné
-        tagsDesired[0].classList.remove('active') // on retire la classe active au tag qu'on ne veut plus
-        tagsDesired.splice(tagsDesired[0], 1) // on supprime du tableau le tag qu'on ne veut plus
-      }
-      if (tagsDesired.length === 0) {
-        photographers.forEach(
-          (photographer) => (photographersCards.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
-        )
-      }
-      //* *******************************************essai de classe sur les li des vignettes sélectionnées */
-
-      // const liThumbnail = document.querySelectorAll('.photographers__thumbnail>ul>li')
-      // const liThumbnailActive = []
-      // liThumbnail.forEach(li => {
-      //   if (li.dataset.name === e.currentTarget.dataset.name) { liThumbnailActive.push(li) }
-      // })
+    element.addEventListener('click', () => {
+      mediaSorting(element)
     })
   })
 }
