@@ -10,8 +10,9 @@ export function contactPhotographer (nameOfPhotographerId) {
   contact.addEventListener('click', () => {
     const modale = `    
     <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1>
+    
     <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>
-    <img class = "cross" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    <img class = 'cross' src="../img/croixModale.svg" alt="fermer la modale de contact" />  
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -30,8 +31,8 @@ export function contactPhotographer (nameOfPhotographerId) {
     body.appendChild(form)
     const cross = document.querySelector('.cross')
     console.log(cross)
-    cross.focus()
-    // document.getElementById('firstname').focus()
+    // cross.focus()// ne marche pas ???
+    document.getElementById('firstname').focus()
 
     form.setAttribute('role', 'dialog')
     main.setAttribute('aria-hidden', 'true')
