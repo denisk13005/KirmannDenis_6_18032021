@@ -1,5 +1,5 @@
 import { getDataPhotographers } from './utils.js'
-import { Photographer } from './objetPhotographers.js'
+import { Photographer } from './photographersThumbnail.js'
 
 async function init () {
   const data = await getDataPhotographers('index.json')

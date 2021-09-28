@@ -50,8 +50,8 @@ export class Lightbox {
     const light = document.querySelector('.lightbox')
     this.body.removeChild(light)
     // supression des attributes aria hiden
-    main.removeAttribute('aria-hiden')
-    header.removeAttribute('aria-hiden')
+    main.removeAttribute('aria-hidden')
+    header.removeAttribute('aria-hidden')
   }
 
   start () {
