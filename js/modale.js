@@ -5,13 +5,14 @@ export function contactPhotographer (nameOfPhotographerId) {
   const main = document.querySelector('main')
   const header = document.querySelector('header')
   const form = document.createElement('form')
-
+  form.setAttribute('aria-describedby', 'description')
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
-    <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
+    <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1>
     
-    <img class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>
+    <img class = 'cross' src="../img/croixModale.svg" alt="fermer la modale de contact" />  
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -28,8 +29,9 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
-    const crux = document.querySelector('.crux')
-    console.log(crux)
+    const cross = document.querySelector('.cross')
+    console.log(cross)
+    // cross.focus()// ne marche pas ???
     document.getElementById('firstname').focus()
 
     form.setAttribute('role', 'dialog')
@@ -60,6 +62,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return true
       } else {
         document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
+        document.querySelector('.firstnameSpan').focus()
 
         return false
       }
@@ -123,19 +126,21 @@ export function contactPhotographer (nameOfPhotographerId) {
         // création de la modale de validation
         const validMsg = `
       
-      <p>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
+      <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
       <img src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
       <input id="close__msg" type="submit" value="Fermer" />
       `
         form.innerHTML = validMsg
         const closeMsg = document.getElementById('close__msg')
-        const closeMsgCrux = document.querySelector('.formulaire>img')
+        document.getElementById('description').style.display = 'block' // affiche le message de validation d'envoi du formulaire
+        closeMsg.focus()
+        const closeMsgcross = document.querySelector('.formulaire>img')
         console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
           close()
           e.preventDefault()
         })
-        closeMsgCrux.addEventListener('click', () => {
+        closeMsgcross.addEventListener('click', () => {
           close()
         })
       }

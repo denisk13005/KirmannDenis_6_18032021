@@ -125,7 +125,7 @@ async function getMedia () {
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
   likeCountResume.innerHTML = `
-    <div class="total__likes">
+    <div class="total__likes"'>
       <p>${totalLikes}</p>
       <img src="../img/heart-solid-black.svg" alt =""/>
     </div>
@@ -133,6 +133,7 @@ async function getMedia () {
     <p class='price'>${price}€/jour</p>
 `
   document.body.appendChild(likeCountResume)
+
   function count () {
     const hearts = document.querySelectorAll('#heart')
     totalLikes += 1
