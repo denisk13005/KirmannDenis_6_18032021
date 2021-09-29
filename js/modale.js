@@ -11,7 +11,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     const modale = `    
     <h1>Contactez-moi<br />${nameOfPhotographerId}</h1>
     
-    <img class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    <img tabindex="0" class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
