@@ -44,16 +44,6 @@ async function getMedia () {
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
 
-  /** *******************************************  Animation de la fleche et des éléments de la partie tri  *****************/
-  const arrow = document.querySelector('.arrow')
-  const blocDown = document.querySelector('.bloc__down')
-  const valueButton = document.querySelector('.bloc__top')
-  let filterChoice // stocke le choix de filtre des médias
-  // animation de la fleche + apparition des choix
-  arrow.addEventListener('click', () => {
-    arrow.classList.toggle('rotate')
-    blocDown.classList.toggle('active')
-  })
   // récupération de la valeur choisie
 
   // *****************************************************génération des médias à retourner**************************************/
@@ -108,8 +98,26 @@ async function getMedia () {
     }
   }))
   filterMedia()
+  /** *******************************************  Animation de la fleche et des éléments de la partie tri  *****************/
+  const arrow = document.querySelector('.arrow')
+  const blocDown = document.querySelector('.bloc__down')
+  const valueButton = document.querySelector('.bloc__top')
+  let filterChoice // stocke le choix de filtre des médias
+  // animation de la fleche + apparition des choix
+  arrow.addEventListener('click', () => {
+    arrow.classList.toggle('rotate')
+    blocDown.classList.toggle('active')
+  })
+  arrow.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      arrow.click()
+    }
+  })
 
   //* **********************************************filtre sur les médias */
+
+  console.log(blocDown)
+
   blocDown.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
     blocDown.classList.toggle('active')// on fait disparaître le bloc-down
@@ -129,7 +137,6 @@ async function getMedia () {
         return b.likes - a.likes
       })
     }
-
     generateMedias()
     count()
     totalLikes -= 1
