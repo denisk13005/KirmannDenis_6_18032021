@@ -3,6 +3,9 @@
  * @param {HTMLElement} body
  * @param {number} index index de l'élément actuel
  */
+const main = document.querySelector('main')
+const header = document.querySelector('header')
+
 export class Lightbox {
   constructor (media, body) {
     this.media = media
@@ -46,6 +49,9 @@ export class Lightbox {
   close () {
     const light = document.querySelector('.lightbox')
     this.body.removeChild(light)
+    // supression des attributes aria hiden
+    main.removeAttribute('aria-hidden')
+    header.removeAttribute('aria-hidden')
   }
 
   start () {
@@ -54,17 +60,17 @@ export class Lightbox {
         const lightbox = document.createElement('section')
         lightbox.classList.add('lightbox')
         const lightboxContainer = `      
-        <button class="lightbox__prev">
-          <img src="../img/fleche.jpg" alt="">                   
+        <button class="lightbox__prev" aria-label="média précédent" tabindex="3">
+          <img src="../img/fleche.jpg" >                   
         </button>
-        <div class="lightbox__container">
+        <div class="lightbox__container" >
 
         </div>   
         <div class='right'>  
-          <button class="lightbox__close">
+          <button class="lightbox__close" aria-label="fermez la lightbox" tabindex="4">
             <img src= "../img/croix.jpg"
           </button>
-          <button class="lightbox__next">
+          <button class="lightbox__next" aria-label="média suivant" tabindex="2">
             <img src="../img/fleche.jpg" alt="">            
           </button>
         </div>
@@ -73,11 +79,17 @@ export class Lightbox {
         this.body.appendChild(lightbox)
         lightbox.innerHTML = lightboxContainer
         this.clickIndex(index)
+        // ajout des attributs aria-hiden
+        main.setAttribute('aria-hidden', 'true')
+        header.setAttribute('aria-hidden', 'true')
 
         // fermeture de la lightbox
         const closeIcone = document.querySelector('.lightbox__close')
-        closeIcone.addEventListener('click', this.close.bind(this))
+        closeIcone.addEventListener('click', () => {
+          this.close()
+        })
         // changement de média
+
         const arrowNext = document.querySelector('.lightbox__next')
         arrowNext.addEventListener('click', this.clickNext.bind(this))
         const arrowPrev = document.querySelector('.lightbox__prev')
@@ -96,8 +108,12 @@ export class Lightbox {
     const path = element.children[0].getAttribute('src')
     const title = element.children[0].getAttribute('title')
     const type = element.children[0].localName
-    const icone = new LightboxMedia(path, title, type)
+    const alt = element.children[0].getAttribute('alt')
+    const icone = new LightboxMedia(path, title, type, alt)
     container.innerHTML = icone.render()
+    const img = document.getElementById('img')
+    img.focus()
+    console.log()
   }
 }
 
@@ -107,10 +123,11 @@ export class Lightbox {
  *@param {string} type format du média à afficher
  */
 export class LightboxMedia {
-  constructor (path, title, type) {
+  constructor (path, title, type, alt) {
     this.path = path
     this.title = title
     this.type = type
+    this.alt = alt
   }
 
   // ***factory qui renvoie la bonne balise html en fonction du type de média
@@ -146,7 +163,7 @@ export class LightboxMedia {
   renderImage () {
     const img = `
           
-             <img src="${this.path}" />
+             <img id='img' src="${this.path}" alt="${this.alt}"  tabindex="1"/>
              <p>  ${this.title}</p>
          
     `

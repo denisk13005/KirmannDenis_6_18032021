@@ -170,6 +170,10 @@ header a img {
   margin-top: 8px;
 }
 
+header #acceuil {
+  display: none;
+}
+
 .photographer__description {
   background-color: #fafafa;
   margin: 79px auto 0;
@@ -897,6 +901,10 @@ header a img {
   margin: auto;
   text-align: center;
   line-height: 104px;
+}
+
+.formulaire #description {
+  display: none;
 }
 
 .formulaire #close__msg {
