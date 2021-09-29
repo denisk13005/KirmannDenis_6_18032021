@@ -70,24 +70,32 @@ async function getMedia () {
   //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
 
-  photographerLi.forEach(li => li.addEventListener('click', () => {
-    filteredMedias = []
-    const liSelected = li.textContent.substr(1)
-    console.log(liSelected)
-    mediaToRender.forEach(el => {
-      if (el.tags[0] === liSelected.trim()) {
-        filteredMedias.push(el)
-      }
-    })
-    sectionThumbnail.innerHTML = ''
-    filteredMedias.forEach(element => {
-      const thumbnail = MediaFactory.createMedia(element)
-      sectionThumbnail.innerHTML += thumbnail
-    })
-    li.classList.toggle('active')
-    console.log(li)
-    openLightbox()
+  function filterMedia () {
+    photographerLi.forEach(li => li.addEventListener('click', () => {
+      filteredMedias = []
+      const liSelected = li.textContent.substr(1)
+      console.log(liSelected)
+      mediaToRender.forEach(el => {
+        if (el.tags[0] === liSelected.trim()) {
+          filteredMedias.push(el)
+        }
+      })
+      sectionThumbnail.innerHTML = ''
+      filteredMedias.forEach(element => {
+        const thumbnail = MediaFactory.createMedia(element)
+        sectionThumbnail.innerHTML += thumbnail
+      })
+      li.classList.toggle('active')
+      console.log(li)
+      openLightbox()
+    }))
+  }
+  photographerLi.forEach(li => li.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      li.click()
+    }
   }))
+  filterMedia()
 
   //* **********************************************filtre sur les médias */
   blocDown.addEventListener('click', (e) => {
