@@ -9,10 +9,9 @@ export function contactPhotographer (nameOfPhotographerId) {
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
-    <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1>
-    
-    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>
-    <img class = 'cross' src="../img/croixModale.svg" alt="fermer la modale de contact" />  
+    <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1> 
+    <img tabindex="0" class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
+    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>   
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
