@@ -79,12 +79,13 @@ async function getMedia () {
         filteredMedias.push(el)
       }
     })
-    console.log(filteredMedias)
     sectionThumbnail.innerHTML = ''
     filteredMedias.forEach(element => {
       const thumbnail = MediaFactory.createMedia(element)
       sectionThumbnail.innerHTML += thumbnail
     })
+    li.classList.toggle('active')
+    console.log(li)
     openLightbox()
   }))
 
