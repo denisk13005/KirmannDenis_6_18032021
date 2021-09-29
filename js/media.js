@@ -74,12 +74,12 @@ export class Photo extends Media {
   render () {
     const div = `
     <div class="thumbnail">
-          <div class="img__thumbnail" tabindex="0" >   
-    <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.description}" title="${this.title}"/>      
+          <div class="img__thumbnail" tabindex="0" >           
+            <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.description}" title="${this.title}"/> 
           </div>
           <div class="thumbnail__description">
-            <p>${this.title}</p>
-            <div class="like__count">
+            <p tabindex="0" >${this.title}</p>
+            <div tabindex="0" aria-label="${this.likes} likes" class="like__count">
               <p>${this.likes}</p>
               <img id="heart" src="../img/heart-solid.svg" alt="" />
             </div>  
