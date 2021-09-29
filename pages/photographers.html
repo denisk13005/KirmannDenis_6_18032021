@@ -32,20 +32,27 @@
       <div class="tri">
         <p>Trier par</p>
         <div class="dropDown">
-          <button class="bloc__top">Popularité</button>
+          <button
+            aria-label="média trié par popularité"
+            aria-disabled="true"
+            class="bloc__top"
+          >
+            Popularité
+          </button>
+          <img
+            class="arrow"
+            src="../img/chevron-down-solid.svg"
+            alt=""
+            aria-haspopup="listbox"
+            tabindex="0"
+            aria-label="trier par"
+          />
           <div class="bloc__down">
-            <span id="popularité">Popularité</span>
-            <span id="date">Date</span>
-            <span id="titre">Titre</span>
+            <span tabindex="0" id="popularité">Popularité</span>
+            <span tabindex="0" id="date">Date</span>
+            <span tabindex="0" id="titre">Titre</span>
           </div>
         </div>
-        <img
-          class="arrow"
-          src="../img/chevron-down-solid.svg"
-          alt=""
-          aria-haspopup="listbox"
-          tabindex="0"
-        />
       </div>
 
       <div class="container__thumbnail"></div>

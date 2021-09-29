@@ -102,17 +102,26 @@ async function getMedia () {
   const arrow = document.querySelector('.arrow')
   const blocDown = document.querySelector('.bloc__down')
   const valueButton = document.querySelector('.bloc__top')
+  const spanList = document.querySelectorAll('.bloc__down>span')
   let filterChoice // stocke le choix de filtre des médias
   // animation de la fleche + apparition des choix
   arrow.addEventListener('click', () => {
     arrow.classList.toggle('rotate')
     blocDown.classList.toggle('active')
+    document.querySelector('.bloc__down>span').focus()
   })
   arrow.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       arrow.click()
     }
   })
+  spanList.forEach(span => span.addEventListener('keyup', (e) => {
+    console.log(e)
+    console.log(span)
+    if (e.key === 'Enter') {
+      blocDown.click()
+    }
+  }))
 
   //* **********************************************filtre sur les médias */
 
