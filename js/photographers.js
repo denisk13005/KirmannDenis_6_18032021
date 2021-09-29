@@ -1,7 +1,8 @@
 import { getDataPhotographers } from './utils.js'
-import { PhotographerInfo, MediaFactory } from './media.js'
+import { MediaFactory } from './media.js'
 import { Lightbox } from './lightbox.js'
 import { contactPhotographer } from './modale.js'
+import { PhotographerInfo } from './photographerHeader.js'
 
 const sectionInfo = document.querySelector('.photographer__description')// entête description du photographe
 const sectionThumbnail = document.querySelector('.container__thumbnail')// section contenant les médias du photographe
