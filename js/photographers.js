@@ -35,14 +35,12 @@ async function getMedia () {
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
       sectionInfo.innerHTML = photographe
-      console.log(photographe)
     }
   })
 
   //* *******************************************générationb dynamique du nom de la page photographe ********************/
   const head = document.querySelector('head>title')
   head.innerHTML = nameOfPhotographerId + ' Page'
-  console.log(head.textContent)
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerId)
 
@@ -69,25 +67,47 @@ async function getMedia () {
 
   //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
-
-  photographerLi.forEach(li => li.addEventListener('click', () => {
-    filteredMedias = []
-    const liSelected = li.textContent.substr(1)
-    console.log(liSelected)
-    mediaToRender.forEach(el => {
-      if (el.tags[0] === liSelected.trim()) {
-        filteredMedias.push(el)
+  const liSelect = []
+  filteredMedias = [] // on crée un tableau des médias correspondants au tag
+  function filterMedia () {
+    photographerLi.forEach(li => li.addEventListener('click', () => {
+      console.log(filteredMedias)
+      liSelect.push(li)
+      console.log(liSelect)
+      const liSelected = li.textContent.substr(1) // on leve le dièse du tag
+      mediaToRender.forEach(el => {
+        if (el.tags[0] === liSelected.trim()) { // si un média contient le tag sélectionné
+          if (filteredMedias.includes(el)) {
+            const index = filteredMedias.indexOf(el)
+            filteredMedias.splice(index, 1)
+          } else {
+            filteredMedias.push(el)
+          }
+          // on le push dans le tableau
+        }
+        console.log(filteredMedias)
+      })
+      const mediaSet = new Set(filteredMedias)// on crée un set pour supprimer les doublons
+      console.log(mediaSet.size)
+      sectionThumbnail.innerHTML = ''
+      mediaSet.forEach(element => { // on affiche les médias dans le set
+        const thumbnail = MediaFactory.createMedia(element)
+        sectionThumbnail.innerHTML += thumbnail
+        count() // on relance la fonction count sur le nouveau dom généré
+      })
+      if (mediaSet.size === 0) { // si le set est vide on lance generatMedias qui affiche tous les médias
+        generateMedias()
       }
-    })
-    sectionThumbnail.innerHTML = ''
-    filteredMedias.forEach(element => {
-      const thumbnail = MediaFactory.createMedia(element)
-      sectionThumbnail.innerHTML += thumbnail
-    })
-    li.classList.toggle('active')
-    console.log(li)
-    openLightbox()
+      li.classList.toggle('active')
+      openLightbox()
+    }))
+  }
+  photographerLi.forEach(li => li.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      li.click()
+    }
   }))
+  filterMedia()
 
   //* **********************************************filtre sur les médias */
   blocDown.addEventListener('click', (e) => {
