@@ -287,12 +287,29 @@ header #acceuil {
   margin-right: 4px;
   margin-bottom: 4px;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
 
 @media (max-width: 960px) {
   .photographer__description .photographer__informations ul li {
     font-size: 13px;
   }
+}
+
+.photographer__description .photographer__informations ul .active {
+  background-color: #d3573c;
+  color: white;
+  -webkit-box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+  -webkit-transform: translate(0px, 3px);
+          transform: translate(0px, 3px);
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
 
 .photographer__description button {
