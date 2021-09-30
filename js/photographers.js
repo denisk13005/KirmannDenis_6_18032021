@@ -57,28 +57,31 @@ async function getMedia () {
       const liSelected = li.textContent.substr(1) // on leve le dièse du tag
       mediaToRender.forEach(el => {
         if (el.tags[0] === liSelected.trim()) { // si un média contient le tag sélectionné
-          if (filteredMedias.includes(el)) {
-            const index = filteredMedias.indexOf(el)
-            filteredMedias.splice(index, 1)
+          if (filteredMedias.includes(el)) { // mais qu'il est déja présent dans le tableau
+            const index = filteredMedias.indexOf(el)// on récupère son index dans le tab
+            filteredMedias.splice(index, 1)// et on le supprime
           } else {
-            filteredMedias.push(el)
+            filteredMedias.push(el)// s'il n'y est pas on l'ajoute au tableau
           }
-          // on le push dans le tableau
         }
-        console.log(filteredMedias)
       })
-      const mediaSet = new Set(filteredMedias)// on crée un set pour supprimer les doublons
-      console.log(mediaSet.size)
       sectionThumbnail.innerHTML = ''
-      mediaSet.forEach(element => { // on affiche les médias dans le set
+      filteredMedias.forEach(element => { // on affiche les médias dans le set
         const thumbnail = MediaFactory.createMedia(element)
         sectionThumbnail.innerHTML += thumbnail
         count() // on relance la fonction count sur le nouveau dom généré
       })
-      if (mediaSet.size === 0) { // si le set est vide on lance generatMedias qui affiche tous les médias
+      if (filteredMedias.length === 0) { // si le tableau est vide on lance generatMedias qui affiche tous les médias
         generateMedias()
       }
       li.classList.toggle('active')
+      console.log(document.querySelectorAll('.img__thumbnail'))
+      document.querySelectorAll('.img__thumbnail').forEach(el => el.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+          el.click()
+        }
+      }))
+
       openLightbox()
     }))
   }
@@ -88,6 +91,7 @@ async function getMedia () {
     }
   }))
   filterMedia()
+  console.log(filteredMedias)
   /** *******************************************  Animation de la fleche et des éléments de la partie tri  *****************/
   const arrow = document.querySelector('.arrow')
   const blocDown = document.querySelector('.bloc__down')
@@ -122,7 +126,6 @@ async function getMedia () {
 
   //* **********************************************filtre sur les médias */
 
-  console.log(blocDown)
   spanList.forEach(span => span.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
     blocDown.classList.toggle('active')// on fait disparaître le bloc-down
@@ -148,6 +151,11 @@ async function getMedia () {
     count()
     totalLikes -= 1
     openLightbox()
+    document.querySelectorAll('.thumbnail>.img__thumbnail').forEach(el => el.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        el.click()
+      }
+    }))
   }))
 
   //* * *****************************************************création des vignettes grace a la factory */
@@ -194,7 +202,6 @@ async function getMedia () {
       el.click()
     }
   }))
-
   function openLightbox () {
     const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
     const light = new Lightbox(tabLight, body)
