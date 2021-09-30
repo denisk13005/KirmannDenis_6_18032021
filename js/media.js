@@ -43,8 +43,8 @@ export class Photo extends Media {
   }
 }
 
-//* ************************création de la classe Mp4 pour créer une vignette vidéo */
-export class Mp4 extends Media {
+//* ************************création de la classe Video pour créer une vignette vidéo */
+export class Video extends Media {
   constructor ({ title, description, video, likes, photographerId, date }) {
     super({ title, description, likes, photographerId, date })
     this.video = video
@@ -81,7 +81,7 @@ export class MediaFactory {
     if (element.hasOwnProperty('image')) {
       return new Photo(element).render()
     } else {
-      return new Mp4(element).render()
+      return new Video(element).render()
     }
   }
 }
