@@ -132,6 +132,8 @@ async function getMedia () {
     arrow.classList.toggle('rotate')// on remet la flêche à l'endroit
     filterChoice = e.target.textContent
     valueButton.textContent = filterChoice// on affiche la valeur choisie dans le bouton
+    valueButton.setAttribute('aria-label', 'média trié par ' + filterChoice)
+    valueButton.focus()
     if (filterChoice === 'Titre') {
       mediaToRender.sort(function (a, b) {
         return a.title.localeCompare(b.title)

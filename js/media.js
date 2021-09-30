@@ -30,8 +30,8 @@ export class Photo extends Media {
             <img src="../img/Sample Photos/${this.photographerId}/${this.image}" alt="${this.description}" title="${this.title}"/> 
           </div>
           <div class="thumbnail__description">
-            <p tabindex="0" >${this.title}</p>
-            <div tabindex="0" aria-label="${this.likes} likes" class="like__count">
+            <p tabindex="0" > ${this.title}</p>
+            <div tabindex="0" aria-label="ce média comporte ${this.likes} likes" class="like__count">
               <p>${this.likes}</p>
               <img id="heart" src="../img/heart-solid.svg" alt="" />
             </div>  
