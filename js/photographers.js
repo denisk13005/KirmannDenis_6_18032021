@@ -50,13 +50,10 @@ async function getMedia () {
 
   //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
-  const liSelect = []
   filteredMedias = [] // on crée un tableau des médias correspondants au tag
   function filterMedia () {
     photographerLi.forEach(li => li.addEventListener('click', () => {
       console.log(filteredMedias)
-      liSelect.push(li)
-      console.log(liSelect)
       const liSelected = li.textContent.substr(1) // on leve le dièse du tag
       mediaToRender.forEach(el => {
         if (el.tags[0] === liSelected.trim()) { // si un média contient le tag sélectionné
@@ -192,6 +189,12 @@ async function getMedia () {
   }
   count()
   // /****************************************************************Lightbox ***********/
+  document.querySelectorAll('.thumbnail>.img__thumbnail').forEach(el => el.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      el.click()
+    }
+  }))
+
   function openLightbox () {
     const tabLight = document.querySelectorAll('.thumbnail>.img__thumbnail')
     const light = new Lightbox(tabLight, body)
