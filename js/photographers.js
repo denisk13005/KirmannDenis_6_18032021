@@ -13,13 +13,6 @@ async function getMedia () {
   const idphoto = parseInt(window.location.href.substr(position + 1))
   const media = data.media
   const photographers = []
-  //* ****************************************************génération du nombres total de likes sur les médias du photographe */
-  let totalLikes = 0
-  media.forEach((element) => {
-    if (element.photographerId === idphoto) {
-      totalLikes += element.likes
-    }
-  })
 
   //* ***************************************************génération dynamique de la partie description du photographe */
 
@@ -122,6 +115,13 @@ async function getMedia () {
       span.click()
     }
   }))
+  //* ****************************************************génération du nombres total de likes sur les médias du photographe */
+  let totalLikes = 0
+  media.forEach((element) => {
+    if (element.photographerId === idphoto) {
+      totalLikes += element.likes
+    }
+  })
 
   //* **********************************************filtre sur les médias */
 
@@ -164,13 +164,15 @@ async function getMedia () {
   // ******************************************************incrémentation de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
+  likeCountResume.setAttribute('aria-label', 'les médias de ce photographe récoltent ' + totalLikes + ' likes; et son tarif est de ' + price + 'euros par jour')
+  likeCountResume.setAttribute('tabindex', '0')
   likeCountResume.innerHTML = `
     <div class="total__likes"'>
       <p>${totalLikes}</p>
       <img src="../img/heart-solid-black.svg" alt =""/>
     </div>
 
-    <p class='price'>${price}€/jour</p>
+    <p class='price' >${price}€/jour</p>
 `
   document.body.appendChild(likeCountResume)
 
