@@ -119,20 +119,21 @@ async function getMedia () {
     console.log(e)
     console.log(span)
     if (e.key === 'Enter') {
-      blocDown.click()
+      span.click()
     }
   }))
 
   //* **********************************************filtre sur les médias */
 
   console.log(blocDown)
-
-  blocDown.addEventListener('click', (e) => {
+  spanList.forEach(span => span.addEventListener('click', (e) => {
     sectionThumbnail.innerHTML = ''// on réinitialise la section d'affichage des médias
     blocDown.classList.toggle('active')// on fait disparaître le bloc-down
     arrow.classList.toggle('rotate')// on remet la flêche à l'endroit
     filterChoice = e.target.textContent
     valueButton.textContent = filterChoice// on affiche la valeur choisie dans le bouton
+    valueButton.setAttribute('aria-label', 'média trié par ' + filterChoice)
+    valueButton.focus()
     if (filterChoice === 'Titre') {
       mediaToRender.sort(function (a, b) {
         return a.title.localeCompare(b.title)
@@ -150,7 +151,8 @@ async function getMedia () {
     count()
     totalLikes -= 1
     openLightbox()
-  })
+  }))
+
   //* * *****************************************************création des vignettes grace a la factory */
   function generateMedias () {
     mediaToRender.forEach((element) => {
