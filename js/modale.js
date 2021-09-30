@@ -28,11 +28,7 @@ export function contactPhotographer (nameOfPhotographerId) {
     `
     form.innerHTML = modale
     body.appendChild(form)
-    const cross = document.querySelector('.cross')
-    console.log(cross)
-    // cross.focus()// ne marche pas ???
     document.getElementById('firstname').focus()
-
     form.setAttribute('role', 'dialog')
     main.setAttribute('aria-hidden', 'true')
     header.setAttribute('aria-hidden', 'true')
@@ -58,10 +54,11 @@ export function contactPhotographer (nameOfPhotographerId) {
     function testFirstName () {
       if (testFirstAndLast(first.value.trim())) {
         document.querySelector('.firstnameSpan').innerHTML = ''
+        last.focus()
         return true
       } else {
         document.querySelector('.firstnameSpan').innerHTML = 'veuillez entrez un prénom de 2 lettres minimum et sans caractères spéciaux'
-        document.querySelector('.firstnameSpan').focus()
+        first.focus()
 
         return false
       }
@@ -73,9 +70,11 @@ export function contactPhotographer (nameOfPhotographerId) {
     function testLastName () {
       if (testFirstAndLast(last.value.trim())) {
         document.querySelector('.nameSpan').innerHTML = ''
+        mail.focus()
         return true
       } else {
         document.querySelector('.nameSpan').innerHTML = 'veuillez entrez un nom de 2 lettres minimum et sans caractères spéciaux'
+        last.focus()
         return false
       }
     }
@@ -91,9 +90,11 @@ export function contactPhotographer (nameOfPhotographerId) {
     function email () {
       if (testMail(mail)) {
         document.querySelector('.emailSpan').innerHTML = ''
+        textarea.focus()
         return true
       } else {
         document.querySelector('.emailSpan').innerHTML = 'veuillez entrez un email valide '
+        mail.focus()
         return false
       }
     }
@@ -106,6 +107,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return true
       } else {
         document.querySelector('.messageSpan').innerHTML = 'veuillez entrez un message valide '
+        textarea.focus()
 
         return false
       }

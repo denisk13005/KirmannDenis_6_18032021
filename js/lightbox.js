@@ -112,8 +112,12 @@ export class Lightbox {
     const icone = new LightboxMedia(path, title, type, alt)
     container.innerHTML = icone.render()
     const img = document.getElementById('img')
-    img.focus()
-    console.log()
+
+    if (img) {
+      img.focus()
+    } else if (document.getElementById('video')) {
+      document.querySelector('.lightbox__next').focus()
+    }
   }
 }
 
@@ -143,18 +147,15 @@ export class LightboxMedia {
   }
 
   renderVideo () {
-    const vid = `
-   
-     
-           <video
-                src="${this.path}"
-                type="video/mp4"
-                controls="controls"
-                autoplay
-              ></video>     
-              <p>  ${this.title}</p>
-       
-
+    const vid = `     
+      <video
+        id="video"
+        src="${this.path}"
+        type="video/mp4"
+        controls="controls"
+        autoplay
+      ></video>     
+      <p>  ${this.title}</p>
      `
 
     return vid
