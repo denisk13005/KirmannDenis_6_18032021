@@ -128,7 +128,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         const validMsg = `
       
       <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
-      <img src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
+      <img tabindex = "0" src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
       <input id="close__msg" type="submit" value="Fermer" />
       `
         form.innerHTML = validMsg
@@ -143,6 +143,15 @@ export function contactPhotographer (nameOfPhotographerId) {
         })
         closeMsgcross.addEventListener('click', () => {
           close()
+        })
+        closeMsgcross.addEventListener('keyup', (e) => {
+          console.log(e)
+          if (e.key === 'Enter') {
+            close()
+          }
+          if (e.key === 'Echap') {
+            close()
+          }
         })
       }
     })
