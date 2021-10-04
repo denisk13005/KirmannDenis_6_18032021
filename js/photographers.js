@@ -19,11 +19,11 @@ async function getMedia () {
   data.photographers.forEach((element) => {
     photographers.push(element)
   })
-  let nameOfPhotographerId // nom du photographe sélectionné
-  let price = 0
+  let nameOfPhotographerSelected // nom du photographe sélectionné
+  let price = 0 // tarif du photographe
   photographers.forEach((element) => {
     if (element.id === idphoto) {
-      nameOfPhotographerId = element.name
+      nameOfPhotographerSelected = element.name
       price = element.price
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
@@ -33,10 +33,10 @@ async function getMedia () {
 
   //* *******************************************génération dynamique du titre de la page photographe ********************/
   const head = document.querySelector('head>title')
-  head.innerHTML = nameOfPhotographerId + ' Page'
+  head.innerHTML = nameOfPhotographerSelected + ' Page'
 
   //* *************************modale de contact */
-  contactPhotographer(nameOfPhotographerId)
+  contactPhotographer(nameOfPhotographerSelected)
 
   // récupération de la valeur choisie
 
