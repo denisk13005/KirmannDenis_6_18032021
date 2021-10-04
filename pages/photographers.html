@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="photographers.css" />
     <link rel="icon" href="../img/logo.svg" />
 
-    <title>Page du photographe</title>
+    <title dir="ltr">Page du photographe</title>
   </head>
   <body>
     <header>
       <a href="../index.html" aria-label="retourner à l'écran d'acceuil">
-        <p>Fish</p>
+        <p dir="ltr">Fish</p>
         <img src="../img/logo.svg" alt="logo du site" />
         <p>ye</p>
       </a>
@@ -31,9 +31,11 @@
     <main class="main">
       <div class="photographer__description"></div>
       <div class="tri">
-        <p>Trier par</p>
+        <p dir="ltr">Trier par</p>
         <div class="dropDown">
-          <button aria-disabled="true" class="bloc__top">Popularité</button>
+          <button aria-disabled="true" class="bloc__top" dir="ltr">
+            Popularité
+          </button>
           <img
             class="arrow"
             src="../img/chevron-down-solid.svg"
@@ -43,9 +45,9 @@
             aria-label="trier les médias par"
           />
           <div class="bloc__down">
-            <span tabindex="0" id="popularité">Popularité</span>
-            <span tabindex="0" id="date">Date</span>
-            <span tabindex="0" id="titre">Titre</span>
+            <span tabindex="0" id="popularité" dir="ltr">Popularité</span>
+            <span tabindex="0" id="date" dir="ltr">Date</span>
+            <span tabindex="0" id="titre" dir="ltr">Titre</span>
           </div>
         </div>
       </div>
