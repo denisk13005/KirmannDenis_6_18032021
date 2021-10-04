@@ -1,5 +1,4 @@
-
-export function contactPhotographer (nameOfPhotographerId) {
+export function contactPhotographer (nameOfPhotographerSelected) {
   const contact = document.querySelector('.contact')
   const body = document.querySelector('body')
   const main = document.querySelector('main')
@@ -9,9 +8,9 @@ export function contactPhotographer (nameOfPhotographerId) {
   form.classList.add('formulaire')
   contact.addEventListener('click', () => {
     const modale = `    
-    <h1 >Contactez-moi<br />${nameOfPhotographerId}</h1> 
+    <h1 >Contactez-moi<br />${nameOfPhotographerSelected}</h1> 
     <img tabindex="0" class = "crux" src="../img/croixModale.svg" alt="fermer la modale de contact" />    
-    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerId}</p>   
+    <p id='description'>inscrivez vous et envoyez un message à ${nameOfPhotographerSelected}</p>   
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" required/>
     <span class = "firstnameSpan"></span>
@@ -49,7 +48,6 @@ export function contactPhotographer (nameOfPhotographerId) {
       return /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(input)
     }
     const first = document.getElementById('firstname')
-
     // FONCTION DE TEST DU PRENOM
     function testFirstName () {
       if (testFirstAndLast(first.value.trim())) {
@@ -63,7 +61,6 @@ export function contactPhotographer (nameOfPhotographerId) {
         return false
       }
     }
-
     // FONCTION DE TEST DU NOM
     const last = document.getElementById('name')
 
@@ -78,15 +75,12 @@ export function contactPhotographer (nameOfPhotographerId) {
         return false
       }
     }
-
     // TEST DE LA VALIDITE DE L EMAIL
     function testMail (input) {
       return /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.value)
     }
-
     // FONCTION DE TEST DU MAIL
     const mail = document.getElementById('email')
-
     function email () {
       if (testMail(mail)) {
         document.querySelector('.emailSpan').innerHTML = ''
@@ -98,9 +92,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         return false
       }
     }
-
     const textarea = document.getElementById('message')
-
     function textArea () {
       if (testFirstAndLast(textarea.value.trim())) {
         document.querySelector('.messageSpan').innerHTML = ''
@@ -108,7 +100,6 @@ export function contactPhotographer (nameOfPhotographerId) {
       } else {
         document.querySelector('.messageSpan').innerHTML = 'veuillez entrez un message valide '
         textarea.focus()
-
         return false
       }
     }
@@ -127,7 +118,7 @@ export function contactPhotographer (nameOfPhotographerId) {
         // création de la modale de validation
         const validMsg = `
       
-      <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerId}</p>
+      <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerSelected}</p>
       <img tabindex = "0" src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
       <input id="close__msg" type="submit" value="Fermer" />
       `
