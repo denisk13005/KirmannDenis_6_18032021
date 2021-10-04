@@ -7,7 +7,6 @@ import { PhotographerInfo } from './photographerHeader.js'
 const sectionInfo = document.querySelector('.photographer__description')// entête description du photographe
 const sectionThumbnail = document.querySelector('.container__thumbnail')// section contenant les médias du photographe
 const body = document.querySelector('body')
-const main = document.querySelector('main')
 async function getMedia () {
   const data = await getDataPhotographers('../index.json')
   const position = window.location.href.indexOf('?')
@@ -32,7 +31,7 @@ async function getMedia () {
     }
   })
 
-  //* *******************************************génération dynamique du nom de la page photographe ********************/
+  //* *******************************************génération dynamique du titre de la page photographe ********************/
   const head = document.querySelector('head>title')
   head.innerHTML = nameOfPhotographerId + ' Page'
 
@@ -49,6 +48,14 @@ async function getMedia () {
       mediaToRender.push(element)
     }
   })
+  //* * *****************************************************création des vignettes grace a la factory */
+  function generateMedias () {
+    mediaToRender.forEach((element) => {
+      const thumbnail = MediaFactory.createMedia(element)
+      sectionThumbnail.innerHTML += thumbnail
+    })
+  }
+  generateMedias()
 
   //* **********************************************tri au click sur une li ***************************************/
   const photographerLi = document.querySelectorAll('.li')
@@ -160,14 +167,6 @@ async function getMedia () {
     }))
   }))
 
-  //* * *****************************************************création des vignettes grace a la factory */
-  function generateMedias () {
-    mediaToRender.forEach((element) => {
-      const thumbnail = MediaFactory.createMedia(element)
-      sectionThumbnail.innerHTML += thumbnail
-    })
-  }
-  generateMedias()
   // ******************************************************incrémentation de totalLikes
   const likeCountResume = document.createElement('div')
   likeCountResume.classList.add('likeCountResume')
