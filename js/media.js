@@ -7,7 +7,7 @@
  * @param {number} photographerId identifiant du photographe
  * @param {date} date date du media
  */
-export class Media {
+class Media {
   constructor ({ title, description, likes, photographerId, date }) {
     this.title = title
     this.description = description
@@ -17,7 +17,7 @@ export class Media {
   }
 }
 //* *******************classe Photo avec sa méthode render pour créer une vignette correspondant à la photo */
-export class Photo extends Media {
+class Photo extends Media {
   constructor ({ title, description, image, likes, photographerId, date }) {
     super({ title, description, likes, photographerId, date })
     this.image = image
@@ -44,7 +44,7 @@ export class Photo extends Media {
 }
 
 //* ************************création de la classe Video pour créer une vignette vidéo */
-export class Video extends Media {
+class Video extends Media {
   constructor ({ title, description, video, likes, photographerId, date }) {
     super({ title, description, likes, photographerId, date })
     this.video = video

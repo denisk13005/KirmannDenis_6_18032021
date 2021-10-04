@@ -19,11 +19,11 @@ async function getMedia () {
   data.photographers.forEach((element) => {
     photographers.push(element)
   })
-  let nameOfPhotographerId // nom du photographe sélectionné
-  let price = 0
+  let nameOfPhotographerSelected // nom du photographe sélectionné
+  let price = 0 // tarif du photographe
   photographers.forEach((element) => {
     if (element.id === idphoto) {
-      nameOfPhotographerId = element.name
+      nameOfPhotographerSelected = element.name
       price = element.price
       const photographerInfos = new PhotographerInfo(element)
       const photographe = photographerInfos.render()
@@ -32,11 +32,11 @@ async function getMedia () {
   })
 
   //* *******************************************génération dynamique du titre de la page photographe ********************/
-  const head = document.querySelector('head>title')
-  head.innerHTML = nameOfPhotographerId + ' Page'
+  const title = document.querySelector('head>title')
+  title.innerHTML = nameOfPhotographerSelected + ' Page'
 
   //* *************************modale de contact */
-  contactPhotographer(nameOfPhotographerId)
+  contactPhotographer(nameOfPhotographerSelected)
 
   // récupération de la valeur choisie
 
@@ -101,6 +101,45 @@ async function getMedia () {
   }))
   filterMedia()
   console.log(filteredMedias)
+
+  //* ****************************************************génération du nombres total de likes sur les médias du photographe */
+  let totalLikes = 0
+  media.forEach((element) => {
+    if (element.photographerId === idphoto) {
+      totalLikes += element.likes
+    }
+  })
+  // ******************************************************incrémentation de totalLikes
+  const likeCountResume = document.createElement('div')
+  likeCountResume.classList.add('likeCountResume')
+  likeCountResume.setAttribute('aria-label', 'les médias de ce photographe récoltent ' + totalLikes + ' likes; et son tarif est de ' + price + 'euros par jour')
+  likeCountResume.setAttribute('tabindex', '0')
+  likeCountResume.innerHTML = `
+    <div class="total__likes"'>
+      <p>${totalLikes}</p>
+      <img src="../img/heart-solid-black.svg" alt =""/>
+    </div>
+
+    <p class='price' >${price}€/jour</p>
+`
+  document.body.appendChild(likeCountResume)
+
+  function count () {
+    const hearts = document.querySelectorAll('#heart')
+    totalLikes += 1
+    hearts.forEach((heart) => {
+      heart.addEventListener('click', () => {
+        const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
+        totalLikesP.innerHTML = totalLikes++ // on incrémente la valeur total de likes
+        const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
+        let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
+        imageLike++
+        imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
+      })
+    })
+  }
+  count()
+
   /** *******************************************  Animation de la fleche et des éléments de la partie tri  *****************/
   const arrow = document.querySelector('.arrow')
   const blocDown = document.querySelector('.bloc__down')
@@ -125,13 +164,6 @@ async function getMedia () {
       span.click()
     }
   }))
-  //* ****************************************************génération du nombres total de likes sur les médias du photographe */
-  let totalLikes = 0
-  media.forEach((element) => {
-    if (element.photographerId === idphoto) {
-      totalLikes += element.likes
-    }
-  })
 
   //* **********************************************filtre sur les médias */
 
@@ -167,36 +199,6 @@ async function getMedia () {
     }))
   }))
 
-  // ******************************************************incrémentation de totalLikes
-  const likeCountResume = document.createElement('div')
-  likeCountResume.classList.add('likeCountResume')
-  likeCountResume.setAttribute('aria-label', 'les médias de ce photographe récoltent ' + totalLikes + ' likes; et son tarif est de ' + price + 'euros par jour')
-  likeCountResume.setAttribute('tabindex', '0')
-  likeCountResume.innerHTML = `
-    <div class="total__likes"'>
-      <p>${totalLikes}</p>
-      <img src="../img/heart-solid-black.svg" alt =""/>
-    </div>
-
-    <p class='price' >${price}€/jour</p>
-`
-  document.body.appendChild(likeCountResume)
-
-  function count () {
-    const hearts = document.querySelectorAll('#heart')
-    totalLikes += 1
-    hearts.forEach((heart) => {
-      heart.addEventListener('click', () => {
-        const totalLikesP = document.querySelector('.total__likes>p') // on récupère le p correspondant au nombre total de like sur les médias du photographe
-        totalLikesP.innerHTML = totalLikes++ // on incrémente la valeur total de likes
-        const imageLikeContent = heart.parentElement.children[0]// on récupère le p correspondant au coeur du média sur lequel on clique
-        let imageLike = parseInt(heart.parentElement.children[0].textContent)// on modifie le type en integer pour pouvoir l'incrémenter
-        imageLike++
-        imageLikeContent.innerHTML = imageLike// on remplace le nombre de j'aime du média par la valeur incrémentée
-      })
-    })
-  }
-  count()
   // /****************************************************************Lightbox ***********/
   document.querySelectorAll('.thumbnail>.img__thumbnail').forEach(el => el.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
