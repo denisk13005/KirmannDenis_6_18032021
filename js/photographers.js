@@ -32,8 +32,8 @@ async function getMedia () {
   })
 
   //* *******************************************génération dynamique du titre de la page photographe ********************/
-  const head = document.querySelector('head>title')
-  head.innerHTML = nameOfPhotographerSelected + ' Page'
+  const title = document.querySelector('head>title')
+  title.innerHTML = nameOfPhotographerSelected + ' Page'
 
   //* *************************modale de contact */
   contactPhotographer(nameOfPhotographerSelected)
