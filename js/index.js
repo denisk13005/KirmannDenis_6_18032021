@@ -12,13 +12,14 @@ async function init () {
   const photographersCards = document.querySelector('.photographers__cards')
   const ul = document.querySelector('.tag>ul')
   const photographersData = data.photographers // récupération des données liées aux photographes
-
+  //* ************************************ */ création des vignettes photographes
   photographersData.forEach((element) => {
     photographers.push(new Photographer(element))
   })
   photographers.forEach((element) => {
     photographersCards.innerHTML += element.render()
   })
+  //* ************************************* */ création des li représentant les tags voulus
   function generateLi () {
     const tagArray = []
     photographers.forEach((photographer) => {
@@ -37,31 +38,22 @@ async function init () {
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
-
   function mediaSorting (element) {
     photographersCards.innerHTML = ''
     photographersFilters = []
-
-    if (!tagsDesired.includes(element)) {
-      // si l'élément li n'est pas inclus dans le tableau tagsDesired :
+    if (!tagsDesired.includes(element)) { // si l'élément li n'est pas inclus dans le tableau tagsDesired :
       tagsDesired.push(element) // on le push
       element.classList.toggle('active') // on lui ajoute la classe active pour simuler un bouton enfoncé
-      photographers.forEach((photographer) => {
-        // pour chaque photographe
-
+      photographers.forEach((photographer) => { // pour chaque photographe
         if (photographer.tags.includes(element.dataset.name)) { // on vérifie si la valeur de l'élément sélectionné est compris dans ses tags
           photographersFilters.push(photographer) // si oui on le push dans le tableau des photographes filtrés
-          photographersFilters.forEach(element => {
-
-          })
+          photographersFilters.forEach((element) => {})
         }
       })
       const setphotographersFilters = new Set(photographersFilters) // on supprime les doublons du tableau
-      setphotographersFilters.forEach((photographer) => {
-        // pour chaque photographe du tableau des photographes filtrés
-
-        photographersCards.innerHTML += photographer.render()
-      }) // on rend à l'écran les vignettes des photographes voulus
+      setphotographersFilters.forEach((photographer) => { // pour chaque photographe du tableau des photographes filtrés
+        photographersCards.innerHTML += photographer.render()// on rend à l'écran les vignettes des photographes voulus
+      })
     } else {
       tagsDesired.splice(tagsDesired.indexOf(element), 1) // si l'élément li est inclu dans le tableau on le supprime
       element.classList.remove('active') // on lui lève le classe active
@@ -73,7 +65,8 @@ async function init () {
     }
     if (tagsDesired.length === 0) {
       photographers.forEach(
-        (photographer) => (photographersCards.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
+        (photographer) =>
+          (photographersCards.innerHTML += photographer.render()) // si aucun tag n'est sélectionné on affiche tous les photographes
       )
     }
   }
