@@ -756,15 +756,22 @@ header #acceuil {
       -ms-flex-pack: center;
           justify-content: center;
   margin: auto 0px;
-  width: 1050px;
-  height: 900px;
+  width: 720px;
+  height: 600px;
   overflow: hidden;
 }
 
 .lightbox__container img {
   width: 100%;
-  height: 70%;
+  height: auto;
+  max-height: 550px;
   border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  .lightbox__container img {
+    max-height: 200px;
+  }
 }
 
 .lightbox__container video {
