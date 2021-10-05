@@ -20,7 +20,7 @@ async function init () {
     photographersCards.innerHTML += element.render()
   })
   //* ************************************* */ création des li représentant les tags voulus
-  function generateLi () {
+  function generateTags () {
     const tagArray = []
     photographers.forEach((photographer) => {
       photographer.tags.forEach((tag) => {
@@ -34,7 +34,7 @@ async function init () {
         (ul.innerHTML += `<li tabindex="0"  aria-label="trier les photographes par ${element} "data-name='${element}'>#${element}</li>`)
     ) // crée les li corespondantes au tag
   }
-  generateLi()
+  generateTags()
   //* *****************************************tri au click sur un tag */
   const tagsDesired = []
   let photographersFilters = []
