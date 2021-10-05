@@ -31,7 +31,7 @@ async function init () {
     const setTab = new Set(tagArray) // supprime les doublons du tableau unique
     setTab.forEach(
       (element) =>
-        (ul.innerHTML += `<li tabindex="0"  data-name='${element}'>#${element}</li>`)
+        (ul.innerHTML += `<li tabindex="0"  aria-label="trier les photographes par ${element} "data-name='${element}'>#${element}</li>`)
     ) // crée les li corespondantes au tag
   }
   generateLi()
