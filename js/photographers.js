@@ -57,7 +57,7 @@ async function getMedia () {
   }
   generateMedias()
 
-  //* **********************************************tri au click sur une li ***************************************/
+  //* **********************************************tri au click sur un tag ***************************************/
   const photographerLi = document.querySelectorAll('.li')
   filteredMedias = [] // on crée un tableau des médias correspondants au tag
   function filterMedia () {

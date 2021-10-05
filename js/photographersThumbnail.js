@@ -14,7 +14,7 @@ class Photographer {
   render () {
     const div = `       
         <div class="photographers__thumbnail">
-         <a href="./pages/photographers.html?${this.id}" >
+         <a aria-label="allez à la page de ${this.name}" href="./pages/photographers.html?${this.id}" >
            <div>
              <img src="./img/Sample Photos/${this.id}/${
       this.portrait
