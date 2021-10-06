@@ -109,10 +109,9 @@ export class Lightbox {
     const title = element.children[0].getAttribute('title')
     const type = element.children[0].localName
     const alt = element.children[0].getAttribute('alt')
-    const icone = new LightboxMedia(path, title, type, alt)
-    container.innerHTML = icone.render()
+    const contain = new LightboxMedia(path, title, type, alt)
+    container.innerHTML = contain.render()
     const img = document.getElementById('img')
-
     if (img) {
       img.focus()
     } else if (document.getElementById('video')) {
@@ -125,6 +124,7 @@ export class Lightbox {
  *@param {URL} path url du media à afficher
  *@param {string} title description du media à afficher
  *@param {string} type format du média à afficher
+ @param {string} alt description de la photo
  */
 export class LightboxMedia {
   constructor (path, title, type, alt) {
@@ -168,6 +168,8 @@ export class LightboxMedia {
              <p>  ${this.title}</p>
          
     `
+    console.log(this.alt)
     return img
   }
 }
+console.log(LightboxMedia)
