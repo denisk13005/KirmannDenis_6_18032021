@@ -1,3 +1,14 @@
+/**
+ * @param {string} name
+ * @param {number} id identifiant du photographe
+ * @param {string} city
+ * @param {string} country
+ * @param {string} tags
+ * @param {string} tagline
+ * @param {number} price
+ * @param {string} portrait
+ */
+
 class Photographer {
   constructor ({ name, id, city, country, tags, tagline, price, portrait }) {
     // eslint-disable-next-line no-unused-expressions

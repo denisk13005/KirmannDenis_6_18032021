@@ -57,7 +57,6 @@ class Video extends Media {
             <video
               src="../img/Sample Photos/${this.photographerId}/${this.video}"
               type="video/mp4"    
-              alt ="${this.description}"
               title="${this.title}"          
             ></video>  
           </div>  

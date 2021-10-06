@@ -114,7 +114,7 @@ export function contactPhotographer (nameOfPhotographerSelected) {
     submit.addEventListener('click', (e) => {
       e.preventDefault()
       if (testFirstName() && testLastName() && email() && textArea()) {
-        console.log('prénom ' + first.value + ', nom ' + last.value + ', email ' + mail.value + ' , message ' + textarea.value)
+        console.log('prénom : ' + first.value + ', nom : ' + last.value + ', email : ' + mail.value + ' , message : ' + textarea.value)
         // création de la modale de validation
         const validMsg = `
       
