@@ -62,7 +62,7 @@ class Video extends Media {
           </div>  
           <div class="thumbnail__description">
             <p>${this.title}</p>
-            <div class="like__count">
+            <div tabindex="0" aria-label="ce média comporte ${this.likes} likes" class="like__count">
               <p>${this.likes}</p>
               <img id="heart" src="../img/heart-solid.svg" alt="" " alt="" />
             </div>  

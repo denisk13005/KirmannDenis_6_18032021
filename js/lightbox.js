@@ -115,7 +115,7 @@ export class Lightbox {
     if (img) {
       img.focus()
     } else if (document.getElementById('video')) {
-      document.querySelector('.lightbox__next').focus()
+      document.querySelector('.lightbox__container>p').focus()
     }
   }
 }
@@ -155,7 +155,7 @@ export class LightboxMedia {
         controls="controls"
         autoplay
       ></video>     
-      <p>  ${this.title}</p>
+      <p tabindex="1">  ${this.title}</p>
      `
 
     return vid
