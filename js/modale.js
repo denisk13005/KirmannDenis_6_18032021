@@ -119,8 +119,8 @@ export function contactPhotographer (nameOfPhotographerSelected) {
         const validMsg = `
       
       <p id='description'>Votre message a bien été envoyé à <br>${nameOfPhotographerSelected}</p>
-      <img tabindex = "0" src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
-      <input id="close__msg" type="submit" value="Fermer" />
+      <img tabindex = "2" src="../img/croixModale.svg" alt="fermer la modale de validation d'envoi du message" />
+      <input tabindex ="1" id="close__msg" type="submit" value="Fermer" />
       `
         form.innerHTML = validMsg
         const closeMsg = document.getElementById('close__msg')
