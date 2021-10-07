@@ -168,8 +168,6 @@ export class LightboxMedia {
              <p>  ${this.title}</p>
          
     `
-    console.log(this.alt)
     return img
   }
 }
-console.log(LightboxMedia)

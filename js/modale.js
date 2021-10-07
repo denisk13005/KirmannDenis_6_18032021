@@ -127,7 +127,6 @@ export function contactPhotographer (nameOfPhotographerSelected) {
         document.getElementById('description').style.display = 'block' // affiche le message de validation d'envoi du formulaire
         closeMsg.focus()
         const closeMsgcross = document.querySelector('.formulaire>img')
-        console.log(closeMsg)
         closeMsg.addEventListener('click', () => {
           close()
           e.preventDefault()
@@ -136,7 +135,6 @@ export function contactPhotographer (nameOfPhotographerSelected) {
           close()
         })
         closeMsgcross.addEventListener('keyup', (e) => {
-          console.log(e)
           if (e.key === 'Enter') {
             close()
           }

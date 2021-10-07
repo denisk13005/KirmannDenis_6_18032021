@@ -62,7 +62,6 @@ async function getMedia () {
   filteredMedias = [] // on crée un tableau des médias correspondants au tag
   function filterMedia () {
     photographerLi.forEach(li => li.addEventListener('click', () => {
-      console.log(filteredMedias)
       const liSelected = li.textContent.substr(1) // on leve le dièse du tag
       mediaToRender.forEach(el => {
         if (el.tags[0] === liSelected.trim()) { // si un média contient le tag sélectionné
@@ -84,7 +83,6 @@ async function getMedia () {
         generateMedias()
       }
       li.classList.toggle('active')
-      console.log(document.querySelectorAll('.img__thumbnail'))
       document.querySelectorAll('.img__thumbnail').forEach(el => el.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
           el.click()
@@ -100,7 +98,6 @@ async function getMedia () {
     }
   }))
   filterMedia()
-  console.log(filteredMedias)
 
   //* ****************************************************génération du nombres total de likes sur les médias du photographe */
   let totalLikes = 0
@@ -158,8 +155,6 @@ async function getMedia () {
     }
   })
   spanList.forEach(span => span.addEventListener('keyup', (e) => {
-    console.log(e)
-    console.log(span)
     if (e.key === 'Enter') {
       span.click()
     }
